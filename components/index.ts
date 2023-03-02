@@ -1,8 +1,10 @@
 import NavBar from "./NavBar";
-import Productts from "./Productts";
+import Productts from "./Products";
 import Card from "./Card";
+import StoreProvider from "./StoreProvider";
 export {
     NavBar,
     Productts, 
-    Card
+    Card,
+    StoreProvider
 }

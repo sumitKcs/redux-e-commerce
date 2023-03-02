@@ -6,6 +6,7 @@ const nextConfig = {
   images: {
     domains: ["fakestoreapi.com"],
   },
+  webpack5: false,
 };
 
 module.exports = nextConfig;
