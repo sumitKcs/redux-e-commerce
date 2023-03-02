@@ -2,7 +2,6 @@
 
 import { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { Card } from "@/components";
 import Image from "next/image";
 import { remove } from "@/store/cartSlice";
 
