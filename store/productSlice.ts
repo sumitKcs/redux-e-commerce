@@ -29,12 +29,6 @@ export const productSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        // setProducts(state, action: PayloadAction<Products[]>) {
-        //     state.data = action.payload
-        // },
-        // setStatus(state, action: PayloadAction<string>) {
-        //     state.status = action.payload
-        // }
     },
     extraReducers: (builder) => {
         builder
