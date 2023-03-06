@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-[100svh]">
+      <body className="h-[100svh] w-screen">
         <StoreProvider>
           <NavBar />
           {children}
