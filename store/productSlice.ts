@@ -2,6 +2,7 @@
 
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
 import type { PayloadAction } from '@reduxjs/toolkit'
+import Products from "@/components/Products";
 
 export enum STATUSES {
     IDLE = 'idle',
@@ -26,7 +27,7 @@ export const fetchProducts = createAsyncThunk('products/getAll',async () => {
 })
 
 export const productSlice = createSlice({
-    name: 'cart',
+    name: 'product',
     initialState,
     reducers: {
     },
@@ -36,7 +37,11 @@ export const productSlice = createSlice({
             state.status = STATUSES.LOADING
         })
         .addCase(fetchProducts.fulfilled, (state, action) => {
-            state.data = action.payload
+            const productsWithCartQuatity = action.payload.map((product: { cartQuantity: number; }) => {
+                product.cartQuantity = 0
+                return product
+            })
+            state.data = productsWithCartQuatity
             state.status = STATUSES.IDLE
         })
         .addCase(fetchProducts.rejected, (state, action) => {

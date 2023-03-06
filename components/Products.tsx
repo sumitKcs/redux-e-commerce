@@ -5,19 +5,17 @@ import Card from "./Card";
 import { fetchProducts } from "@/store/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-import { STATUSES } from "@/store/productSlice";
 import Skeleton from "./Skeleton";
 
 function Products() {
   const { data: products, status } = useSelector(
     (state: RootState) => state.product
   );
-  const dispatch = useDispatch<AppDispatch>();
 
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
-
   if (products.length === 0) {
     return (
       <section className="flex justify-center items-center bg-[#f7f7f5]">

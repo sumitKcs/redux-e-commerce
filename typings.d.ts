@@ -5,6 +5,7 @@ interface Products {
     category: string,
     description: string,
     price: number;
+    cartQuantity: number;
     rating: {
         rate: number,
         count: number,

@@ -7,7 +7,7 @@ import { RootState } from "@/store/store";
 
 function NavBar() {
   //subscribing the state to monitor changes
-  const items = useSelector((state: RootState) => state.cart);
+  const { cartItems } = useSelector((state: RootState) => state.cart);
   return (
     <header>
       <nav className="w-full grid grid-cols-4 grid-rows-1 gap-5 py-5 border border-gray-300 px-5 text-sm md:text-lg">
@@ -28,7 +28,7 @@ function NavBar() {
           <span className=" inline-flex ">
             <ShoppingCartIcon className="w-6 h-6 text-blue-600" />
             <span className="mx-2 px-1 flex justify-center items-center">
-              {items.length}
+              {cartItems.length}
             </span>
           </span>
         </div>

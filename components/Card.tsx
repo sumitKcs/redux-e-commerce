@@ -1,8 +1,10 @@
 "use client";
 
 import { add } from "@/store/cartSlice";
+import { RootState } from "@/store/store";
+import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
 
 type Props = {
@@ -10,12 +12,14 @@ type Props = {
 };
 
 function Card({ product }: Props) {
+  const [isLoaded, setIsLoaded] = useState<Boolean>(false);
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
   const dispatch = useDispatch();
+
   const handleAdd = () => {
     dispatch(add(product));
+    setIsAddedToCart(true);
   };
-  const [isLoaded, setIsLoaded] = useState<Boolean>(false);
-
   const imageHandle = () => {
     setIsLoaded(true);
   };
@@ -32,7 +36,7 @@ function Card({ product }: Props) {
           width={150}
           height={150}
           decoding="async"
-          onLoad={() => imageHandle()}
+          onLoad={imageHandle}
           src={product.image}
         />
       </div>
@@ -47,11 +51,22 @@ function Card({ product }: Props) {
       <div className="w-full flex flex-col justify-center items-center text-center gap-2">
         <h4 className="text-xs">{product.title}</h4>
         <h5>${product.price}</h5>
+
         <button
-          onClick={() => handleAdd()}
-          className="w-full h-10 bg-[#a0a832] py-2 rounded-lg"
+          className={`bg-blue-500  hover:bg-blue-700 ${
+            isAddedToCart && "hidden"
+          } text-white font-bold py-2 px-4 rounded`}
+          onClick={handleAdd}
         >
-          Add To Cart
+          Add to Cart
+        </button>
+        <button
+          className={`bg-green-700  ${
+            !isAddedToCart && "hidden"
+          } text-white font-bold py-2 px-4 rounded`}
+          onClick={handleAdd}
+        >
+          Added
         </button>
       </div>
     </div>
