@@ -4,7 +4,7 @@ import { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { add, sub } from "@/store/cartSlice";
+import { add, remove, sub } from "@/store/cartSlice";
 
 function cart() {
   const product = useSelector((state: RootState) => state.cart.cartItems);
@@ -48,7 +48,10 @@ function cart() {
                   />
                 </div>
                 <div className="flex justify-center items-center absolute right-10 sm:relative sm:left-10">
-                  <TrashIcon className="w-8 h-8 text-red-700" />
+                  <TrashIcon
+                    onClick={() => dispatch(remove(item))}
+                    className="w-8 h-8 text-red-700"
+                  />
                 </div>
               </div>
             </div>

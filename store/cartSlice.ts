@@ -31,6 +31,9 @@ export const cartSlice = createSlice({
             if(state.cartItems[itemIndex].cartQuantity > 1) {
                 state.cartItems[itemIndex].cartQuantity -= 1
             }
+        },
+        remove(state, action: PayloadAction<Products>) {
+             state.cartItems = state.cartItems.filter(item => item.id !== action.payload.id)
         }
         // remove(state, action: PayloadAction<number>) {
         //     return state.cartItems.filter(item => item.id !== action.payload)
@@ -40,5 +43,5 @@ export const cartSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const {add, sub} = cartSlice.actions
+export const {add, sub, remove} = cartSlice.actions
 export default cartSlice.reducer
