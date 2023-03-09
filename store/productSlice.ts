@@ -1,8 +1,7 @@
 'use client'
 
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
-import type { PayloadAction } from '@reduxjs/toolkit'
-import Products from "@/components/Products";
+
 
 export enum STATUSES {
     IDLE = 'idle',

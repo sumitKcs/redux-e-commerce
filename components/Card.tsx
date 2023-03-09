@@ -1,8 +1,6 @@
 "use client";
 
 import { add } from "@/store/cartSlice";
-import { RootState } from "@/store/store";
-import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
