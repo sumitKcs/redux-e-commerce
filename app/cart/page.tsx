@@ -5,19 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { add, remove, sub } from "@/store/cartSlice";
+import Checkout from "./Checkout";
 
 function cart() {
   const product = useSelector((state: RootState) => state.cart.cartItems);
   const dispatch = useDispatch();
   console.log("product:", product);
   return (
-    <section className="w-screen bg-[#f7f7f5] h-[100svh]">
-      <div className="flex flex-col justify-center items-center w-[100svh] gap-5">
+    <section className="w-full bg-[#f7f7f5] h-screen flex flex-col justify-start">
+      <div className="flex flex-col justify-center items-center w-screen gap-5 mt-5">
         {product.map((item, key) => {
           return (
             <div
               key={key}
-              className="w-full p-2 h-auto border flex flex-col justify-center items-center md:grid grid-cols-5 border-gray-300 gap-5 bg-white rounded-lg "
+              className="w-full sm:w-[90%] p-2 h-auto border flex flex-col justify-center items-center md:grid grid-cols-5 border-gray-300 gap-5 bg-white rounded-lg "
             >
               <div className="py-2 px-2 flex justify-center items-center">
                 <Image
@@ -57,6 +58,9 @@ function cart() {
             </div>
           );
         })}
+      </div>
+      <div className="flex justify-center items-center mt-10 w-full ">
+        <Checkout />
       </div>
     </section>
   );

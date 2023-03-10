@@ -26,7 +26,9 @@ function NavBar() {
         </Link>
         <div className=" flex justify-end items-center">
           <span className=" inline-flex ">
-            <ShoppingCartIcon className="w-6 h-6 text-blue-600" />
+            <Link href="/cart">
+              <ShoppingCartIcon className="w-6 h-6 text-blue-600" />
+            </Link>
             <span className="mx-2 px-1 flex justify-center items-center">
               {cartItems.length}
             </span>
