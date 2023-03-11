@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen w-screen overflowx-hidden">
+      <body className="h-[100svh] w-screen overflow-x-hidden  bg-[#f7f7f5]">
         <StoreProvider>
           <NavBar />
           {children}

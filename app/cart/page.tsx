@@ -12,7 +12,7 @@ function cart() {
   const dispatch = useDispatch();
   console.log("product:", product);
   return (
-    <section className="w-full bg-[#f7f7f5] h-screen flex flex-col justify-start">
+    <section className="w-full bg-[#f7f7f5] flex flex-col justify-start mb-40">
       <div className="flex flex-col justify-center items-center w-screen gap-5 mt-5">
         {product.map((item, key) => {
           return (
@@ -32,7 +32,7 @@ function cart() {
                 {item.title}
               </div>
               <div className=" flex justify-start items-center">
-                {item.price}
+                {item.price * item.cartQuantity}
               </div>
               <div className=" flex justify-start items-center gap-2">
                 <div className=" bg-blue-700 w-8 h-8 flex justify-center items-center">
@@ -59,7 +59,7 @@ function cart() {
           );
         })}
       </div>
-      <div className="flex justify-center items-center mt-10 w-full ">
+      <div className="w-full fixed bottom-0 left-0 bg-white">
         <Checkout />
       </div>
     </section>

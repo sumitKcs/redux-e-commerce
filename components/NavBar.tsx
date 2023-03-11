@@ -10,7 +10,7 @@ function NavBar() {
   const { cartItems } = useSelector((state: RootState) => state.cart);
   return (
     <header>
-      <nav className="w-full grid grid-cols-4 grid-rows-1 gap-5 py-5 border border-gray-300 px-5 text-sm md:text-lg">
+      <nav className="w-full grid grid-cols-4 grid-rows-1 gap-5 py-5 border border-gray-300 px-5 text-sm md:text-lg bg-white">
         <span>Pika Store</span>
         <Link
           href="/"
