@@ -31,18 +31,18 @@ function cart() {
               <div className="flex justify-start items-center text-center">
                 {item.title}
               </div>
-              <div className=" flex justify-start items-center">
+              <div className=" flex justify-center items-center">
                 {item.price * item.cartQuantity}
               </div>
               <div className=" flex justify-start items-center gap-2">
-                <div className=" bg-blue-700 w-8 h-8 flex justify-center items-center">
+                <div className=" bg-blue-500 w-8 h-8 flex justify-center items-center">
                   <MinusIcon
                     onClick={() => dispatch(sub(item))}
                     className="w-5 h-5 text-white"
                   />
                 </div>
                 {item.cartQuantity}
-                <div className="bg-blue-700 w-8 h-8 flex justify-center items-center">
+                <div className="bg-blue-500 w-8 h-8 flex justify-center items-center">
                   <PlusIcon
                     onClick={() => dispatch(add(item))}
                     className="w-5 h-5 text-white"

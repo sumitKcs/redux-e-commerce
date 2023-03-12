@@ -24,11 +24,10 @@ const Checkout = () => {
   }
   return (
     <div className="w-full flex h-10 justify-evenly items-center gap-5 py-10">
-      <div className=" flex justify-center items-center gap-5">
-        <p>Total Items: {cartTotalQuantity}</p>
-        <p>Total Price: {cartTotalAmount.toFixed(2)}</p>
-      </div>
-      <button className={`sm:w-28 h-10 bg-blue-700 px-5 text-white `}>
+      <div>Total Items: {cartTotalQuantity}</div>
+      <div>Total Price: ${cartTotalAmount.toFixed(2)}</div>
+
+      <button className={`sm:w-28 h-10 bg-blue-500 text-bold px-5 text-white `}>
         Checkout
       </button>
     </div>
