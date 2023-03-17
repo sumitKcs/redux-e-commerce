@@ -1,6 +1,13 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const Checkout = () => {
+  const router = useRouter();
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    router.push("/payment");
+  };
   return (
     <main className="w-screen flex justify-center items-center p-10">
       <form className="w-screen text-lg flex flex-col justify-center items-start">
@@ -29,7 +36,11 @@ const Checkout = () => {
           name="addressline1"
           className="w-full  md:w-[50%] h-10 focus:outline-transparent rounded-lg"
         />
-        <button className="mt-10 bg-blue-500 px-5 py-2 rounded-lg text-white">
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="mt-10 bg-blue-500 px-5 py-2 rounded-lg text-white"
+        >
           Proceed to Payment
         </button>
       </form>
