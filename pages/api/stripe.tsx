@@ -18,11 +18,18 @@ export default async function handler(
           },
         ],
         mode: "payment",
+        submit_type: "pay",
+        payment_method_types: ["card"],
+        billing_address_collection: "auto",
+        shipping_options: [
+          { shipping_rate: "shr_1MpwRCSIKPgl6zm5Ar4DOj7O" },
+          { shipping_rate: "shr_1MpwSYSIKPgl6zm5H42MUQHf" },
+        ],
         success_url: `${req.headers.origin}/?success=true`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       });
       res.redirect(303, session.url);
-    } catch (err) {
+    } catch (err: any) {
       res.status(err.statusCode || 500).json(err.message);
     }
   } else {
