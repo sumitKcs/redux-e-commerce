@@ -2,10 +2,13 @@ import { getTotal } from "@/store/cartSlice";
 import { RootState } from "@/store/store";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
+
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 const CheckoutButton = () => {
-  const router = useRouter()
   const { cartItems, cartTotalQuantity, cartTotalAmount } = useSelector(
     (state: RootState) => state.cart
   );
@@ -15,6 +18,23 @@ const CheckoutButton = () => {
     dispatch(getTotal());
   }, []);
 
+  /**stripe checkout code start */
+
+  const handlePayment = async () => {
+    const stripe = await stripePromise;
+    const response = await fetch("api/stripe", {
+      method: "POST",
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.status === 500) return;
+
+    const session = await response.json();
+    const result = await stripe?.redirectToCheckout({ sessionId: session.id });
+    if (result?.error) alert(result.error.message);
+  };
+
+  /**stripe checkout code end*/
   if (cartItems?.length < 1) {
     return (
       <div
@@ -30,7 +50,8 @@ const CheckoutButton = () => {
       <div>Total Price: ${cartTotalAmount.toFixed(2)}</div>
 
       <button
-        onClick={() => router.push("/checkout")}
+        role="link"
+        onClick={handlePayment}
         className={`sm:w-28 h-10 bg-blue-500 text-bold px-5 text-white `}
       >
         Checkout

@@ -10,7 +10,7 @@ import CheckoutButton from "./CheckoutButton";
 function cart() {
   const product = useSelector((state: RootState) => state.cart.cartItems);
   const dispatch = useDispatch();
-  console.log("product:", product);
+
   return (
     <section className="w-full bg-[#f7f7f5] flex flex-col justify-start mb-40">
       <div className="flex flex-col justify-center items-center w-screen gap-5 mt-5">

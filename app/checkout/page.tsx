@@ -2,11 +2,16 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
+
 const Checkout = () => {
+
   const router = useRouter();
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
-    router.push("/payment");
+    // router.push("/payment");
+    
   };
   return (
     <main className="w-screen flex justify-center items-center p-10">
