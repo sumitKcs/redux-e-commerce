@@ -4,13 +4,17 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { showFireworks } from "@/lib/util";
 import { useRouter } from "next/navigation";
+
 const Success = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+
   React.useEffect(() => {
+    //clearing all cart items
     localStorage.clear();
     dispatch(removeAll());
     showFireworks();
+    
   }, []);
 
   return (

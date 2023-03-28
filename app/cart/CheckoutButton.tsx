@@ -27,10 +27,11 @@ const CheckoutButton = () => {
       body: JSON.stringify(cartItems),
     });
 
-    if (response.status === 500) return;
+    if (!response) return;
 
-    const session = await response.json();
-    const result = await stripe?.redirectToCheckout({ sessionId: session.id });
+    const { sessionId } = await response.json();
+    console.log("checkout response: " + sessionId);
+    const result = await stripe?.redirectToCheckout({ sessionId });
     if (result?.error) alert(result.error.message);
   };
 
