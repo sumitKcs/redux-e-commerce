@@ -1,9 +1,10 @@
-import { Productts } from "@/components";
+import React from "react";
+import HomeLayout from "./product/page";
 
-export default function Home() {
+export default function Main() {
   return (
-    <main className="w-full flex justify-center items-center  bg-[#f7f7f5]">
-      <Productts />
-    </main>
+    <>
+      <HomeLayout />
+    </>
   );
 }

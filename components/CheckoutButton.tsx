@@ -1,18 +1,25 @@
+"use client";
+
 import { getTotal } from "@/store/cartSlice";
 import { RootState } from "@/store/store";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useRouter } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
+import { useSession } from "next-auth/react";
+import axios from "axios";
+
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
 const CheckoutButton = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const dispatch = useDispatch();
   const { cartItems, cartTotalQuantity, cartTotalAmount } = useSelector(
     (state: RootState) => state.cart
   );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getTotal());
@@ -21,15 +28,20 @@ const CheckoutButton = () => {
   /**stripe checkout code start */
 
   const handlePayment = async () => {
+    if (!session) return router.push("/login");
+
     const stripe = await stripePromise;
-    const response = await fetch("api/stripe", {
-      method: "POST",
-      body: JSON.stringify(cartItems),
-    });
+    const { data: sessionId } = await axios.post(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/stripe`,
+      {
+        cartItems,
+        email: session?.user?.email,
+      }
+    );
 
-    if (!response) return;
+    if (!sessionId) return;
 
-    const { sessionId } = await response.json();
+    // // const { sessionId } = await response.json();
     console.log("checkout response: " + sessionId);
     const result = await stripe?.redirectToCheckout({ sessionId });
     if (result?.error) alert(result.error.message);

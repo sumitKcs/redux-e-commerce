@@ -8,7 +8,7 @@ import { AppDispatch, RootState } from "@/store/store";
 import Skeleton from "./Skeleton";
 
 function Products() {
-  const { data: products, status } = useSelector(
+  const { data: products } = useSelector(
     (state: RootState) => state.product
   );
 

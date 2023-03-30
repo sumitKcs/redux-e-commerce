@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { add, remove, sub } from "@/store/cartSlice";
-import CheckoutButton from "./CheckoutButton";
+import CheckoutButton from "../../../components/CheckoutButton";
 
 function cart() {
   const product = useSelector((state: RootState) => state.cart.cartItems);
   const dispatch = useDispatch();
+
+  
 
   return (
     <section className="w-full bg-[#f7f7f5] flex flex-col justify-start mb-40">

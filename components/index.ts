@@ -1,12 +1,12 @@
 import NavBar from "./NavBar";
-import Productts from "./Products";
+import Products from "./Products";
 import Card from "./Card";
 import StoreProvider from "./StoreProvider";
 import Skeleton from "./Skeleton";
 import Loader from "./Loader";
 export {
     NavBar,
-    Productts, 
+    Products, 
     Card,
     StoreProvider,
     Skeleton,

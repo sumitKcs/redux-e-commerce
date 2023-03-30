@@ -1,12 +1,15 @@
 import { countries } from "@/lib/countries";
 import { NextApiRequest, NextApiResponse } from "next";
 
+
 const stripe = require('stripe')(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+
   if (req.method === "POST") {
-    const cartItems = JSON.parse(req.body);
+    const {cartItems, email } = req.body;
+    console.log(email, cartItems)
     const transformedData = {
       mode: "payment",
       submit_type: "pay",
@@ -18,8 +21,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         { shipping_rate: "shr_1MpwRCSIKPgl6zm5Ar4DOj7O" },
         { shipping_rate: "shr_1MpwSYSIKPgl6zm5H42MUQHf" },
       ],
-      success_url: `${req.headers.origin}/success`,
-      cancel_url: `${req.headers.origin}/cart`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/product/cart`,
+      metadata: {
+        email: email,
+        images: JSON.stringify(cartItems.map((item: Products) => item.image))
+      },
       line_items: cartItems.map((item: Products) => ({
         price_data: {
           currency: "inr",
@@ -36,6 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
         quantity: item.cartQuantity,
       })),
+    
     };
     try {
       // creating checkout session
