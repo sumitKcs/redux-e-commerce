@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.16",
+    "@heroicons/react": "^2.0.17",
     "@reduxjs/toolkit": "^1.9.3",
     "@stripe/stripe-js": "^1.52.0",
     "@types/node": "18.14.2",
