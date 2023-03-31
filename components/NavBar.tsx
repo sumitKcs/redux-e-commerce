@@ -17,7 +17,7 @@ function NavBar() {
     session && collection(db, "users", session?.user?.email!, "cart")
   );
   const cartItem = value?.docs.map((doc) => doc.id)?.["0"];
-  // console.log("cartItemDoc: ", cartItem);
+  console.log("cartItemDoc: ", cartItem);
 
   return (
     <header>

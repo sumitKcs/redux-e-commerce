@@ -37,9 +37,11 @@ export const cartSlice = createSlice({
         remove(state, action: PayloadAction<Products>) {
              state.cartItems = state.cartItems.filter(item => item.id !== action.payload.id)
              localStorage.setItem("cart", JSON.stringify(state.cartItems))
+            
         },
         removeAll(state){
             state.cartItems = []
+          
         },
         getTotal(state) {
             let {total, quantity} = state.cartItems.reduce((cartTotal, item) => {

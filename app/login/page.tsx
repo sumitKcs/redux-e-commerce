@@ -7,7 +7,11 @@ function Login() {
     <div className="w-[100vw] bg-white bg-cover bg-no-repeat h-screen sm:h-[100svh] flex flex-col justify-center items-center gap-5 login">
       <div
         role="button"
-        onClick={() => signIn("google", { callbackUrl: "/login/sync" })}
+        onClick={() =>
+          signIn("google", {
+            callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/sync`,
+          })
+        }
         className=" w-96 h-96 flex flex-col justify-center items-center  px-10 gap-16 cursor-pointer shadow-lg"
       >
         <div className="text-3xl font-bold text-yellow-800">Mzone</div>
