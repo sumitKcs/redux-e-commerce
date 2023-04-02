@@ -40,6 +40,16 @@
 
 }
 
+.text-gradient {
+    --gradient: linear-gradient(133deg, rgba(250, 139, 133, 1) 11%, rgba(255, 215, 124, 1) 88%);
+    background-image: var(--gradient);
+    color: #0000;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
 @media screen and (width >768px) {
     .feature-grid {
         grid-template-columns: repeat(4, 1fr);

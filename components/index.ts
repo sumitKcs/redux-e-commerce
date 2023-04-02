@@ -7,6 +7,7 @@ import Loader from "./Loader";
 import Banner from "./Banner";
 import ImpactText from "./ImpactText";
 import Featured from "./Featured";
+import NewProducts from "./NewProducts";
 
 export {
     NavBar,
@@ -17,5 +18,6 @@ export {
     Loader,
     Banner,
     ImpactText,
-    Featured
+    Featured,
+    NewProducts
 }

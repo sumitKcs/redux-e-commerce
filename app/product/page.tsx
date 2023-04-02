@@ -1,4 +1,10 @@
-import { Banner, Featured, ImpactText, NavBar } from "@/components";
+import {
+  Banner,
+  Featured,
+  ImpactText,
+  NavBar,
+  NewProducts,
+} from "@/components";
 import Products from "@/components/Products";
 import React from "react";
 
@@ -8,9 +14,10 @@ const Home = () => {
       <NavBar />
       <Banner />
 
-      <main className="w-full flex flex-col justify-center items-center  bg-[#f7f7f5]">
+      <main className="w-full flex flex-col justify-center items-center  bg-white">
         <ImpactText />
         <Featured />
+        <NewProducts />
         <Products />
       </main>
     </div>
