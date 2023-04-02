@@ -5,6 +5,9 @@ import StoreProvider from "./StoreProvider";
 import Skeleton from "./Skeleton";
 import Loader from "./Loader";
 import Banner from "./Banner";
+import ImpactText from "./ImpactText";
+import Featured from "./Featured";
+
 export {
     NavBar,
     Products, 
@@ -12,5 +15,7 @@ export {
     StoreProvider,
     Skeleton,
     Loader,
-    Banner
+    Banner,
+    ImpactText,
+    Featured
 }

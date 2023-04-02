@@ -4,7 +4,11 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["fakestoreapi.com", "lh3.googleusercontent.com"],
+    domains: [
+      "fakestoreapi.com",
+      "lh3.googleusercontent.com",
+      "cdn.shopify.com",
+    ],
   },
   // webpack5: false,
 };

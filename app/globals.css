@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.impact-gradient {
+    background: linear-gradient(46deg, rgba(237, 230, 255, 1) 13%, rgba(222, 252, 236, 1) 86%);
+    background: 222 252 236;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 2fr;
+
+    padding: 16px;
+    gap: 16px;
+}
+
+.feature-grid>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-1 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.item-2 {
+
+    grid-column: span 2;
+}
+
+.item-3 {
+    grid-column: span 2;
+
+}
+
+@media screen and (width >768px) {
+    .feature-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+
+    .item-1 {
+        grid-column: span 2;
+    }
+
+
+    .item-3 {
+        grid-column: span 2;
+
+    }
+
+}
+
+/* @media screen and (width > 768px) {
+    .feature-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (480px > width < 768px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
