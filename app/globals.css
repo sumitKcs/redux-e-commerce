@@ -4,6 +4,17 @@
 
 * {
     font-family: 'Inter', sans-serif;
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 .impact-gradient {
@@ -14,7 +25,6 @@
 .feature-grid {
     display: grid;
     grid-template-columns: 2fr;
-
     padding: 16px;
     gap: 16px;
 }
@@ -49,6 +59,33 @@
     transform: scale(1.1);
 }
 
+.product-scroller {
+    --_spacer: 2rem;
+    --_spacerLarge: 4rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 70%;
+    overflow-x: auto;
+    padding: 0 var(--_spacer) var(--_spacer);
+
+    overscroll-behavior-inline: contain;
+
+
+
+}
+
+/* scroll snapping  */
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--_spacer);
+}
+
+.snaps-inline>* {
+    scroll-snap-align: start;
+}
+
+
 .text-gradient {
     --gradient: linear-gradient(133deg, rgba(250, 139, 133, 1) 11%, rgba(255, 215, 124, 1) 88%);
     background-image: var(--gradient);
@@ -62,7 +99,6 @@
 @media screen and (width >640px) {
     .feature-grid {
         grid-template-columns: repeat(4, 1fr);
-
     }
 
     .item-1 {
@@ -75,6 +111,25 @@
 
     }
 
+    /* new launched products  */
+    .product-scroller {
+        grid-auto-columns: 22%;
+        padding: 0 var(--_spacerLarge) var(--_spacerLarge);
+
+
+    }
+
+    .snaps-inline {
+        scroll-padding-inline: var(--_spacerLarge);
+    }
+
+}
+
+.nav-sticky {
+    position: sticky;
+    top: 0;
+    position: -webkit-sticky;
+    z-index: 9999
 }
 
 /* @media screen and (width > 768px) {

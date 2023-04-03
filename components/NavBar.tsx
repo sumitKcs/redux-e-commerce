@@ -17,13 +17,13 @@ function NavBar() {
   console.log("cartItemDoc: ", cartItem);
 
   return (
-    <header>
+    <section>
       {/* top notification-bar  */}
       <div className="bg-[#30142F] w-screen font-semibold text-[#FEFEFF] flex justify-center items-center py-3 ">
         The Year End Clearance Sale is Live
       </div>
 
-      <div className=" sticky top-0">
+      <div className=" nav-sticky">
         <div className=" w-full grid grid-cols-3 py-4 lg:py-10 bg-[#F8F9F8] lg:grid-cols-4">
           {/* //mobile menu  */}
           <div className="lg:hidden px-4 flex justify-start items-center gap-4">
@@ -245,7 +245,7 @@ function NavBar() {
           </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
 

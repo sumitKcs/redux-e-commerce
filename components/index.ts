@@ -6,8 +6,10 @@ import Skeleton from "./Skeleton";
 import Loader from "./Loader";
 import Banner from "./Banner";
 import ImpactText from "./ImpactText";
-import Featured from "./Featured";
-import NewProducts from "./NewProducts";
+import MediaGrid from "./MediaGrid";
+import FeaturedCollection from "./FeaturedCollection";
+import ProductCard from './ProductCard'
+import StartHere from "./StartHere";
 
 export {
     NavBar,
@@ -18,6 +20,8 @@ export {
     Loader,
     Banner,
     ImpactText,
-    Featured,
-    NewProducts
+    MediaGrid,
+    FeaturedCollection,
+    ProductCard,
+    StartHere
 }

@@ -17,7 +17,10 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body className="h-[100svh] w-screen overflow-x-hidden  bg-[#f7f7f5]">
+      <body
+        className="h-[100svh] w-screen bg-[#f7f7f5]"
+        style={{ display: "unset" }}
+      >
         <SessionProvider session={session}>
           <StoreProvider>{children}</StoreProvider>
         </SessionProvider>

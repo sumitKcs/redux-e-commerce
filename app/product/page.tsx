@@ -1,26 +1,26 @@
 import {
   Banner,
-  Featured,
+  MediaGrid,
   ImpactText,
   NavBar,
-  NewProducts,
+  Products,
+  FeaturedCollection,
+  StartHere,
 } from "@/components";
-import Products from "@/components/Products";
-import React from "react";
 
 const Home = () => {
   return (
-    <div className="w-screen h-screen">
+    <>
       <NavBar />
       <Banner />
-
       <main className="w-full flex flex-col justify-center items-center  bg-white">
         <ImpactText />
-        <Featured />
-        <NewProducts />
+        <MediaGrid />
+        <FeaturedCollection />
+        <StartHere />
         <Products />
       </main>
-    </div>
+    </>
   );
 };
 

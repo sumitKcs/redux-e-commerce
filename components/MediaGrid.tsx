@@ -1,6 +1,6 @@
 import React from "react";
 
-const Featured = () => {
+const MediaGrid = () => {
   return (
     <section className="container mx-auto mb-5  feature-grid md:scale-y-[.80] md:scale-x-95 cursor-pointer">
       {/* cell 1  */}
@@ -107,7 +107,7 @@ const Featured = () => {
             loading="lazy"
             sizes="(max-width: 699px) 100vw, min(780px, 50vw)"
           />
-          <div className=" absolute bottom-10 left-10 text-white  text-xl sm:text-2xl md:text-3xl lg:text-4xlfont-bold  ">
+          <div className=" absolute bottom-10 left-10 text-white  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold  ">
             <p className="">Truthear Zero</p>
           </div>
         </div>
@@ -116,4 +116,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default MediaGrid;
