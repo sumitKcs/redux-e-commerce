@@ -1,5 +1,3 @@
-"use client";
-
 const Banner = () => {
   return (
     <div className="w-full h-full">

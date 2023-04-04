@@ -4,7 +4,7 @@ import {createSlice} from "@reduxjs/toolkit"
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 const initialState: {cartItems: Products[], cartTotalQuantity: number, cartTotalAmount: number } = {
-    cartItems: localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")!) : [],
+    cartItems: (typeof window === "undefined") ? [] : (localStorage.getItem("cart") === 'undefined') ? [] : JSON.parse(localStorage.getItem("cart")!),
     cartTotalQuantity: 0,
     cartTotalAmount: 0,
 
@@ -18,7 +18,7 @@ export const cartSlice = createSlice({
         add(state, action: PayloadAction<Products>) {
             const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
             if(itemIndex >= 0) {
-                state.cartItems[itemIndex].cartQuantity += 1
+                state.cartItems[itemIndex].cartQuantity! += 1
             }else {
                 const tempProduct = {...action.payload, cartQuantity: 1}
                 state.cartItems.push(tempProduct)
@@ -29,8 +29,8 @@ export const cartSlice = createSlice({
         },
         sub(state, action: PayloadAction<Products>) {
             const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
-            if(state.cartItems[itemIndex].cartQuantity > 1) {
-                state.cartItems[itemIndex].cartQuantity -= 1
+            if(state.cartItems[itemIndex].cartQuantity! > 1) {
+                state.cartItems[itemIndex].cartQuantity! -= 1
             }
             localStorage.setItem("cart", JSON.stringify(state.cartItems))
         },
@@ -46,9 +46,9 @@ export const cartSlice = createSlice({
         getTotal(state) {
             let {total, quantity} = state.cartItems.reduce((cartTotal, item) => {
                 const {price, cartQuantity} = item;
-                const itemTotal = price * cartQuantity
+                const itemTotal = price * cartQuantity!
                 cartTotal.total += itemTotal;
-                cartTotal.quantity += cartQuantity;
+                cartTotal.quantity += cartQuantity!;
                 return cartTotal
 
             }, {total: 0, quantity: 0})

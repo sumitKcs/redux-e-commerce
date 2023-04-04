@@ -1,11 +1,12 @@
-import { NavBar } from "@/components";
-import React from "react";
+import { Header } from "@/components";
 
-const HomeLayout = ({children}: {children: React.ReactNode}) => {
-  return <>
-   <NavBar />
-  {children}
-  </>;
+const HomeLayout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
 };
 
 export default HomeLayout;

@@ -12,3 +12,15 @@ interface Products {
         
     }
 }
+
+interface Product  {
+    id: string;
+    sku: string;
+    type: string;
+    offer_price: number ;
+    price: number ;
+    featured_image: string;
+    images: string;
+    tags: string[];
+  
+  };

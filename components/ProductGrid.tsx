@@ -1,8 +1,8 @@
 import React from "react";
 
-const MediaGrid = () => {
+const ProductGrid = () => {
   return (
-    <section className="container mx-auto mb-5  feature-grid md:scale-y-[.80] md:scale-x-95 cursor-pointer">
+    <section className="container mx-auto mb-5  product-grid md:scale-y-[.80] md:scale-x-95 cursor-pointer">
       {/* cell 1  */}
       <div className="flex justify-center item-1 overflow-hidden rounded-2xl">
         <div className="relative w-full drop-shadow-xl transition-transform duration-200 ease-out">
@@ -116,4 +116,4 @@ const MediaGrid = () => {
   );
 };
 
-export default MediaGrid;
+export default ProductGrid;

@@ -1,23 +1,25 @@
 import {
   Banner,
-  MediaGrid,
+  ProductGrid,
   ImpactText,
-  NavBar,
   Products,
   FeaturedCollection,
   StartHere,
+  Header,
+  PeopleGrid,
 } from "@/components";
 
 const Home = () => {
   return (
     <>
-      <NavBar />
+      <Header />
       <Banner />
       <main className="w-full flex flex-col justify-center items-center  bg-white">
         <ImpactText />
-        <MediaGrid />
+        <ProductGrid />
         <FeaturedCollection />
         <StartHere />
+        <PeopleGrid />
         <Products />
       </main>
     </>
