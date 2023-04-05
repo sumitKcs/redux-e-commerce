@@ -22,14 +22,18 @@
     background: 222 252 236;
 }
 
-.product-grid,
-.people-grid {
+.product-grid {
     display: grid;
-    grid-template-columns: 2fr;
-    padding: 16px;
-    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+    gap: 1rem;
 }
 
+.people-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
 
 .product-grid>img,
 .people-grid>img {
@@ -53,11 +57,13 @@
 
 }
 
-.people-1 {}
+.people-3 {
+    grid-column: span 2;
+}
 
-
-
-
+.people-4 {
+    grid-column: span 2;
+}
 
 .zoom-in {
     transition: all 2s;

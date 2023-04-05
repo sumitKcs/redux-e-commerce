@@ -10,10 +10,14 @@ const ProductGrid = () => {
             className="w-full h-full rounded-2xl object-cover  zoom-in"
             src="//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1500"
             alt=""
-            srcSet="//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=200 200w, //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=300 300w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=400 400w, //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=500 500w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=600 600w, //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=700 700w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=800 800w, //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1000 1000w, 
+            srcSet="//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=200 200w, 
+            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=300 300w, 
+            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=400 400w, 
+            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=500 500w, 
+            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=600 600w, 
+            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=700 700w, 
+            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=800 800w, 
+            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1000 1000w, 
             //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1200 1200w, //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1400 1400w"
             width="1500"
             height="1500"
