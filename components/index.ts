@@ -18,6 +18,8 @@ import ScrollCarousel from "./ScrollCarousel";
 import ProductCard from "./ProductCard";
 import ScrollButtons from "./ScrollButtons";
 import PeopleGrid from "./PeopleGrid";
+import Testimonials from './Testimonials'
+
 
 export {
     NotificationBar,
@@ -39,6 +41,7 @@ export {
     ScrollCarousel,
     ProductCard,
     ScrollButtons,
-    PeopleGrid
+    PeopleGrid,
+    Testimonials
     
 }

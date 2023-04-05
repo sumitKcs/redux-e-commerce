@@ -7,6 +7,7 @@ import {
   StartHere,
   Header,
   PeopleGrid,
+  Testimonials,
 } from "@/components";
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
         <FeaturedCollection />
         <StartHere />
         <PeopleGrid />
+        <Testimonials/>
         <Products />
       </main>
     </>

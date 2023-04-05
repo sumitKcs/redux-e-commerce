@@ -22,6 +22,16 @@
     background: 222 252 236;
 }
 
+.testimonials-gradient {
+    background: linear-gradient(360deg, rgba(214, 207, 249, 1), rgba(252, 239, 187, 1) 100%);
+    background: 252 239 187;
+    color: 68 68 68;
+}
+
+.star-color {
+    color: 255 183 74
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
