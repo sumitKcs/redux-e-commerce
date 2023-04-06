@@ -19,6 +19,8 @@ import ProductCard from "./ProductCard";
 import ScrollButtons from "./ScrollButtons";
 import PeopleGrid from "./PeopleGrid";
 import Testimonials from './Testimonials'
+import Newsletter from "./Newsletter";
+import Footer from "./Footer";
 
 
 export {
@@ -42,6 +44,8 @@ export {
     ProductCard,
     ScrollButtons,
     PeopleGrid,
-    Testimonials
+    Testimonials,
+    Newsletter,
+    Footer
     
 }

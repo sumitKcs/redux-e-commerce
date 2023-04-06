@@ -7,7 +7,7 @@ const Testimonials = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <section className="w-full md:w-[90%] h-[50%] bg-white text-black testimonials-gradient flex flex-col justify-center items-center px-8 py-10 lg:py-24 lg:px-40  text-center gap-10 sm:mx-5 sm:mt-20 mb-10 sm:rounded-3xl">
+    <section className="w-full md:w-[90%] h-[50%] bg-white text-black testimonials-gradient flex flex-col justify-center items-center px-8 py-10 lg:py-24 lg:px-40  text-center gap-10 sm:mx-5 mt-10 mb-10 sm:rounded-3xl">
       {/* rating  */}
       <div className="flex justify-center items-center gap-2 ">
         {Array(reviewData[index].rating)

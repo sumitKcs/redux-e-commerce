@@ -2,7 +2,7 @@ import React from "react";
 
 const StartHere = () => {
   return (
-    <section className="w-[90%] container flex flex-col justfiy-center items-center gap-10 mt-10">
+    <section className="w-[90%] container flex flex-col justfiy-center items-center gap-10 ">
       <div className="text-3xl lg:text-5xl font-bold tracking-wide opacity-90 text-center">
         Start Your Audiophile Journey Here
       </div>

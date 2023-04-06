@@ -2,7 +2,7 @@ import React from "react";
 
 const PeopleGrid = () => {
   return (
-    <section className="container mx-auto mb-5 people-grid md:scale-y-[.85] md:scale-x-95 cursor-pointer gap-3 md:gap-4 lg:gap-5 mt-10">
+    <section className="container mx-auto mb-5 lg:mb-0 people-grid md:scale-y-[.85] md:scale-x-95 cursor-pointer gap-3 md:gap-4 lg:gap-5 mt-10">
       {/* cell 1  */}
       <div className="flex justify-center items-center people-1  drop-shadow-xl transition-transform duration-200 ease-out">
         <img

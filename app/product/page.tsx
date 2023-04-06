@@ -8,6 +8,8 @@ import {
   Header,
   PeopleGrid,
   Testimonials,
+  Newsletter,
+  Footer,
 } from "@/components";
 
 const Home = () => {
@@ -21,8 +23,10 @@ const Home = () => {
         <FeaturedCollection />
         <StartHere />
         <PeopleGrid />
-        <Testimonials/>
-        <Products />
+        <Testimonials />
+        <Newsletter />
+        <Footer />
+        {/* <Products /> */}
       </main>
     </>
   );
