@@ -2,14 +2,14 @@ import { CURRENCY } from "@/lib/currency";
 import usePriceFormat from "@/lib/usePriceFormat";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { sku, featured_image, images, price, offer_price, tags } = product;
+  const { sku, featured_image, price, dropped_price, tags } = product;
 
   const PRICE = usePriceFormat({
     price,
     currency: CURRENCY.INR,
   });
   const OFFER_PRICE = usePriceFormat({
-    price: offer_price,
+    price: dropped_price,
     currency: CURRENCY.INR,
   });
 
@@ -19,10 +19,22 @@ const ProductCard = ({ product }: { product: Product }) => {
         className="w-[500px] inline-block "
         src={featured_image}
         alt="Moondrop - Droplet"
-        srcSet={images}
-        width="500"
+        srcSet={`
+        ${featured_image}&width=1160,
+        ${featured_image}&width=200 200w,
+        ${featured_image}&width=300 300w,
+        ${featured_image}&width=400 400w,
+        ${featured_image}&width=500 500w,
+        ${featured_image}&width=600 600w,
+        ${featured_image}&width=700 700w,
+        ${featured_image}&width=800 800w,
+        ${featured_image}&width=900 900w,
+        ${featured_image}&width=1000 1000w,
+        `}
+        width="1160"
         height="1160"
         loading="eager"
+        fetchPriority="low"
         sizes="(max-width: 699px) 74vw, (max-width: 999px) 38vw, calc(min(100vw - 96px, 1440px) / 5 - (24px / 5 * 4))"
       />
 

@@ -1,10 +1,11 @@
-import { Header } from "@/components";
+import { Header, Footer } from "@/components";
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />
       {children}
+      <Footer />
     </>
   );
 };

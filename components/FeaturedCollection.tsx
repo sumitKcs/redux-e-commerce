@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { ChevronCircleWithText, GrdientHeading } from "@/components";
-import NewProductList from "./FeaturedProducts";
+import FeaturedProducts from "./FeaturedProducts";
 
 const text = "View all";
 
@@ -12,7 +12,7 @@ const FeaturedCollection = () => {
         <GrdientHeading />
         <ChevronCircleWithText text={text} />
       </div>
-      <NewProductList />
+      <FeaturedProducts />
     </>
   );
 };

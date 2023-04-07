@@ -25,7 +25,6 @@ const Home = () => {
         <PeopleGrid />
         <Testimonials />
         <Newsletter />
-        <Footer />
         {/* <Products /> */}
       </main>
     </>
