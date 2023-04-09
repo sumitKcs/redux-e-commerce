@@ -40,7 +40,8 @@ export let ProductData = [
 export const banner_data = [
   {
     id: "1", 
-    banner_text: "Price Drop Alert: LYPERTEK PurePlay Z3 Now at ₹ 5,999", banner_slogan: "Our best selling tws just got cheaper!",
+    banner_text: "Price Drop Alert: LYPERTEK PurePlay Z3 Now at ₹ 5,999", 
+    banner_slogan: "Our best selling tws just got cheaper!",
     banner_image: {
       desktop:  "//cdn.shopify.com/s/files/1/0153/8863/files/Lypertek_Z3_Homepage_Desktop.jpg?v=1680094040&amp;", 
       mobile: "//cdn.shopify.com/s/files/1/0153/8863/files/Lypertek_Z3_Homepage_Mobile.jpg?v=1680094093&amp;",

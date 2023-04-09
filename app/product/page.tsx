@@ -2,7 +2,6 @@ import {
   Banner,
   ProductGrid,
   ImpactText,
-  Products,
   FeaturedCollection,
   StartHere,
   Header,
@@ -10,11 +9,12 @@ import {
   Testimonials,
   Newsletter,
   Footer,
+  StoreProvider,
 } from "@/components";
 
 const Home = () => {
   return (
-    <>
+    <StoreProvider>
       <Header />
       <Banner />
       <main className="w-full flex flex-col justify-center items-center  bg-white">
@@ -25,9 +25,10 @@ const Home = () => {
         <PeopleGrid />
         <Testimonials />
         <Newsletter />
+        <Footer />
         {/* <Products /> */}
       </main>
-    </>
+    </StoreProvider>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { NavBar, NotificationBar } from "@/components";
 
 const Header = () => {

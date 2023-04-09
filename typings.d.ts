@@ -28,5 +28,29 @@ interface Product  {
   
   };
 
+  interface Banner {
+    id: string,
+    banner_text: string;
+    banner_slogan: string;
+    banner_image: {
+        desktop: string;
+        mobile: string;
+    };
+    slug: string;
+  }
+
+  interface Testimonial {
+    id: string;
+    name: string;
+    comment: string;
+    rating: number;
+  }
+  
+  interface Data {
+    all_products: Product[];
+    banner: Banner[];
+    testimonials: Testimonial[];
+
+  }
  
 

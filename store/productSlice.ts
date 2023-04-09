@@ -10,19 +10,19 @@ export enum STATUSES {
 }
 
 type Props = {
-    data: Products[];
+    data: Banner[];
     status: string
 }
 
 const initialState: Props = {
-    data: [],
+    data:[],
     status: STATUSES.IDLE
 }
 
 export const fetchProducts = createAsyncThunk('products/getAll',async () => {
-    const res = await fetch("https://fakestoreapi.com/products");
-    const data = await res.json();  
-    return data;
+    const response = await fetch('http://localhost:3000/api/banner')
+    const data = await response.json()
+    return data
 })
 
 export const productSlice = createSlice({
@@ -36,11 +36,12 @@ export const productSlice = createSlice({
             state.status = STATUSES.LOADING
         })
         .addCase(fetchProducts.fulfilled, (state, action) => {
-            const productsWithCartQuatity = action.payload.map((product: { cartQuantity: number; }) => {
-                product.cartQuantity = 0
-                return product
-            })
-            state.data = productsWithCartQuatity
+            // const productsWithCartQuatity = action.payload.map((product: { cartQuantity: number; }) => {
+            //     product.cartQuantity = 0
+            //     return product
+            // })
+            // state.data = productsWithCartQuatity
+            state.data = action.payload
             state.status = STATUSES.IDLE
         })
         .addCase(fetchProducts.rejected, (state, action) => {
