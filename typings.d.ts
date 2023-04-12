@@ -45,7 +45,18 @@ interface Product  {
     comment: string;
     rating: number;
   }
-  
+  interface ProductGrid {
+    id: string;
+    grid_text: string;
+    grid_image: string;
+    slug: string;
+  }
+
+  interface PeopleGrid {
+    id: string;
+    person_image: string;
+  }
+
   interface Data {
     all_products: Product[];
     banner: Banner[];

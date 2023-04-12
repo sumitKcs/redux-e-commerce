@@ -1,41 +1,50 @@
+"use client"
+
+import { useGetProductGridQuery } from "@/store/apiSlice";
 import React from "react";
 
 const ProductGrid = () => {
+  const {data: products} = useGetProductGridQuery()
+  console.log("grid", products)
   return (
-    <section className="container mx-auto mb-5  product-grid md:scale-y-[.80] md:scale-x-95 cursor-pointer">
+    <section className="container mx-auto mb-5 grid grid-cols-2 product-grid md:scale-y-[.80] md:scale-x-95 cursor-pointer gap-3 p-4 md:px-10 ">
       {/* cell 1  */}
-      <div className="flex justify-center item-1 overflow-hidden rounded-2xl">
-        <div className="relative w-full drop-shadow-xl transition-transform duration-200 ease-out">
+      {products?.map((product)=> (
+        <div className="relative w-full flex justify-center grid-item overflow-hidden rounded-2xl drop-shadow-xl transition-transform duration-200 ease-out" key={product.id}>
           <img
-            className="w-full h-full rounded-2xl object-cover  zoom-in"
-            src="//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1500"
+            className="w-full h-full rounded-2xl object-cover zoom-in"
+            src={`${product?.grid_image}width=1500`}
             alt=""
-            srcSet="//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=200 200w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=300 300w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=400 400w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=500 500w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=600 600w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=700 700w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=800 800w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1000 1000w, 
-            //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1200 1200w, //cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;width=1400 1400w"
+            srcSet={`
+            ${product?.grid_image}width=1500,
+            ${product?.grid_image}width=200 200w,
+            ${product?.grid_image}width=300 300w
+            ${product?.grid_image}width=400 400w
+            ${product?.grid_image}width=500 500w
+            ${product?.grid_image}width=600 600w
+            ${product?.grid_image}width=700 700w
+            ${product?.grid_image}width=800 800w
+            ${product?.grid_image}width=1000 1000w
+            ${product?.grid_image}width=1200 1200w
+            ${product?.grid_image}width=1400 1400w
+            `}
             width="1500"
             height="1500"
             loading="lazy"
             sizes="(max-width: 699px) 100vw, min(780px, 50vw)"
-          ></img>
+          />
           <div className="absolute top-0  text-white  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold ">
             <p className="mt-10 mx-10 flex justify-center items-center  text-center ">
-              V-MODA Crossfade 2 Wireless Codex Edition
+              {product?.grid_text}
             </p>
           </div>
-        </div>
       </div>
+      ))}
 
       {/* cell 2 & 3 */}
 
-      <div className=" w-full item-2 flex  justify-center items-center gap-4 ">
-        {/* cell 2  */}
+      {/* <div className=" w-full item-2 flex  justify-center items-center gap-4 ">
+       
         <div className="relative  drop-shadow-xl  transition-transform duration-200 ease-out overflow-hidden rounded-2xl">
           <img
             className="w-full h-full rounded-2xl object-cover zoom-in"
@@ -62,7 +71,7 @@ const ProductGrid = () => {
           </div>
         </div>
 
-        {/* cell 3 */}
+    
         <div className="relative drop-shadow-xl transition-transform duration-200 ease-out overflow-hidden rounded-2xl">
           <img
             className="w-full h-full rounded-2xl object-cover zoom-in"
@@ -89,10 +98,10 @@ const ProductGrid = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* cell 4  */}
-      <div className="flex justify-center item-3 overflow-hidden ">
+      {/* <div className="flex justify-center item-3 overflow-hidden ">
         <div className="relative w-full drop-shadow-xl overflow-hidden transition-transform duration-200 ease-out rounded-2xl">
           <img
             className="w-full h-full rounded-2xl object-cover zoom-in"
@@ -115,7 +124,7 @@ const ProductGrid = () => {
             <p className="">Truthear Zero</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

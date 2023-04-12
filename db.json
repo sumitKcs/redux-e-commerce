@@ -66,6 +66,59 @@
       "slug": "ifi-audio-go-link?"
     }
   ],
+  "product_grid": [
+    {
+      "id": "1",
+      "grid_text": "V-MODA Crossfade 2 Wireless Codex Edition",
+      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;",
+      "slug": "v-moda-crossfade-2-wireless"
+    },
+    {
+      "id": "2",
+      "grid_text": "Final ZE3000",
+      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/ZE3000.jpg?v=1676367536&amp;",
+      "slug": "final-ze3000"
+    },
+    {
+      "id": "3",
+      "grid_text": "Fiio BRT5",
+      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/Fiiobtr5.jpg?v=1676369219&amp;",
+      "slug": "fiio-btr5-2021"
+    },
+    {
+      "id": "4",
+      "grid_text": "Truthear Zero",
+      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Truthear-ZERO-Drop-Banner-01.jpg?v=1675945400&amp;",
+      "slug": "truthear-x-crinacle-zero"
+    }
+  ],
+  "people_grid": [
+    {
+      "id": "1",
+      "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/1_4380d956-8343-49a8-bc17-21155000885e.jpg?v=1676882405&amp;"
+    },
+    {
+      "id": "2",
+      "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/2_53fad944-fb2c-45d9-97eb-f7376f499b58.jpg?v=1676882683&amp;"
+    },
+    {
+      "id": "3",
+      "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/3_9d88e8c4-7b6b-4174-bbc7-81dc1c5eb95e.jpg?v=1676881502&amp;"
+    },
+    {
+      "id": "4",
+      "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/4_3d8aec33-0c30-48b5-952d-1f58934f49a0.jpg?v=1676882012&amp;"
+    },
+    {
+      "id": "5",
+      "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/7_7f4f7654-d599-4e7c-8772-607a021d5f22.jpg?v=1676887066&amp;"
+    },
+    {
+      "id": "6",
+      "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/5_20a2b9ca-4806-47ed-9cea-9dac0d251aa2.jpg?v=1676883208&amp;"
+    }
+    
+  ],
   "testimonials": [
     {
       "id": "1",

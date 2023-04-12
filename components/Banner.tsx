@@ -9,6 +9,7 @@ const Banner = () => {
   const [index, setIndex] = useState(0);
 
   const product = products?.[index];
+  
   const handlePrev = () => {
     if (products?.length) {
       index === 0
