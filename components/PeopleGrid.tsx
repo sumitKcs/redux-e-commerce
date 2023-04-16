@@ -6,7 +6,7 @@ import React from "react";
 const PeopleGrid = () => {
   const {data: people} = useGetPeopleGridQuery()
   return (
-    <section className="container mx-auto mb-5 lg:mb-0 grid grid-cols-2 people-grid md:scale-y-[.85] scale-y-60 md:scale-x-95 cursor-pointer gap-3 md:gap-4 lg:gap-5 mt-10">
+    <section className="container mx-auto mb-5 lg:mb-0 grid grid-cols-2 people-grid md:scale-y-[.85] md:scale-x-95 scursor-pointer gap-3 md:gap-4 lg:gap-5 mt-10">
       {/* cell 1  */}
 
       {people?.map(person => (

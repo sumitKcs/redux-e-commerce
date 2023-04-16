@@ -12,40 +12,36 @@ import StartHere from "./StartHere";
 import NotificationBar from "./NotificationBar";
 import Header from "./Header";
 import GrdientHeading from "./GrdientHeading";
-import ChevronCircleWithText from "./ChevronCircleWithText"
+import ChevronCircleWithText from "./ChevronCircleWithText";
 import FeaturedProducts from "./FeaturedProducts";
 import ScrollCarousel from "./ScrollCarousel";
 import ProductCard from "./ProductCard";
-import ScrollButtons from "./ScrollButtons";
 import PeopleGrid from "./PeopleGrid";
-import Testimonials from './Testimonials'
+import Testimonials from "./Testimonials";
 import Newsletter from "./Newsletter";
 import Footer from "./Footer";
 
-
 export {
-    NotificationBar,
-    NavBar,
-    Header,
-    Products, 
-    Card,
-    StoreProvider,
-    Skeleton,
-    Loader,
-    Banner,
-    ImpactText,
-    ProductGrid,
-    FeaturedCollection,
-    StartHere,
-    GrdientHeading,
-    ChevronCircleWithText,
-    FeaturedProducts,
-    ScrollCarousel,
-    ProductCard,
-    ScrollButtons,
-    PeopleGrid,
-    Testimonials,
-    Newsletter,
-    Footer
-    
-}
+  NotificationBar,
+  NavBar,
+  Header,
+  Products,
+  Card,
+  StoreProvider,
+  Skeleton,
+  Loader,
+  Banner,
+  ImpactText,
+  ProductGrid,
+  FeaturedCollection,
+  StartHere,
+  GrdientHeading,
+  ChevronCircleWithText,
+  FeaturedProducts,
+  ScrollCarousel,
+  ProductCard,
+  PeopleGrid,
+  Testimonials,
+  Newsletter,
+  Footer,
+};

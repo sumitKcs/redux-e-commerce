@@ -3,131 +3,128 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 
-    /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 *::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .impact-gradient {
-    background: linear-gradient(46deg, rgba(237, 230, 255, 1) 13%, rgba(222, 252, 236, 1) 86%);
-    background: 222 252 236;
+  background: linear-gradient(
+    46deg,
+    rgba(237, 230, 255, 1) 13%,
+    rgba(222, 252, 236, 1) 86%
+  );
+  background: 222 252 236;
 }
 
 .testimonials-gradient {
-    background: linear-gradient(360deg, rgba(214, 207, 249, 1), rgba(252, 239, 187, 1) 100%);
-    background: 252 239 187;
-    color: 68 68 68;
+  background: linear-gradient(
+    360deg,
+    rgba(214, 207, 249, 1),
+    rgba(252, 239, 187, 1) 100%
+  );
+  background: 252 239 187;
+  color: 68 68 68;
 }
 
 .star-color {
-    color: 255 183 74
+  color: 255 183 74;
 }
-
-
-
 
 .grid-item:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
-.grid-item:nth-child(4){
-    grid-column: span 2;
-
+.grid-item:nth-child(4) {
+  grid-column: span 2;
 }
 
 .person:nth-child(3) {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 .person:nth-child(4) {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 .zoom-in {
-    transition: all 2s;
-    transform: scale(1);
+  transition: all 2s;
+  transform: scale(1);
 }
 
 .zoom-in:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .product-scroller {
-    --_spacer: 2rem;
-    --_spacerLarge: 4rem;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 70%;
-    overflow-x: auto;
-    padding: 0 var(--_spacer) var(--_spacer);
+  --_spacer: 2rem;
+  --_spacerLarge: 4rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 70%;
+  overflow-x: auto;
+  padding: 0 var(--_spacer) var(--_spacer);
 
-    overscroll-behavior-inline: contain;
-
-
-
+  overscroll-behavior-inline: contain;
 }
 
 /* scroll snapping  */
 
 .snaps-inline {
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: var(--_spacer);
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: var(--_spacer);
 }
 
-.snaps-inline>* {
-    scroll-snap-align: start;
+.snaps-inline > * {
+  scroll-snap-align: start;
 }
-
 
 .text-gradient {
-    --gradient: linear-gradient(133deg, rgba(250, 139, 133, 1) 11%, rgba(255, 215, 124, 1) 88%);
-    background-image: var(--gradient);
-    color: #0000;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-    -webkit-background-clip: text;
-    background-clip: text;
+  --gradient: linear-gradient(
+    133deg,
+    rgba(250, 139, 133, 1) 11%,
+    rgba(255, 215, 124, 1) 88%
+  );
+  background-image: var(--gradient);
+  color: #0000;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .nav-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 999999
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999999;
 }
 
-
-
 @media screen and (width >640px) {
-
-    .product-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-/*
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /*
     /* new launched products  */
-    .product-scroller {
-        grid-auto-columns: 22%;
-        padding: 0 var(--_spacerLarge) var(--_spacerLarge);
+  .product-scroller {
+    grid-auto-columns: 22%;
+    padding: 0 var(--_spacerLarge) var(--_spacerLarge);
+  }
 
+  .snaps-inline {
+    scroll-padding-inline: var(--_spacerLarge);
+  }
 
-    }
-
-    .snaps-inline {
-        scroll-padding-inline: var(--_spacerLarge);
-    }
-
-    .people-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
+  .people-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

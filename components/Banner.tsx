@@ -9,7 +9,7 @@ const Banner = () => {
   const [index, setIndex] = useState(0);
 
   const product = products?.[index];
-  
+
   const handlePrev = () => {
     if (products?.length) {
       index === 0
@@ -44,12 +44,11 @@ const Banner = () => {
       <div className="carousel w-full h-full">
         <div className="carousel-item relative w-full">
           {/* desktop image */}
-          <Link href={`product/${product?.slug}`}>
-            <img
-              className="w-full object-cover h-full lg:h-auto hidden md:block "
-              src={`${product?.banner_image.desktop}&width=2160`}
-              alt={product?.banner_text}
-              srcSet={`
+          <img
+            className="w-full object-cover h-full lg:h-auto hidden md:block "
+            src={`${product?.banner_image.desktop}&width=2160`}
+            alt={product?.banner_text}
+            srcSet={`
                 ${product?.banner_image.desktop}&width=200 200w,
                 ${product?.banner_image.desktop}&width=300 300w,
                 ${product?.banner_image.desktop}&width=400 400w,
@@ -66,20 +65,18 @@ const Banner = () => {
                 ${product?.banner_image.desktop}&width=2000 2000w,
                 
                 `}
-              width="2160"
-              height="1080"
-              loading="eager"
-              sizes="100vw"
-            ></img>
-          </Link>
+            width="2160"
+            height="1080"
+            loading="eager"
+            sizes="100vw"
+          ></img>
 
           {/* mobile image  */}
-          <Link href={`product/${product?.slug}`}>
-            <img
-              className="w-full object-cover h-full lg:h-auto  md:hidden "
-              src={`${product?.banner_image.mobile}&width=1200`}
-              alt={product?.banner_text}
-              srcSet={`
+          <img
+            className="w-full object-cover h-full lg:h-auto  md:hidden "
+            src={`${product?.banner_image.mobile}&width=1200`}
+            alt={product?.banner_text}
+            srcSet={`
                 ${product?.banner_image.mobile}&width=200 200w,
                 ${product?.banner_image.mobile}&width=300 300w,
                 ${product?.banner_image.mobile}&width=400 400w,
@@ -92,12 +89,11 @@ const Banner = () => {
                 ${product?.banner_image.mobile}&width=1200 1200w,
                 
                 `}
-              width="1200"
-              height="1600"
-              loading="eager"
-              sizes="100vw"
-            ></img>
-          </Link>
+            width="1200"
+            height="1600"
+            loading="eager"
+            sizes="100vw"
+          ></img>
 
           <div className="text-[#FEFEFF] absolute z-99999 top-0 mt-10 md:right-0 md:mt-[20%] px-4 md:w-[30%]  md:text-right md:mr-14 ">
             <p className=" text-extrabold tracking-widest">
@@ -108,9 +104,11 @@ const Banner = () => {
               {product?.banner_text}
             </p>
             <br />
-            <button className="bg-[#FEFEFF] py-4 px-6 rounded-full text-black  font-bold  text-sm tracking-widest ">
-              BUY NOW
-            </button>
+            <Link href={`product/${product?.slug}`}>
+              <button className="bg-[#FEFEFF] py-4 px-6 rounded-full text-black  font-bold  text-sm tracking-widest ">
+                BUY NOW
+              </button>
+            </Link>
           </div>
 
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

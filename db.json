@@ -2,7 +2,73 @@
   "all_products": [
     {
       "id": "1",
-      "sku": "lypertek-pureplay-z3",
+      "slug": "lypertek-pureplay-z3",
+      "type": "True Wireless Earbuds",
+      "images": [
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-PurePlay-Z3-02.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-03.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-05.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-pureplay-Z3-04.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-03_58db7f4e-fbdf-4aac-b2b0-5a82193e5a57.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-LYPERTEK-Pureplay-Z3-Gallery.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-07.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-08.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-013.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-10.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-012.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-09.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-011.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-2.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-1.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-02.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-3.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Lypertek-Authenticity-Certificate_fc098494-2d6b-4bbb-99e9-255ebc73c98d.png?v=1657801152&width=1160"
+      ],
+      "featured_image": "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+      "price": 8999,
+      "selling_price": 7999,
+      "dropped_price": 5999,
+      "tags": ["New"],
+      "stars": 4.3,
+      "total_ratings": 117
+    },
+     {
+      "id": "2",
+      "slug": "meze-99-classics",
+      "type": "True Wireless Earbuds",
+      "images": [
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-PurePlay-Z3-02.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-03.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-05.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-pureplay-Z3-04.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-03_58db7f4e-fbdf-4aac-b2b0-5a82193e5a57.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-LYPERTEK-Pureplay-Z3-Gallery.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-07.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-08.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-013.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-10.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-012.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-09.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-011.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-2.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-1.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-02.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-3.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Lypertek-Authenticity-Certificate_fc098494-2d6b-4bbb-99e9-255ebc73c98d.png?v=1657801152&width=1160"
+      ],
+      "featured_image": "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+      "price": 8999,
+      "selling_price": 7999,
+      "dropped_price": 5999,
+      "tags": ["New"],
+      "stars": 4.3,
+      "total_ratings": 117
+    },
+    {
+      "id": "3",
+      "slug": "ifi-audio-go-link",
       "type": "True Wireless Earbuds",
       "images": [
         "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
@@ -63,7 +129,7 @@
         "desktop": "//cdn.shopify.com/s/files/1/0153/8863/files/ifi-Golink_Banner-_Desktop_e229f2db-833e-4dde-ab72-b2e60e95d977.jpg?v=1678945090&amp;",
         "mobile": "//cdn.shopify.com/s/files/1/0153/8863/files/ifi-Golink_Banner-_Mobile_5997f365-30f5-4ef9-b4d2-6d72404467d5.jpg?v=1678945274&amp;"
       },
-      "slug": "ifi-audio-go-link?"
+      "slug": "ifi-audio-go-link"
     }
   ],
   "product_grid": [
@@ -118,6 +184,75 @@
       "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/5_20a2b9ca-4806-47ed-9cea-9dac0d251aa2.jpg?v=1676883208&amp;"
     }
     
+  ],
+  "new_launches": [
+    {
+      "id": "1",
+      "sku": "lypertek-pureplay-z3",
+      "type": "True Wireless Earbuds",
+      "images": [
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-PurePlay-Z3-02.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-03.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-05.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-pureplay-Z3-04.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-03_58db7f4e-fbdf-4aac-b2b0-5a82193e5a57.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-LYPERTEK-Pureplay-Z3-Gallery.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-07.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-08.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-013.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-10.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-012.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-09.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-011.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-2.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-1.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-02.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-3.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Lypertek-Authenticity-Certificate_fc098494-2d6b-4bbb-99e9-255ebc73c98d.png?v=1657801152&width=1160"
+      ],
+      "featured_image": "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+      "price": 8999,
+      "selling_price": 7999,
+      "dropped_price": 5999,
+      "tags": ["New"],
+      "stars": 4.3,
+      "total_ratings": 117
+    },
+    {
+      "id": "2",
+      "sku": "lypertek-pureplay-z3",
+      "type": "True Wireless Earbuds",
+      "images": [
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-PurePlay-Z3-02.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-03.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-05.jpg?v=1628258447",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-pureplay-Z3-04.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-03_58db7f4e-fbdf-4aac-b2b0-5a82193e5a57.jpg?v=1652340725",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-LYPERTEK-Pureplay-Z3-Gallery.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-07.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-08.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-013.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-10.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-012.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-09.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-011.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-2.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-1.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-1160-1160-02.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-lypertek-levi-1160-1160-3.jpg?v=1657801152",
+        "//cdn.shopify.com/s/files/1/0153/8863/products/Lypertek-Authenticity-Certificate_fc098494-2d6b-4bbb-99e9-255ebc73c98d.png?v=1657801152&width=1160"
+      ],
+      "featured_image": "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
+      "price": 8999,
+      "selling_price": 7999,
+      "dropped_price": 5999,
+      "tags": ["New"],
+      "stars": 4.3,
+      "total_ratings": 117
+    }
+
   ],
   "testimonials": [
     {

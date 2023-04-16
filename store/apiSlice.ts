@@ -1,32 +1,42 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
-
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
 export const apiSlice = createApi({
-  reducerPath: 'api',
+  reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/api`
+    baseUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/api`,
   }),
-  tagTypes: ['Banner', 'ProductGrid', 'PeopleGrid'],
+  tagTypes: ["Banner", "ProductGrid", "PeopleGrid", "Testimonials", "Product"],
   endpoints: (builder) => ({
     getBanner: builder.query<Banner[], void>({
       query: () => `/banner`,
-      providesTags: ['Banner'],
-   
+      providesTags: ["Banner"],
     }),
     getProductGrid: builder.query<ProductGrid[], void>({
       query: () => `/productGrid`,
-      providesTags: ['ProductGrid'],
+      providesTags: ["ProductGrid"],
     }),
     getPeopleGrid: builder.query<PeopleGrid[], void>({
       query: () => `/peopleGrid`,
-      providesTags: ['PeopleGrid'],
-    })
-    
+      providesTags: ["PeopleGrid"],
+    }),
+    getTestimononials: builder.query<Testimonials[], void>({
+      query: () => `/testimonials`,
+      providesTags: ["Testimonials"],
+    }),
+    getProductBySlug: builder.query<Product[], string>({
+      query: (slug) => `/products/${slug}`,
+      providesTags: ["Product"],
+    }),
   }),
-})
+});
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetBannerQuery, useGetProductGridQuery, useGetPeopleGridQuery } = apiSlice
+export const {
+  useGetBannerQuery,
+  useGetProductGridQuery,
+  useGetPeopleGridQuery,
+  useGetTestimononialsQuery,
+  useGetProductBySlugQuery,
+} = apiSlice;

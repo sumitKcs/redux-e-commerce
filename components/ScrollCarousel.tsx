@@ -5,12 +5,12 @@ import React, { useRef } from "react";
 const ScrollCarousel = ({ children }: { children: React.ReactNode }) => {
   const scroller = useRef<HTMLDivElement>(null);
   const handleLeftScroll = () => {
-    const scrollerContainer = scroller.current;
-    scrollerContainer.scrollLeft = scrollerContainer?.scrollLeft! - 200;
+    const scrollerContainer = scroller.current as HTMLDivElement;
+    scrollerContainer.scrollLeft -= 200;
   };
   const handleRightScroll = () => {
-    const scrollerContainer = scroller.current;
-    scrollerContainer.scrollLeft = scrollerContainer?.scrollLeft! + 180;
+    const scrollerContainer = scroller.current as HTMLDivElement;
+    scrollerContainer.scrollLeft += 180;
   };
   return (
     <section className="group">

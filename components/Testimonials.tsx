@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { reviewData } from "@/lib/reviewData";
+import { useGetTestimononialsQuery } from "@/store/apiSlice";
 
 const Testimonials = () => {
+  const { data: reviewData } = useGetTestimononialsQuery();
   const [index, setIndex] = useState(0);
 
   return (
     <section className="w-full md:w-[90%] h-[50%] bg-white text-black testimonials-gradient flex flex-col justify-center items-center px-8 py-10 lg:py-24 lg:px-40  text-center gap-10 sm:mx-5 mt-10 mb-10 sm:rounded-3xl">
       {/* rating  */}
       <div className="flex justify-center items-center gap-2 ">
-        {Array(reviewData[index].rating)
+        {Array(reviewData?.[index].rating)
           .fill("")
           .map((e, key) => (
             <svg
@@ -32,7 +33,7 @@ const Testimonials = () => {
 
       {/* comment  */}
       <div className="text-2xl md:text-3xl font-semibold opacity-70 lg:w-[80%] flex flex-col justify-center items-center gap-10 h-52">
-        {reviewData[index].comment}
+        {reviewData?.[index]?.comment}
         {/* //headphonezone logo-black */}
         <div>
           <img
@@ -48,7 +49,7 @@ const Testimonials = () => {
 
           {/* // reviewer name  */}
           <div className="text-gray-700 text-base">
-            {reviewData[index].name}
+            {reviewData?.[index]?.name}
           </div>
         </div>
       </div>
@@ -57,14 +58,14 @@ const Testimonials = () => {
       <div className="flex gap-10">
         <button
           onClick={() =>
-            setIndex((prev) => (index > 0 ? prev - 1 : reviewData.length - 1))
+            setIndex((prev) => (index > 0 ? prev - 1 : reviewData?.length! - 1))
           }
           className="btn btn-circle bg-transparent border-gray-400 text-black"
         >
           ❮
         </button>
         <div className="flex justfiy-evenly items-center gap-5">
-          {reviewData.map((review) => (
+          {reviewData?.map((review) => (
             <span
               key={review.id}
               className={`bg-gray-500 rounded-full p-[2px] ${
@@ -75,7 +76,7 @@ const Testimonials = () => {
         </div>
         <button
           onClick={() =>
-            setIndex((prev) => (index < reviewData.length - 1 ? prev + 1 : 0))
+            setIndex((prev) => (index < reviewData?.length! - 1 ? prev + 1 : 0))
           }
           className="btn btn-circle bg-transparent border-gray-400 text-black"
         >
