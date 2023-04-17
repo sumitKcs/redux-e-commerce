@@ -14,7 +14,10 @@
 
 interface Product {
   id: string;
+  sku: string;
   slug: string;
+  brand: string;
+  category: string;
   type: string;
   price: number;
   selling_price: number;

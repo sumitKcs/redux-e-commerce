@@ -2,7 +2,10 @@
   "all_products": [
     {
       "id": "1",
+      "sku": "LYPERTEK-Pureplay z3",
       "slug": "lypertek-pureplay-z3",
+      "brand": "LYPERTEK",
+      "category": "True Wireless Earbuds",
       "type": "True Wireless Earbuds",
       "images": [
         "//cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Lypertek-Pureplay-Z3-01.jpg?v=1628258447",
@@ -33,7 +36,7 @@
       "stars": 4.3,
       "total_ratings": 117
     },
-     {
+    {
       "id": "2",
       "slug": "meze-99-classics",
       "type": "True Wireless Earbuds",
@@ -136,25 +139,25 @@
     {
       "id": "1",
       "grid_text": "V-MODA Crossfade 2 Wireless Codex Edition",
-      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;",
+      "grid_image": "//cdn.shopify.com/s/files/1/0153/8863/files/VmodaCrossfade2Wireless_1b26e891-eac3-4b66-9f38-becd63f5829b.jpg?v=1676363664&amp;",
       "slug": "v-moda-crossfade-2-wireless"
     },
     {
       "id": "2",
       "grid_text": "Final ZE3000",
-      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/ZE3000.jpg?v=1676367536&amp;",
+      "grid_image": "//cdn.shopify.com/s/files/1/0153/8863/files/ZE3000.jpg?v=1676367536&amp;",
       "slug": "final-ze3000"
     },
     {
       "id": "3",
       "grid_text": "Fiio BRT5",
-      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/Fiiobtr5.jpg?v=1676369219&amp;",
+      "grid_image": "//cdn.shopify.com/s/files/1/0153/8863/files/Fiiobtr5.jpg?v=1676369219&amp;",
       "slug": "fiio-btr5-2021"
     },
     {
       "id": "4",
       "grid_text": "Truthear Zero",
-      "grid_image":"//cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Truthear-ZERO-Drop-Banner-01.jpg?v=1675945400&amp;",
+      "grid_image": "//cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Truthear-ZERO-Drop-Banner-01.jpg?v=1675945400&amp;",
       "slug": "truthear-x-crinacle-zero"
     }
   ],
@@ -183,7 +186,6 @@
       "id": "6",
       "person_image": "//cdn.shopify.com/s/files/1/0153/8863/files/5_20a2b9ca-4806-47ed-9cea-9dac0d251aa2.jpg?v=1676883208&amp;"
     }
-    
   ],
   "new_launches": [
     {
@@ -252,7 +254,6 @@
       "stars": 4.3,
       "total_ratings": 117
     }
-
   ],
   "testimonials": [
     {

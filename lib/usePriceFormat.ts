@@ -1,7 +1,7 @@
-const usePriceFormat = ({price, currency}: {price: number, currency: string}) => {
-
+const usePriceFormat = (price: number, currency: string) => {
   const priceArray = price.toString().split("");
   let result;
+  let currencySymbol = "₹";
   if (priceArray.length === 4) {
     priceArray[0] = priceArray[0] + ",";
     result = priceArray.join("");
@@ -18,7 +18,12 @@ const usePriceFormat = ({price, currency}: {price: number, currency: string}) =>
     result = priceArray.join("");
   }
 
-  return currency + result;
+  //currency symbol
+  if (currency === "INR" || currency === "inr") currencySymbol = "₹";
+  if (currency === "USD" || currency === "usd") currencySymbol = "$";
+  if (currency === "EUR" || currency === "eur") currencySymbol = "€";
+
+  return currencySymbol + " " + result;
 };
 
 export default usePriceFormat;

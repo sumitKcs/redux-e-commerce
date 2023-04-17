@@ -15,7 +15,7 @@ const ScrollCarousel = ({ children }: { children: React.ReactNode }) => {
   return (
     <section className="group">
       <div
-        className="w-screen relative product-scroller snaps-inline"
+        className="w-full relative product-scroller snaps-inline"
         id="scroller"
         ref={scroller}
       >
