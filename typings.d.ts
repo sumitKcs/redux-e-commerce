@@ -27,6 +27,7 @@ interface Product {
   tags: string[];
   stars: number;
   total_ratings: number;
+  cartQuantity: number;
 }
 
 interface Banner {

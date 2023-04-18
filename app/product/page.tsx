@@ -26,7 +26,6 @@ const Home = () => {
         <Testimonials />
         <Newsletter />
         <Footer />
-        {/* <Products /> */}
       </main>
     </StoreProvider>
   );

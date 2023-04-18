@@ -1,35 +1,31 @@
 import { CURRENCY } from "@/lib/currency";
 import usePriceFormat from "@/lib/usePriceFormat";
+import Link from "next/link";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { sku, featured_image, price, dropped_price, tags } = product;
+  const { sku, featured_image, price, dropped_price, tags, slug, images } =
+    product;
 
-  const PRICE = usePriceFormat({
-    price,
-    currency: CURRENCY.INR,
-  });
-  const OFFER_PRICE = usePriceFormat({
-    price: dropped_price,
-    currency: CURRENCY.INR,
-  });
+  const PRICE = usePriceFormat(price, CURRENCY.INR);
+  const OFFER_PRICE = usePriceFormat(dropped_price, CURRENCY.INR);
 
   return (
-    <div className="flex flex-col justify-start p-5 ">
+    <Link href={`product/${slug}`} className="flex flex-col justify-start p-5 ">
       <img
         className="w-[500px] inline-block "
-        src={featured_image}
+        src={images[0]}
         alt="Moondrop - Droplet"
         srcSet={`
-        ${featured_image}&width=1160,
-        ${featured_image}&width=200 200w,
-        ${featured_image}&width=300 300w,
-        ${featured_image}&width=400 400w,
-        ${featured_image}&width=500 500w,
-        ${featured_image}&width=600 600w,
-        ${featured_image}&width=700 700w,
-        ${featured_image}&width=800 800w,
-        ${featured_image}&width=900 900w,
-        ${featured_image}&width=1000 1000w,
+        ${images[0]}&width=1160,
+        ${images[0]}&width=200 200w,
+        ${images[0]}&width=300 300w,
+        ${images[0]}&width=400 400w,
+        ${images[0]}&width=500 500w,
+        ${images[0]}&width=600 600w,
+        ${images[0]}&width=700 700w,
+        ${images[0]}&width=800 800w,
+        ${images[0]}&width=900 900w,
+        ${images[0]}&width=1000 1000w,
         `}
         width="1160"
         height="1160"
@@ -108,7 +104,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

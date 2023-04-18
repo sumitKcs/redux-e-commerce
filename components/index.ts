@@ -1,5 +1,4 @@
 import NavBar from "./NavBar";
-import Products from "./Products";
 import Card from "./Card";
 import StoreProvider from "./StoreProvider";
 import Skeleton from "./Skeleton";
@@ -11,7 +10,7 @@ import FeaturedCollection from "./FeaturedCollection";
 import StartHere from "./StartHere";
 import NotificationBar from "./NotificationBar";
 import Header from "./Header";
-import GrdientHeading from "./GrdientHeading";
+import GradientHeading from "./GradientHeading";
 import ChevronCircleWithText from "./ChevronCircleWithText";
 import FeaturedProducts from "./FeaturedProducts";
 import ScrollCarousel from "./ScrollCarousel";
@@ -25,7 +24,6 @@ export {
   NotificationBar,
   NavBar,
   Header,
-  Products,
   Card,
   StoreProvider,
   Skeleton,
@@ -35,7 +33,7 @@ export {
   ProductGrid,
   FeaturedCollection,
   StartHere,
-  GrdientHeading,
+  GradientHeading,
   ChevronCircleWithText,
   FeaturedProducts,
   ScrollCarousel,

@@ -4,6 +4,9 @@ import { RatingStar } from "rating-star";
 import { useGetProductBySlugQuery } from "@/store/apiSlice";
 import usePriceFormat from "@/lib/usePriceFormat";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
+import { CURRENCY } from "@/lib/currency";
+import { useDispatch } from "react-redux";
+import { add } from "@/store/cartSlice";
 
 type Props = {
   params: {
@@ -12,24 +15,27 @@ type Props = {
 };
 
 const ProductDetails = ({ params }: Props) => {
+  const dispatch = useDispatch();
   const slug = params.slug;
   const { data: product } = useGetProductBySlugQuery(slug);
 
-  const MRP = usePriceFormat(product ? product[0].price : 0, "INR");
+  const MRP = usePriceFormat(product ? product[0].price : 0, CURRENCY.INR);
 
   const selling_price = usePriceFormat(
     product ? product[0].selling_price : 0,
-    "INR"
+    CURRENCY.INR
   );
   const dropped_price = usePriceFormat(
     product ? product[0].dropped_price : 0,
-    "INR"
+    CURRENCY.INR
   );
 
   if (product?.[0]?.images?.length === 0) {
     return <p className="text-7xl text-black">no images</p>;
   }
-  return (
+  return product?.[0]?.images?.length === 0 ? (
+    <p className="text-7xl text-black">no images</p>
+  ) : (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 md:px-16">
       {/* product image  */}
       <div>
@@ -61,21 +67,28 @@ const ProductDetails = ({ params }: Props) => {
         {/* price details  */}
         <div className="flex flex-col md:flex-row justify-between">
           <div>
-            {product?.[0]?.price && (
-              <p className=" line-through text-gray-500">MRP: {MRP}</p>
-            )}
-            {product?.[0]?.selling_price && (
-              <p className=" line-through text-gray-500">
-                Selling Price: {selling_price}
-              </p>
-            )}
-            {product?.[0]?.dropped_price && (
-              <p>
-                Dropped Price:
-                <span className="text-lg text-blue-700 font-extrabold">
-                  {dropped_price}
-                </span>
-              </p>
+            {selling_price === dropped_price ? (
+              <div className="flex gap-4 items-center">
+                <p className=" text-blue-700 text-3xl font-extrabold">
+                  {selling_price}
+                </p>
+                <p className=" line-through text-gray-500">MRP: {MRP}</p>
+              </div>
+            ) : (
+              <>
+                <p className=" line-through text-gray-500">MRP: {MRP}</p>
+
+                <p className=" line-through text-gray-500">
+                  Selling Price: {selling_price}
+                </p>
+
+                <p>
+                  Dropped Price:
+                  <span className="text-lg text-blue-700 font-extrabold">
+                    {dropped_price}
+                  </span>
+                </p>
+              </>
             )}
           </div>
           <div>
@@ -102,9 +115,14 @@ const ProductDetails = ({ params }: Props) => {
         <br />
         {/* add to cart button  */}
         <div className="flex justify-center items-center">
-          <button className="w-full bg-blue-700 text-white text-xs font-bold py-4 rounded-full">
-            ADD TO CART
-          </button>
+          {product?.[0] && (
+            <button
+              onClick={() => dispatch(add(product[0]))}
+              className="w-full bg-blue-700 text-white text-xs font-bold py-4 rounded-full"
+            >
+              ADD TO CART
+            </button>
+          )}
         </div>
         {/* talk to headphone guru  */}
         <div className="flex justify-center items-center  text-xs mt-5">

@@ -1,16 +1,21 @@
-"use client"
+"use client";
 
 import { useGetProductGridQuery } from "@/store/apiSlice";
+import Link from "next/link";
 import React from "react";
 
 const ProductGrid = () => {
-  const {data: products} = useGetProductGridQuery()
-  console.log("grid", products)
+  const { data: products } = useGetProductGridQuery();
+  console.log("grid", products);
   return (
     <section className="container mx-auto mb-5 grid grid-cols-2 product-grid md:scale-y-[.80] md:scale-x-95 cursor-pointer gap-3 p-4 md:px-10 ">
       {/* cell 1  */}
-      {products?.map((product)=> (
-        <div className="relative w-full flex justify-center grid-item overflow-hidden rounded-2xl drop-shadow-xl transition-transform duration-200 ease-out" key={product.id}>
+      {products?.map((product) => (
+        <Link
+          href={`product/${product?.slug}`}
+          className="relative w-full flex justify-center grid-item overflow-hidden rounded-2xl drop-shadow-xl transition-transform duration-200 ease-out"
+          key={product.id}
+        >
           <img
             className="w-full h-full rounded-2xl object-cover zoom-in"
             src={`${product?.grid_image}width=1500`}
@@ -38,7 +43,7 @@ const ProductGrid = () => {
               {product?.grid_text}
             </p>
           </div>
-      </div>
+        </Link>
       ))}
 
       {/* cell 2 & 3 */}

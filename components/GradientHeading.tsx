@@ -1,6 +1,6 @@
 import React from "react";
 
-const GrdientHeading = () => {
+const GradientHeading = () => {
   return (
     <div className="lg:max-w-[55%]">
       <span className="text-gradient text-3xl md:text-5xl font-extrabold tracking-wider ">
@@ -10,4 +10,4 @@ const GrdientHeading = () => {
   );
 };
 
-export default GrdientHeading;
+export default GradientHeading;

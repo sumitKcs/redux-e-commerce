@@ -28,6 +28,10 @@ export const apiSlice = createApi({
       query: (slug) => `/products/${slug}`,
       providesTags: ["Product"],
     }),
+    getAllProducts: builder.query<Product[], void>({
+      query: () => `/allProducts`,
+      providesTags: ["Product"],
+    }),
   }),
 });
 
@@ -39,4 +43,5 @@ export const {
   useGetPeopleGridQuery,
   useGetTestimononialsQuery,
   useGetProductBySlugQuery,
+  useGetAllProductsQuery,
 } = apiSlice;
