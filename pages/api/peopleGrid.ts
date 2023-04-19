@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
 try {
-    const response = await fetch('http://localhost:3004/people_grid')
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/people_grid`)
     const data = await response.json()
   
     res.status(200).json(data);

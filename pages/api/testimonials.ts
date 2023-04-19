@@ -5,7 +5,9 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const response = await fetch("http://localhost:3004/testimonials");
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/testimonials`
+    );
     const data = await response.json();
 
     res.status(200).json(data);

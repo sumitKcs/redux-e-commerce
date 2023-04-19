@@ -25,16 +25,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/product/cart`,
       metadata: {
         email: email,
-        images: JSON.stringify(cartItems.map((item: Products) => item.image))
+        images: JSON.stringify(cartItems.map((item: Product) => item.images))
       },
-      line_items: cartItems.map((item: Products) => ({
+      line_items: cartItems.map((item: Product) => ({
         price_data: {
           currency: "inr",
           unit_amount: item.price * 100,
           product_data: {
-            name: item.title,
-            description: item.description,
-            images: [item.image],
+            name: item.sku,
+            // description: item.description,
+            // images: [item.image],
           },
         },
         adjustable_quantity: {

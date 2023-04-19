@@ -10,7 +10,7 @@ export default async function handler(
 
   try {
     const response = await fetch(
-      `http://localhost:3004/all_products?slug=${slug}`
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/all_products?slug=${slug}`
     );
     const data = await response.json();
 

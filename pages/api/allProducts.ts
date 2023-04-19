@@ -5,7 +5,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const response = await fetch("http://localhost:3004/all_products");
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all_products`);
     const result = await response.json();
 
     const data = result.map((product: Product) => ({
