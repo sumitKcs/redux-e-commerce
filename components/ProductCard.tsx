@@ -35,8 +35,9 @@ const ProductCard = ({ product }: { product: Product }) => {
       />
 
       <div className=" absolute top-0 mt-5">
-        {tags.map((tag) => (
+        {tags.map((tag, idx) => (
           <span
+            key={idx}
             className={` ${
               tag === "New" ? "bg-[#6eb0ff]" : "bg-[#6713d2]"
             }  text-white text-xs text-extrabold px-3 py-1 rounded-full font-mono`}

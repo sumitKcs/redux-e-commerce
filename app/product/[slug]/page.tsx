@@ -7,6 +7,9 @@ import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import { CURRENCY } from "@/lib/currency";
 import { useDispatch } from "react-redux";
 import { add } from "@/store/cartSlice";
+import { addDoc, collection } from "firebase/firestore";
+import { useSession } from "next-auth/react";
+import { db } from "@/firebase";
 
 type Props = {
   params: {
@@ -15,6 +18,7 @@ type Props = {
 };
 
 const ProductDetails = ({ params }: Props) => {
+  const { data: session } = useSession();
   const dispatch = useDispatch();
   const slug = params.slug;
   const { data: product } = useGetProductBySlugQuery(slug);
@@ -29,6 +33,14 @@ const ProductDetails = ({ params }: Props) => {
     product ? product[0].dropped_price : 0,
     CURRENCY.INR
   );
+
+  const handleAddToCart = async (product: Product) => {
+    dispatch(add(product));
+
+    await addDoc(collection(db, "users", session?.user?.email!, "cart"), {
+      ...product,
+    });
+  };
 
   if (product?.[0]?.images?.length === 0) {
     return <p className="text-7xl text-black">no images</p>;
@@ -55,7 +67,7 @@ const ProductDetails = ({ params }: Props) => {
         <p className="text-sm text-gray-500 font-bold tracking-wider">
           {product?.[0]?.category}
         </p>
-        <p className="ml-[-10px] flex items-center text-sm">
+        <div className="ml-[-10px] flex items-center text-sm">
           <span>
             <RatingStar id="123" size={18} rating={product?.[0]?.stars} />
           </span>
@@ -63,7 +75,7 @@ const ProductDetails = ({ params }: Props) => {
             <span>{product?.[0]?.stars}</span>{" "}
             <span>({product?.[0]?.total_ratings})</span>
           </span>
-        </p>
+        </div>
         {/* price details  */}
         <div className="flex flex-col md:flex-row justify-between">
           <div>
@@ -117,7 +129,7 @@ const ProductDetails = ({ params }: Props) => {
         <div className="flex justify-center items-center">
           {product?.[0] && (
             <button
-              onClick={() => dispatch(add(product[0]))}
+              onClick={() => handleAddToCart(product?.[0])}
               className="w-full bg-blue-700 text-white text-xs font-bold py-4 rounded-full"
             >
               ADD TO CART

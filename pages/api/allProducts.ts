@@ -6,7 +6,12 @@ export default async function handler(
 ) {
   try {
     const response = await fetch("http://localhost:3004/all_products");
-    const data = await response.json();
+    const result = await response.json();
+
+    const data = result.map((product: Product) => ({
+      ...product,
+      cartQuantity: 0,
+    }));
 
     res.status(200).json(data);
   } catch (err: any) {

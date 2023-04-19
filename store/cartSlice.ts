@@ -8,7 +8,9 @@ const initialState: {
   cartTotalQuantity: number;
   cartTotalAmount: number;
 } = {
-  cartItems: [] ?? JSON.parse(localStorage.getItem("cart")!),
+  cartItems: localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart")!)
+    : [],
 
   // typeof window === "undefined"
   //   ? []
@@ -31,7 +33,7 @@ export const cartSlice = createSlice({
         );
       }
       if (itemIndex >= 0) {
-        state.cartItems[itemIndex].cartQuantity! += 1;
+        state.cartItems[itemIndex].cartQuantity += 1;
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);

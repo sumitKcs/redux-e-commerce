@@ -6,6 +6,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { useSession } from "next-auth/react";
 import { db } from "@/firebase";
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import { signIn } from "next-auth/react";
 
 function NavBar() {
   //subscribing the state to monitor changes
@@ -25,7 +26,7 @@ function NavBar() {
           <a href="/search" aria-controls="search-drawer">
             <svg
               role="presentation"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               focusable="false"
               width="22"
               height="22"
@@ -41,8 +42,8 @@ function NavBar() {
               <path
                 d="m16 15 3 3"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
             </svg>
           </a>
@@ -170,7 +171,7 @@ function NavBar() {
         </div>
 
         {/* icons  */}
-        <div className=" flex justify-center items-center gap-5 text-gray-600">
+        <div className=" flex justify-center items-center gap-5 text-gray-600 cursor-pointer">
           <a
             href="/search"
             className="hidden lg:flex"
@@ -178,7 +179,7 @@ function NavBar() {
           >
             <svg
               role="presentation"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               focusable="false"
               width="22"
               height="22"
@@ -194,15 +195,15 @@ function NavBar() {
               <path
                 d="m16 15 3 3"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
             </svg>
           </a>
-          <a href="/account">
+          <p onClick={() => signIn("google")}>
             <svg
               role="presentation"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               focusable="false"
               width="22"
               height="22"
@@ -219,14 +220,15 @@ function NavBar() {
                 d="M3.5 19c1.421-2.974 4.247-5 7.5-5s6.079 2.026 7.5 5"
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
+                strokeLinecap="round"
               ></path>
             </svg>
-          </a>
-          <a href="/cart" aria-controls="cart-drawer">
+          </p>
+          {/* cart icon  */}
+          <Link href="/cart" aria-controls="cart-drawer">
             <svg
               role="presentation"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               focusable="false"
               width="22"
               height="22"
@@ -236,11 +238,12 @@ function NavBar() {
                 d="M11 7H3.577A2 2 0 0 0 1.64 9.497l2.051 8A2 2 0 0 0 5.63 19H16.37a2 2 0 0 0 1.937-1.503l2.052-8A2 2 0 0 0 18.422 7H11Zm0 0V1"
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
             </svg>
-          </a>
+          </Link>
+          <span>{cartItem}</span>
         </div>
       </div>
     </nav>
