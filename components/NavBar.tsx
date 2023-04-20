@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import { db } from "@/firebase";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { signIn } from "next-auth/react";
+import { useState } from "react";
 
 function NavBar() {
   //subscribing the state to monitor changes
@@ -14,8 +15,6 @@ function NavBar() {
   const [value] = useCollection(
     session && collection(db, "users", session?.user?.email!, "cart")
   );
-  const cartItem = value?.docs.map((doc) => doc.id)?.["0"];
-  console.log("cartItemDoc: ", cartItem);
 
   return (
     <nav role={"menubar"} className=" .nav-sticky ">
@@ -225,25 +224,29 @@ function NavBar() {
             </svg>
           </p>
           {/* cart icon  */}
-          <Link href="/cart" aria-controls="cart-drawer">
-            <svg
-              role="presentation"
-              strokeWidth="1.5"
-              focusable="false"
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-            >
-              <path
-                d="M11 7H3.577A2 2 0 0 0 1.64 9.497l2.051 8A2 2 0 0 0 5.63 19H16.37a2 2 0 0 0 1.937-1.503l2.052-8A2 2 0 0 0 18.422 7H11Zm0 0V1"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></path>
-            </svg>
-          </Link>
-          <span>{cartItem}</span>
+          <div className="relative border">
+            <Link href="/cart" aria-controls="cart-drawer">
+              <svg
+                role="presentation"
+                strokeWidth="1.5"
+                focusable="false"
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+              >
+                <path
+                  d="M11 7H3.577A2 2 0 0 0 1.64 9.497l2.051 8A2 2 0 0 0 5.63 19H16.37a2 2 0 0 0 1.937-1.503l2.052-8A2 2 0 0 0 18.422 7H11Zm0 0V1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </svg>
+            </Link>
+            <span className="absolute bg-blue-700 text-white font-bold rounded-[50%] px-2 left-3 bottom-2 text-center scale-[.85]">
+              {value?.docs[0].data().items.length}
+            </span>
+          </div>
         </div>
       </div>
     </nav>

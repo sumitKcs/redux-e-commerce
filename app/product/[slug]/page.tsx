@@ -7,7 +7,13 @@ import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import { CURRENCY } from "@/lib/currency";
 import { useDispatch } from "react-redux";
 import { add } from "@/store/cartSlice";
-import { addDoc, collection } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { db } from "@/firebase";
 
@@ -37,9 +43,34 @@ const ProductDetails = ({ params }: Props) => {
   const handleAddToCart = async (product: Product) => {
     dispatch(add(product));
 
-    await addDoc(collection(db, "users", session?.user?.email!, "cart"), {
-      ...product,
-    });
+    if (localStorage.getItem("docIdToDelete")) {
+      try {
+        const lastCartId = localStorage.getItem("docIdToDelete");
+        const ref = doc(
+          db,
+          "users",
+          session?.user?.email!,
+          "cart",
+          lastCartId!
+        );
+        await deleteDoc(ref);
+      } catch (err) {
+        localStorage.removeItem("docIdToDelete");
+      }
+    }
+    if (localStorage.getItem("cart")) {
+      const items = JSON.parse(localStorage?.getItem("cart")!);
+
+      let docId = await addDoc(
+        collection(db, "users", session?.user?.email!, "cart"),
+        {
+          items,
+          timestamp: serverTimestamp(),
+        }
+      );
+
+      localStorage.setItem("docIdToDelete", docId.id);
+    }
   };
 
   if (product?.[0]?.images?.length === 0) {
