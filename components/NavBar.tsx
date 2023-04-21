@@ -252,7 +252,7 @@ function NavBar() {
           </div>
         </div>
       </nav>
-      <CartDrawer isVisible={displayModal} />
+      <CartDrawer isVisible={displayModal} setIsVisible={setDisplayModal} />
     </>
   );
 }
