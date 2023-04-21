@@ -21,7 +21,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               <path
@@ -198,7 +198,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               <path
@@ -402,7 +402,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -598,7 +598,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -856,7 +856,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -971,8 +971,8 @@ const StartHere = () => {
               <line
                 fill="none"
                 stroke="#444444"
-                stroke-width="1.946"
-                stroke-miterlimit="10"
+                strokeWidth="1.946"
+                strokeMiterlimit="10"
                 x1="22.4"
                 y1="71.2"
                 x2="27.5"
@@ -981,8 +981,8 @@ const StartHere = () => {
               <line
                 fill="none"
                 stroke="#444444"
-                stroke-width="1.946"
-                stroke-miterlimit="10"
+                strokeWidth="1.946"
+                strokeMiterlimit="10"
                 x1="52.8"
                 y1="61.2"
                 x2="48"
@@ -1079,8 +1079,8 @@ const StartHere = () => {
                 <line
                   fill="none"
                   stroke="#444444"
-                  stroke-width="1.946"
-                  stroke-miterlimit="10"
+                  strokeWidth="1.946"
+                  strokeMiterlimit="10"
                   x1="22.4"
                   y1="71.2"
                   x2="27.5"
@@ -1089,8 +1089,8 @@ const StartHere = () => {
                 <line
                   fill="none"
                   stroke="#444444"
-                  stroke-width="1.946"
-                  stroke-miterlimit="10"
+                  strokeWidth="1.946"
+                  strokeMiterlimit="10"
                   x1="52.8"
                   y1="61.2"
                   x2="48"
@@ -1114,7 +1114,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
             >
               <polygon
                 display="inline"
@@ -1206,8 +1206,8 @@ const StartHere = () => {
                 display="inline"
                 fill="none"
                 stroke="#000000"
-                stroke-width="0.419"
-                stroke-miterlimit="10"
+                strokeWidth="0.419"
+                strokeMiterlimit="10"
                 d="M18.6,46.9l0.5,1.9c0,0,0.4,0.4,1.2,0.2c0.7-0.2,1.1-0.8,1.1-0.8L20.7,46L18.6,46.9z"
               ></path>
               <path
@@ -1376,8 +1376,8 @@ const StartHere = () => {
                 <path
                   fill="none"
                   stroke="#000000"
-                  stroke-width="0.419"
-                  stroke-miterlimit="10"
+                  strokeWidth="0.419"
+                  strokeMiterlimit="10"
                   d="M18.6,46.9l0.5,1.9c0,0,0.4,0.4,1.2,0.2c0.7-0.2,1.1-0.8,1.1-0.8L20.7,46L18.6,46.9z"
                 ></path>
                 <path
@@ -1462,7 +1462,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -1789,7 +1789,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -1839,9 +1839,9 @@ const StartHere = () => {
               <path
                 fill="none"
                 stroke="#444444"
-                stroke-width="2.434"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
+                strokeWidth="2.434"
+                strokeLinecap="round"
+                strokeMiterlimit="10"
                 d="M54.8,22.6c0,0,8.7,6.8,9,14.3c0.2,7.6-7.4,11.3-13.6,13.5"
               ></path>
               <polygon
@@ -1927,9 +1927,9 @@ const StartHere = () => {
                 <path
                   fill="none"
                   stroke="#444444"
-                  stroke-width="2.434"
-                  stroke-linecap="round"
-                  stroke-miterlimit="10"
+                  strokeWidth="2.434"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
                   d="M54.8,22.6c0,0,8.7,6.8,9,14.3c0.2,7.6-7.4,11.3-13.6,13.5"
                 ></path>
                 <polygon
@@ -1970,7 +1970,6 @@ const StartHere = () => {
               </g>
             </svg>
             <p>
-              {" "}
               Portable Amps <br /> &amp; DACs
             </p>
           </a>
@@ -1988,7 +1987,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               <path
@@ -2165,7 +2164,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               <path
@@ -2369,7 +2368,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -2565,7 +2564,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -2823,7 +2822,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -2938,8 +2937,8 @@ const StartHere = () => {
               <line
                 fill="none"
                 stroke="#444444"
-                stroke-width="1.946"
-                stroke-miterlimit="10"
+                strokeWidth="1.946"
+                strokeMiterlimit="10"
                 x1="22.4"
                 y1="71.2"
                 x2="27.5"
@@ -2948,8 +2947,8 @@ const StartHere = () => {
               <line
                 fill="none"
                 stroke="#444444"
-                stroke-width="1.946"
-                stroke-miterlimit="10"
+                strokeWidth="1.946"
+                strokeMiterlimit="10"
                 x1="52.8"
                 y1="61.2"
                 x2="48"
@@ -3046,8 +3045,8 @@ const StartHere = () => {
                 <line
                   fill="none"
                   stroke="#444444"
-                  stroke-width="1.946"
-                  stroke-miterlimit="10"
+                  strokeWidth="1.946"
+                  strokeMiterlimit="10"
                   x1="22.4"
                   y1="71.2"
                   x2="27.5"
@@ -3056,8 +3055,8 @@ const StartHere = () => {
                 <line
                   fill="none"
                   stroke="#444444"
-                  stroke-width="1.946"
-                  stroke-miterlimit="10"
+                  strokeWidth="1.946"
+                  strokeMiterlimit="10"
                   x1="52.8"
                   y1="61.2"
                   x2="48"
@@ -3081,7 +3080,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
             >
               <polygon
                 display="inline"
@@ -3173,8 +3172,8 @@ const StartHere = () => {
                 display="inline"
                 fill="none"
                 stroke="#000000"
-                stroke-width="0.419"
-                stroke-miterlimit="10"
+                strokeWidth="0.419"
+                strokeMiterlimit="10"
                 d="M18.6,46.9l0.5,1.9c0,0,0.4,0.4,1.2,0.2c0.7-0.2,1.1-0.8,1.1-0.8L20.7,46L18.6,46.9z"
               ></path>
               <path
@@ -3343,8 +3342,8 @@ const StartHere = () => {
                 <path
                   fill="none"
                   stroke="#000000"
-                  stroke-width="0.419"
-                  stroke-miterlimit="10"
+                  strokeWidth="0.419"
+                  strokeMiterlimit="10"
                   d="M18.6,46.9l0.5,1.9c0,0,0.4,0.4,1.2,0.2c0.7-0.2,1.1-0.8,1.1-0.8L20.7,46L18.6,46.9z"
                 ></path>
                 <path
@@ -3429,7 +3428,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -3756,7 +3755,7 @@ const StartHere = () => {
               width="65px"
               height="65px"
               viewBox="0 0 75 75"
-              enable-background="new 0 0 75 75"
+              enableBackground="new 0 0 75 75"
               xmlSpace="preserve"
             >
               {" "}
@@ -3806,9 +3805,9 @@ const StartHere = () => {
               <path
                 fill="none"
                 stroke="#444444"
-                stroke-width="2.434"
-                stroke-linecap="round"
-                stroke-miterlimit="10"
+                strokeWidth="2.434"
+                strokeLinecap="round"
+                strokeMiterlimit="10"
                 d="M54.8,22.6c0,0,8.7,6.8,9,14.3c0.2,7.6-7.4,11.3-13.6,13.5"
               ></path>
               <polygon
@@ -3894,9 +3893,9 @@ const StartHere = () => {
                 <path
                   fill="none"
                   stroke="#444444"
-                  stroke-width="2.434"
-                  stroke-linecap="round"
-                  stroke-miterlimit="10"
+                  strokeWidth="2.434"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
                   d="M54.8,22.6c0,0,8.7,6.8,9,14.3c0.2,7.6-7.4,11.3-13.6,13.5"
                 ></path>
                 <polygon

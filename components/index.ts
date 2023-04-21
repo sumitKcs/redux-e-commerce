@@ -19,11 +19,13 @@ import PeopleGrid from "./PeopleGrid";
 import Testimonials from "./Testimonials";
 import Newsletter from "./Newsletter";
 import Footer from "./Footer";
+import cartDrawer from "./cartDrawer";
 
 export {
   NotificationBar,
   NavBar,
   Header,
+  cartDrawer,
   Card,
   StoreProvider,
   Skeleton,

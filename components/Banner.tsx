@@ -24,20 +24,22 @@ const Banner = () => {
         : setIndex((prev) => prev + 1);
     }
   };
+  let timeRef: string | number | NodeJS.Timer | undefined;
+  // (() => {
+  //   timeRef = setInterval(() => {
+  //     if (products?.length) {
+  //       let sliderIndex = index + 1;
+  //       if (index === products?.length - 1) sliderIndex = 0;
+
+  //       setIndex(sliderIndex);
+  //     }
+  //   }, 5000);
+  // })();
   useEffect(() => {
-    const timeRef = setInterval(() => {
-      if (products?.length) {
-        let sliderIndex = index + 1;
-        if (index === products?.length - 1) sliderIndex = 0;
-
-        setIndex(sliderIndex);
-      }
-    }, 3000);
-
     return () => {
       clearInterval(timeRef);
     };
-  }, [index]);
+  }, []);
 
   return (
     <div className="w-full h-full">
@@ -45,7 +47,7 @@ const Banner = () => {
         <div className="carousel-item relative w-full">
           {/* desktop image */}
           <img
-            className="w-full object-cover h-full lg:h-auto hidden md:block "
+            className="w-full object-cover h-full lg:h-auto hidden md:block ease-in duration-700"
             src={`${product?.banner_image.desktop}&width=2160`}
             alt={product?.banner_text}
             srcSet={`
@@ -73,7 +75,7 @@ const Banner = () => {
 
           {/* mobile image  */}
           <img
-            className="w-full object-cover h-full lg:h-auto  md:hidden "
+            className="w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700"
             src={`${product?.banner_image.mobile}&width=1200`}
             alt={product?.banner_text}
             srcSet={`
@@ -95,7 +97,7 @@ const Banner = () => {
             sizes="100vw"
           ></img>
 
-          <div className="text-[#FEFEFF] absolute z-99999 top-0 mt-10 md:right-0 md:mt-[20%] px-4 md:w-[30%]  md:text-right md:mr-14 ">
+          <div className="text-[#FEFEFF] absolute z-1 top-0 mt-10 md:right-0 md:mt-[20%] px-4 md:w-[30%]  md:text-right md:mr-14 ">
             <p className=" text-extrabold tracking-widest">
               {product?.banner_slogan}
             </p>
