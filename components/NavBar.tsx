@@ -1,16 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import CartDrawer from "./cartDrawer";
 import useGetCartItemsCount from "@/lib/useGetCartItemsCount";
+import { addDoc, collection, query, where } from "firebase/firestore";
+import { db } from "@/firebase";
+import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 
 function NavBar() {
+  const { data: session } = useSession();
   const [displayModal, setDisplayModal] = useState(false);
   const cartItemsCount = useGetCartItemsCount();
+  const cartItems = JSON.parse(localStorage.getItem("cart")!);
+  if (cartItems && session?.user?.email) {
+    updateCartDataToFirestore(cartItems, session.user.email);
+    localStorage.removeItem("cart");
+  }
 
   return (
     <>
@@ -196,7 +205,11 @@ function NavBar() {
                 ></path>
               </svg>
             </a>
-            <p onClick={() => signIn("google")}>
+            <p
+              onClick={() =>
+                session?.user?.email ? signOut() : signIn("google")
+              }
+            >
               <svg
                 role="presentation"
                 strokeWidth="1.5"
@@ -224,7 +237,7 @@ function NavBar() {
             <div
               role="button"
               onClick={() => setDisplayModal(!displayModal)}
-              className="relative border"
+              className="relative "
               aria-controls="cart-drawer"
             >
               <p role="button" aria-label="open cart drawer">
@@ -246,7 +259,7 @@ function NavBar() {
                 </svg>
               </p>
               <span className="absolute bg-blue-700 text-white font-bold rounded-[50%] px-2 left-3 bottom-2 text-center scale-[.85]">
-                {cartItemsCount}
+                {cartItemsCount ?? 0}
               </span>
             </div>
           </div>

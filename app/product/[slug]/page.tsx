@@ -43,7 +43,7 @@ const ProductDetails = ({ params }: Props) => {
   const handleAddToCart = async (product: Product) => {
     dispatch(add(product));
 
-    if (localStorage.getItem("docIdToDelete")) {
+    if (session && localStorage.getItem("docIdToDelete")) {
       try {
         const lastCartId = localStorage.getItem("docIdToDelete");
         const ref = doc(
@@ -58,7 +58,7 @@ const ProductDetails = ({ params }: Props) => {
         localStorage.removeItem("docIdToDelete");
       }
     }
-    if (localStorage.getItem("cart")) {
+    if (session && localStorage.getItem("cart")) {
       const items = JSON.parse(localStorage?.getItem("cart")!);
 
       let docId = await addDoc(

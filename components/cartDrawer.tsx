@@ -108,7 +108,7 @@ const cartDrawer = ({
   useEffect(() => {
     dispatch(getTotal());
   }, []);
-  return (
+  return cartItemsCount ? (
     <div
       aria-label="modal"
       aria-modal={isVisible}
@@ -128,7 +128,7 @@ const cartDrawer = ({
                 aria-describedby={`${cartItemsCount} cart items`}
                 className="bg-blue-700 text-white font-bold rounded-[50%] px-3 py-1  text-center scale-[.70] flex items-center"
               >
-                {cartItemsCount}
+                {cartItemsCount ?? 0}
               </span>
             </div>
             <div>
@@ -226,6 +226,72 @@ const cartDrawer = ({
             >
               <LockClosedIcon className="w-4 h-4" />
               CHECKOUT
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div
+      aria-label="modal"
+      aria-modal={isVisible}
+      className={`fixed top-0 left-0 w-full h-full z-50 overflow-auto  justify-center md:justify-end  p-3 lg:p-6 ${
+        isVisible ? "flex" : "hidden"
+      } backdrop-brightness-50`}
+    >
+      <div
+        aria-label="modal-content"
+        className={` w-full md:w-[70%] lg:w-[40%] bg-white rounded-lg p-5 lg:p-10 flex flex-col `}
+      >
+        <div className="text-lg font-bold flex justify-end">
+          <div>
+            <XMarkIcon
+              onClick={() => setIsVisible(false)}
+              className="w-6 h-6 text-gray-800 cursor-pointer"
+            />
+          </div>
+        </div>
+        <div className="h-full flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center gap-5">
+            {/* cart icon  */}
+            <div
+              role="button"
+              className="relative scale-125"
+              aria-controls="cart-drawer"
+            >
+              <p role="button" aria-label="open cart drawer">
+                <svg
+                  role="presentation"
+                  strokeWidth="1.5"
+                  focusable="false"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                >
+                  <path
+                    d="M11 7H3.577A2 2 0 0 0 1.64 9.497l2.051 8A2 2 0 0 0 5.63 19H16.37a2 2 0 0 0 1.937-1.503l2.052-8A2 2 0 0 0 18.422 7H11Zm0 0V1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></path>
+                </svg>
+              </p>
+              <span className="absolute bg-blue-700 text-white font-bold rounded-[50%] px-2 left-3 bottom-2 text-center scale-[.85]">
+                {cartItemsCount ?? 0}
+              </span>
+            </div>
+
+            {/* cart empty msg  */}
+            <div className="text-xl font-extrabold tracking-widest">
+              Your cart is empty
+            </div>
+            {/* continue shoppping button */}
+            <div
+              role="button"
+              className="bg-[#3C07FF] px-12 py-4 rounded-full text-white text-sm tracking-wider font-bold"
+            >
+              <Link href="/">CONTINUE SHOPPING</Link>
             </div>
           </div>
         </div>
