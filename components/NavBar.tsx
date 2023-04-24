@@ -4,11 +4,9 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartDrawer from "./cartDrawer";
 import useGetCartItemsCount from "@/lib/useGetCartItemsCount";
-import { addDoc, collection, query, where } from "firebase/firestore";
-import { db } from "@/firebase";
 import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 
 function NavBar() {
@@ -16,10 +14,13 @@ function NavBar() {
   const [displayModal, setDisplayModal] = useState(false);
   const cartItemsCount = useGetCartItemsCount();
   const cartItems = JSON.parse(localStorage.getItem("cart")!);
-  if (cartItems && session?.user?.email) {
-    updateCartDataToFirestore(cartItems, session.user.email);
-    localStorage.removeItem("cart");
-  }
+  console.log("user session:", session?.user?.email);
+  useEffect(() => {
+    if (cartItems && session?.user?.email) {
+      updateCartDataToFirestore(cartItems, session.user.email);
+      localStorage.removeItem("cart");
+    }
+  }, [session]);
 
   return (
     <>

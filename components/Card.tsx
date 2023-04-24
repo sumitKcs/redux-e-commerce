@@ -16,7 +16,7 @@ import { useSession } from "next-auth/react";
 import { RootState } from "@/store/store";
 
 type Props = {
-  product: Products;
+  product: Product;
 };
 
 function Card({ product }: Props) {
@@ -75,12 +75,12 @@ function Card({ product }: Props) {
         } `}
       >
         <img
-          alt={product.title}
+          alt={product.sku}
           width={150}
           height={150}
           decoding="async"
           onLoad={imageHandle}
-          src={product.image}
+          src={product.images[0]}
         />
       </div>
       <div
@@ -92,7 +92,7 @@ function Card({ product }: Props) {
       </div>
 
       <div className="w-full flex flex-col justify-center items-center text-center gap-2">
-        <h4 className="text-xs">{product.title}</h4>
+        <h4 className="text-xs">{product.sku}</h4>
         <h5>${product.price}</h5>
 
         <button

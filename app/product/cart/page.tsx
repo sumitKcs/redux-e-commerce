@@ -4,18 +4,16 @@ import { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { add, remove, sub } from "@/store/cartSlice";
+// import { add, remove, sub } from "@/store/cartSlice";
 import CheckoutButton from "../../../components/CheckoutButton";
 
 function cart() {
   const product = useSelector((state: RootState) => state.cart.cartItems);
   const dispatch = useDispatch();
 
-  
-
   return (
     <section className="w-full bg-[#f7f7f5] flex flex-col justify-start mb-40">
-      <div className="flex flex-col justify-center items-center w-screen gap-5 mt-5">
+      {/* <div className="flex flex-col justify-center items-center w-screen gap-5 mt-5">
         {product.map((item, key) => {
           return (
             <div
@@ -60,7 +58,7 @@ function cart() {
             </div>
           );
         })}
-      </div>
+      </div> */}
       <div className="w-full fixed bottom-0 left-0 bg-white">
         <CheckoutButton />
       </div>

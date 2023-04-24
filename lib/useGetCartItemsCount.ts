@@ -11,7 +11,18 @@ const useGetCartItemsCount = () => {
     session && collection(db, "users", session?.user?.email!, "cart")
   );
 
-  return value?.docs[0]?.data().items.length;
+  let localStorageLength;
+
+  if (localStorage.getItem("cart")) {
+    try {
+      localStorageLength = JSON.parse(localStorage.getItem("cart")!).length;
+    } catch (err) {
+      localStorageLength = "undefined";
+      localStorage.removeItem("cart");
+    }
+  }
+
+  return localStorageLength ?? value?.docs[0]?.data().items.length;
 };
 
 export default useGetCartItemsCount;

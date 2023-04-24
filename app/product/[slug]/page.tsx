@@ -79,7 +79,7 @@ const ProductDetails = ({ params }: Props) => {
   return product?.[0]?.images?.length === 0 ? (
     <p className="text-7xl text-black">no images</p>
   ) : (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 md:px-16">
+    <div className=" w-full grid grid-cols-1 md:grid-cols-2 md:px-16">
       {/* product image  */}
       <div>
         {/* <ScrollCarousel>
