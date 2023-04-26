@@ -8,9 +8,10 @@ const initialState: {
   cartTotalQuantity: number;
   cartTotalAmount: number;
 } = {
-  cartItems: localStorage?.getItem("cart")
-    ? JSON.parse(localStorage?.getItem("cart")!)
-    : [],
+  cartItems:
+    typeof window !== "undefined" && window.localStorage.getItem("cart")
+      ? JSON.parse(localStorage?.getItem("cart")!)
+      : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };
@@ -19,6 +20,10 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    setCart(state, action: PayloadAction<Product[]>) {
+      state.cartItems = action.payload;
+      localStorage.setItem("cart", JSON.stringify(state.cartItems));
+    },
     add(state, action: PayloadAction<Product>) {
       let itemIndex = -1;
       if (state.cartItems.length != 0) {
@@ -76,5 +81,6 @@ export const cartSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { add, qty, remove, removeAll, getTotal } = cartSlice.actions;
+export const { add, qty, remove, removeAll, getTotal, setCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

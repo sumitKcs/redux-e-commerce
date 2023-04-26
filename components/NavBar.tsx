@@ -3,30 +3,39 @@
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
-import { signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
 import CartDrawer from "./cartDrawer";
 import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import useGetCartItems from "@/lib/useGetCartItems";
+import { setCart } from "@/store/cartSlice";
+import { useRouter } from "next/navigation";
 
 function NavBar() {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const { data: session } = useSession();
-  const cartItemsLoc = useSelector(
-    (state: RootState) => state.cart.cartItems
-  );
+  const cartItemsLoc = useSelector((state: RootState) => state.cart.cartItems);
 
   const cartItemsDb: Product[] = useGetCartItems();
   const cartItems = session ? cartItemsDb : cartItemsLoc;
   const [displayModal, setDisplayModal] = useState(false);
   console.log("user session:", session?.user?.email);
 
+  const localStorageCartItems = JSON.parse(localStorage.getItem("cart")!);
+  if (
+    (localStorageCartItems === null || localStorageCartItems?.length === 0) &&
+    cartItemsDb?.length > 0
+  ) {
+    dispatch(setCart(cartItemsDb));
+    localStorage.setItem("cart", JSON.stringify(cartItemsDb));
+  }
+
   useEffect(() => {
-    const cartItems = localStorage.getItem("cart");
-    if (cartItems && session?.user?.email) {
-      updateCartDataToFirestore(JSON.parse(cartItems), session.user.email);
-      localStorage.removeItem("cart");
+    if (localStorageCartItems?.length > 0 && session?.user?.email) {
+      updateCartDataToFirestore(localStorageCartItems, session.user.email);
+      // localStorage.removeItem("cart");
     }
   }, [session]);
 
@@ -216,7 +225,7 @@ function NavBar() {
             </a>
             <p
               onClick={() =>
-                session?.user?.email ? signOut() : signIn("google")
+                session?.user?.email ? signOut() : router.push("/login")
               }
             >
               <svg

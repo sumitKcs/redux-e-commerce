@@ -31,13 +31,26 @@ const cartDrawer = ({
     (state: RootState) => state.cart
   );
 
-  const totalAmount = usePriceFormat(cartTotalAmount, CURRENCY.INR);
   const dispatch = useDispatch();
   const { data: session } = useSession();
 
   const cartItemsDb: Product[] = useGetCartItems();
   const cartItems = session ? cartItemsDb : cartItemsLoc;
+  if (
+    typeof window !== "undefined" &&
+    window.localStorage.getItem("cart") === null &&
+    cartItemsDb
+  ) {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }
   console.log("cartDrawer: ", cartItems);
+
+  const totalAmount = cartTotalAmount
+    ? usePriceFormat(cartTotalAmount, CURRENCY.INR)
+    : usePriceFormat(
+        cartItems.reduce((accu, cartItem) => accu + cartItem.price, 0),
+        CURRENCY.INR
+      );
 
   const itemQuantityHandler = async (product: Product, quantity: string) => {
     if (quantity === "0" || quantity === "") quantity = "1";
@@ -104,6 +117,7 @@ const cartDrawer = ({
   useEffect(() => {
     dispatch(getTotal());
   }, []);
+
   return cartItems.length > 0 ? (
     <div
       aria-label="modal"
@@ -135,11 +149,11 @@ const cartDrawer = ({
             </div>
           </div>
           {cartItems?.map((item: Product) => {
-            const { dropped_price, images, cartQuantity } = item;
+            const { dropped_price, images, cartQuantity, id } = item;
 
             const itemPrice = usePriceFormat(dropped_price, CURRENCY.INR);
             return (
-              <div className="flex gap-4">
+              <div className="flex gap-4" key={id}>
                 <div>
                   <img
                     className=" w-24 h-24 object-cover"
