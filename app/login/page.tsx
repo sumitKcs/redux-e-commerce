@@ -9,7 +9,7 @@ function Login() {
         role="button"
         onClick={() =>
           signIn("google", {
-            callbackUrl: window.location.href,
+            callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}`,
           })
         }
         className=" w-96 h-96 flex flex-col justify-center items-center  px-10 gap-16 cursor-pointer shadow-lg"
