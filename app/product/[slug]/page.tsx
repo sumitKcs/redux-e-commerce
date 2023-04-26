@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { db } from "@/firebase";
+import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 
 type Props = {
   params: {
@@ -42,34 +43,18 @@ const ProductDetails = ({ params }: Props) => {
 
   const handleAddToCart = async (product: Product) => {
     dispatch(add(product));
-
-    if (session && localStorage.getItem("docIdToDelete")) {
-      try {
-        const lastCartId = localStorage.getItem("docIdToDelete");
-        const ref = doc(
-          db,
-          "users",
-          session?.user?.email!,
-          "cart",
-          lastCartId!
-        );
-        await deleteDoc(ref);
-      } catch (err) {
-        localStorage.removeItem("docIdToDelete");
-      }
-    }
-    if (session && localStorage.getItem("cart")) {
-      const items = JSON.parse(localStorage?.getItem("cart")!);
-
-      let docId = await addDoc(
-        collection(db, "users", session?.user?.email!, "cart"),
-        {
-          items,
-          timestamp: serverTimestamp(),
+    if (session) {
+      if (typeof window !== "undefined" && window.localStorage) {
+        if (window.localStorage.getItem("cart")) {
+          const cartItems = window.localStorage.getItem("cart");
+          updateCartDataToFirestore(
+            JSON.parse(cartItems!),
+            session?.user?.email!
+          );
         }
-      );
-
-      localStorage.setItem("docIdToDelete", docId.id);
+      } else {
+        updateCartDataToFirestore([{ ...product }], session?.user?.email!);
+      }
     }
   };
 

@@ -2,23 +2,15 @@
 
 import { CURRENCY } from "@/lib/currency";
 import useGetCartItems from "@/lib/useGetCartItems";
-import useGetCartItemsCount from "@/lib/useGetCartItemsCount";
 import usePriceFormat from "@/lib/usePriceFormat";
 import { getTotal, qty, remove } from "@/store/cartSlice";
 import { useSession } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  serverTimestamp,
-} from "firebase/firestore";
-import { db } from "@/firebase";
 import { LockClosedIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { RootState } from "@/store/store";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import Link from "next/link";
+import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 
 const cartDrawer = ({
   isVisible,
@@ -27,88 +19,64 @@ const cartDrawer = ({
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const { cartTotalAmount } = useSelector((state: RootState) => state.cart);
+  const { cartTotalAmount, cartItems: cartItemsLoc } = useSelector(
+    (state: RootState) => state.cart
+  );
+
   const totalAmount = usePriceFormat(cartTotalAmount, CURRENCY.INR);
   const dispatch = useDispatch();
   const { data: session } = useSession();
-  const cartItemsCount = useGetCartItemsCount();
 
-  const cartItems = useGetCartItems();
+  const cartItemsDb: Product[] = useGetCartItems();
+  const cartItems = session ? cartItemsDb : cartItemsLoc;
   console.log("cartDrawer: ", cartItems);
 
   const itemQuantityHandler = async (product: Product, quantity: string) => {
+    if (quantity === "0" || quantity === "") quantity = "1";
     dispatch(
       qty({
         product,
-        quantity: parseInt(quantity),
+        quantity: parseInt(quantity === "" ? "1" : quantity),
       })
     );
-
-    if (localStorage.getItem("docIdToDelete")) {
-      try {
-        const lastCartId = localStorage.getItem("docIdToDelete");
-        const ref = doc(
-          db,
-          "users",
-          session?.user?.email!,
-          "cart",
-          lastCartId!
-        );
-        await deleteDoc(ref);
-      } catch (err) {
-        localStorage.removeItem("docIdToDelete");
-      }
-    }
-    if (localStorage.getItem("cart")) {
-      const items = JSON.parse(localStorage?.getItem("cart")!);
-
-      let docId = await addDoc(
-        collection(db, "users", session?.user?.email!, "cart"),
-        {
-          items,
-          timestamp: serverTimestamp(),
+    dispatch(getTotal());
+    if (session) {
+      if (typeof window !== "undefined" && window.localStorage) {
+        if (window.localStorage.getItem("cart")) {
+          const cartItems = window.localStorage.getItem("cart");
+          updateCartDataToFirestore(
+            JSON.parse(cartItems!),
+            session?.user?.email!
+          );
         }
-      );
-
-      localStorage.setItem("docIdToDelete", docId.id);
+      } else {
+        updateCartDataToFirestore([{ ...product }], session?.user?.email!);
+      }
     }
   };
 
   const removeItemHandler = async (product: Product) => {
     dispatch(remove(product));
-    if (localStorage.getItem("docIdToDelete")) {
-      try {
-        const lastCartId = localStorage.getItem("docIdToDelete");
-        const ref = doc(
-          db,
-          "users",
-          session?.user?.email!,
-          "cart",
-          lastCartId!
-        );
-        await deleteDoc(ref);
-      } catch (err) {
-        localStorage.removeItem("docIdToDelete");
+
+    if (session) {
+      if (typeof window !== "undefined" && window.localStorage) {
+        if (window.localStorage.getItem("cart")) {
+          const cartItems = window.localStorage.getItem("cart");
+          updateCartDataToFirestore(
+            JSON.parse(cartItems!),
+            session?.user?.email!
+          );
+        }
+      } else {
+        updateCartDataToFirestore([{ ...product }], session?.user?.email!);
       }
     }
-    if (localStorage.getItem("cart")) {
-      const items = JSON.parse(localStorage?.getItem("cart")!);
-
-      let docId = await addDoc(
-        collection(db, "users", session?.user?.email!, "cart"),
-        {
-          items,
-          timestamp: serverTimestamp(),
-        }
-      );
-
-      localStorage.setItem("docIdToDelete", docId.id);
-    }
   };
+
   useEffect(() => {
     dispatch(getTotal());
   }, []);
-  return cartItemsCount ? (
+  return cartItems.length > 0 ? (
     <div
       aria-label="modal"
       aria-modal={isVisible}
@@ -125,10 +93,10 @@ const cartDrawer = ({
             <div className="w-[60%] flex justify-start items-center gap-2 ">
               <span aria-label="cart"> Cart</span>
               <span
-                aria-describedby={`${cartItemsCount} cart items`}
+                aria-describedby={`${cartItems.length} cart items`}
                 className="bg-blue-700 text-white font-bold rounded-[50%] px-3 py-1  text-center scale-[.70] flex items-center"
               >
-                {cartItemsCount ?? 0}
+                {cartItems.length ?? 0}
               </span>
             </div>
             <div>
@@ -138,15 +106,8 @@ const cartDrawer = ({
               />
             </div>
           </div>
-          {cartItems?.items?.map((item: Product) => {
-            const {
-              dropped_price,
-              images,
-              sku,
-              selling_price,
-              price,
-              cartQuantity,
-            } = item;
+          {cartItems?.map((item: Product) => {
+            const { dropped_price, images, cartQuantity } = item;
 
             const itemPrice = usePriceFormat(dropped_price, CURRENCY.INR);
             return (
@@ -166,12 +127,16 @@ const cartDrawer = ({
                   <div className="flex md:flex-col gap-2 items-end">
                     <input
                       className="border border-gray-300 w-10 text-center text-gray-500 text-xs focus:outline-none rounded-md px-[.8rem] py-[.5rem]"
-                      type="text"
-                      onChange={(e) =>
-                        itemQuantityHandler(item, e.target.value)
-                      }
+                      type="number"
+                      onBlur={(e) => {
+                        let quantity = e.target.value;
+                        if (!quantity || quantity === "0")
+                          quantity = e.target.value = "1";
+                        itemQuantityHandler(item, quantity);
+                      }}
                       defaultValue={cartQuantity}
-                      aria-label="item quantity edit input box"
+                      aria-label="change quantity"
+                      min={1}
                     />
 
                     <span
@@ -192,7 +157,7 @@ const cartDrawer = ({
           <div className="flex flex-col gap-1 mt-5">
             <div className="flex justify-between font-extrabold text-lg">
               <div>Total</div>
-              <div>{totalAmount}</div>
+              <div>{totalAmount ?? 0}</div>
             </div>
             <div className="flex flex-col gap-1 text-gray-500 text-sm">
               <div>Tax included and shipping calculated at checkout</div>
@@ -278,7 +243,7 @@ const cartDrawer = ({
                 </svg>
               </p>
               <span className="absolute bg-blue-700 text-white font-bold rounded-[50%] px-2 left-3 bottom-2 text-center scale-[.85]">
-                {cartItemsCount ?? 0}
+                {cartItems.length ?? 0}
               </span>
             </div>
 

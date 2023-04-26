@@ -6,18 +6,26 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
 import CartDrawer from "./cartDrawer";
-import useGetCartItemsCount from "@/lib/useGetCartItemsCount";
 import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import useGetCartItems from "@/lib/useGetCartItems";
 
 function NavBar() {
   const { data: session } = useSession();
+  const cartItemsLoc = useSelector(
+    (state: RootState) => state.cart.cartItems
+  );
+
+  const cartItemsDb: Product[] = useGetCartItems();
+  const cartItems = session ? cartItemsDb : cartItemsLoc;
   const [displayModal, setDisplayModal] = useState(false);
-  const cartItemsCount = useGetCartItemsCount();
-  const cartItems = JSON.parse(localStorage.getItem("cart")!);
   console.log("user session:", session?.user?.email);
+
   useEffect(() => {
+    const cartItems = localStorage.getItem("cart");
     if (cartItems && session?.user?.email) {
-      updateCartDataToFirestore(cartItems, session.user.email);
+      updateCartDataToFirestore(JSON.parse(cartItems), session.user.email);
       localStorage.removeItem("cart");
     }
   }, [session]);
@@ -260,7 +268,7 @@ function NavBar() {
                 </svg>
               </p>
               <span className="absolute bg-blue-700 text-white font-bold rounded-[50%] px-2 left-3 bottom-2 text-center scale-[.85]">
-                {cartItemsCount ?? 0}
+                {cartItems.length ?? 0}
               </span>
             </div>
           </div>

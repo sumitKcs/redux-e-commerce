@@ -41,8 +41,8 @@ export const cartSlice = createSlice({
       itemIndex = state.cartItems.findIndex(
         (item) => item.slug === action.payload.product.slug
       );
-      if (state.cartItems[itemIndex].cartQuantity! <= 0) {
-        state.cartItems[itemIndex].cartQuantity! = 0;
+      if (action.payload.quantity <= 0) {
+        state.cartItems[itemIndex].cartQuantity! = 1;
       } else {
         state.cartItems[itemIndex].cartQuantity! = action.payload.quantity;
       }
