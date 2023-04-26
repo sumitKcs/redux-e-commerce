@@ -11,6 +11,13 @@ import { RootState } from "@/store/store";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import Link from "next/link";
 import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
+import { useRouter } from "next/navigation";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 const cartDrawer = ({
   isVisible,
@@ -19,6 +26,7 @@ const cartDrawer = ({
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const router = useRouter();
   const { cartTotalAmount, cartItems: cartItemsLoc } = useSelector(
     (state: RootState) => state.cart
   );
@@ -71,6 +79,26 @@ const cartDrawer = ({
         updateCartDataToFirestore([{ ...product }], session?.user?.email!);
       }
     }
+  };
+
+  const handlePayment = async () => {
+    if (!session) return router.push("/login");
+
+    const stripe = await stripePromise;
+    const { data: sessionId } = await axios.post(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/stripe`,
+      {
+        cartItems,
+        email: session?.user?.email,
+      }
+    );
+
+    if (!sessionId) return;
+
+    // // const { sessionId } = await response.json();
+    console.log("checkout response: " + sessionId);
+    const result = await stripe?.redirectToCheckout({ sessionId });
+    if (result?.error) alert(result.error.message);
   };
 
   useEffect(() => {
@@ -188,6 +216,7 @@ const cartDrawer = ({
               className="w-[50%] bg-blue-700 px-12 py-4 rounded-full flex justify-center items-center gap-1 hover:bg-gray-900 hover:scale-95"
               role="button"
               aria-labelledby="checkout button"
+              onClick={handlePayment}
             >
               <LockClosedIcon className="w-4 h-4" />
               CHECKOUT

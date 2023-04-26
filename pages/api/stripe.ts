@@ -1,15 +1,15 @@
 import { countries } from "@/lib/countries";
 import { NextApiRequest, NextApiResponse } from "next";
 
+const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
-const stripe = require('stripe')(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
-    const {cartItems, email } = req.body;
-    console.log(email, cartItems)
+    const { cartItems, email } = req.body;
+    console.log(email, cartItems);
     const transformedData = {
       mode: "payment",
       submit_type: "pay",
@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/product/cart`,
       metadata: {
         email: email,
-        images: JSON.stringify(cartItems.map((item: Product) => item.images))
+        slugs: JSON.stringify(cartItems.map((item: Product) => item.slug)),
       },
       line_items: cartItems.map((item: Product) => ({
         price_data: {
@@ -34,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           product_data: {
             name: item.sku,
             // description: item.description,
-            // images: [item.image],
+            images: [`https:${item.images[0]}`],
           },
         },
         adjustable_quantity: {
@@ -43,7 +43,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
         quantity: item.cartQuantity,
       })),
-    
     };
     try {
       // creating checkout session
