@@ -3,22 +3,12 @@ import { buffer } from "micro";
 import { adminDb } from "@/firebaseAdmin";
 import * as admin from "firebase-admin";
 
-//secure a connection to firebase admin
-// const serviceAccount = require("../../serviceAccountKey.json");
-
-// const app = !admin.apps.length
-//  ? admin.initializeApp({
-//       credential: admin.credential.cert(serviceAccount),
-//     })
-//   : admin.app();
-
 //establish a connection to stripe
 const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
-const endpointSecret =
-  "whsec_38416323c9c7513e4d9a5b10d759188bb32ff99d4f4bb845f4b193f9273b8fde";
+const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const requestBUffer = await buffer(req);
   // const payload = requestBUffer.toString();
   const signature = req.headers["stripe-signature"];
@@ -32,7 +22,7 @@ export default async (req, res) => {
       signature,
       endpointSecret
     );
-  } catch (error) {
+  } catch (error: any) {
     console.log("ERROR: ", error.message);
     return res.status(400).send("webhook error: " + error.message);
   }
@@ -47,6 +37,8 @@ export default async (req, res) => {
       adminDb
         .collection("orders")
         .doc(session.metadata.email)
+        .collection("orderId")
+        .doc(session.id)
         .set({
           orderId: session.id,
           email: session.metadata.email,
