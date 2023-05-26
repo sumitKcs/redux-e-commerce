@@ -1,7 +1,7 @@
 "use client";
 
 import { db } from "@/firebase";
-import { collection, query, where } from "firebase/firestore";
+import { collection, query, where } from "firebase/firestore";``
 import { useSession } from "next-auth/react";
 import { useCollection } from "react-firebase-hooks/firestore";
 
