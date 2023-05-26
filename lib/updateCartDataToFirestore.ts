@@ -10,7 +10,7 @@ interface Props {
   emailVerified?: boolean;
 }
 const updateCartDataToFirestore = async (
-  cartData: Product[],
+  cartData: Product[] | [],
   email: String
 ) => {
   try {

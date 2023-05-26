@@ -1,6 +1,6 @@
 "use client";
 
-import { getTotal } from "@/store/cartSlice";
+import { getTotal, removeAll } from "@/store/cartSlice";
 import { RootState } from "@/store/store";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
 import axios from "axios";
+import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -45,6 +46,9 @@ const CheckoutButton = () => {
     console.log("checkout response: " + sessionId);
     const result = await stripe?.redirectToCheckout({ sessionId });
     if (result?.error) alert(result.error.message);
+    updateCartDataToFirestore([], session?.user?.email!);
+    localStorage.removeItem("cart");
+    dispatch(removeAll());
   };
 
   /**stripe checkout code end*/
