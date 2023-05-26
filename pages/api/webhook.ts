@@ -37,12 +37,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       adminDb
         .collection("orders")
         .doc(session.metadata.email)
+        .collection("orderId")
+        .doc(session.id)
         .set({
           orderId: session.id,
           email: session.metadata.email,
+          images: JSON.parse(session.metadata.images),
           amount: session.amount_total / 100,
           amount_shipping: session.total_details.amount_shipping / 100,
-          slug: JSON.parse(session.metadata.slugs),
+          slugs: JSON.parse(session.metadata.slugs),
+          address: session.customer_details.address,
+
           timestamp: admin.firestore.FieldValue.serverTimestamp(),
         })
         .then(() => {

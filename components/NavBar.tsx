@@ -25,7 +25,8 @@ function NavBar() {
 
   const localStorageCartItems = JSON.parse(localStorage.getItem("cart")!);
   if (
-    (localStorageCartItems === null || localStorageCartItems?.length === 0) &&
+    ((typeof window !== undefined && localStorageCartItems === null) ||
+      localStorageCartItems?.length === 0) &&
     cartItemsDb?.length > 0
   ) {
     dispatch(setCart(cartItemsDb));
@@ -33,7 +34,11 @@ function NavBar() {
   }
 
   useEffect(() => {
-    if (localStorageCartItems?.length > 0 && session?.user?.email) {
+    if (
+      typeof window !== undefined &&
+      localStorageCartItems?.length > 0 &&
+      session?.user?.email
+    ) {
       updateCartDataToFirestore(localStorageCartItems, session.user.email);
       // localStorage.removeItem("cart");
     }

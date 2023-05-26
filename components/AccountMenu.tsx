@@ -29,19 +29,19 @@ const AccountMenu = () => {
         <Link
           href="/account"
           className={`hover:opacity-60 font-semibold ${
-            orderActive && "text-blue-900"
+            orderActive && "text-[#3c07ff] font-extrabold"
           } `}
         >
           Orders
         </Link>
-        <Link
+        {/* <Link
           href="/account/addresses"
           className={`hover:opacity-60 font-semibold ${
             addressesActive && "text-blue-900"
           } `}
         >
           Addresses
-        </Link>
+        </Link> */}
         <span
           onClick={() => signOut()}
           className=" hover:opacity-60  font-semibold cursor-pointer"

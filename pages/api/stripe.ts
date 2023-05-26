@@ -26,6 +26,9 @@ export default async function handler(
       metadata: {
         email: email,
         slugs: JSON.stringify(cartItems.map((item: Product) => item.slug)),
+        images: JSON.stringify(
+          cartItems.map((item: Product) => `https:${item.images[0]}`)
+        ),
       },
       line_items: cartItems.map((item: Product) => ({
         price_data: {
