@@ -37,8 +37,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       adminDb
         .collection("orders")
         .doc(session.metadata.email)
-        .collection("orderId")
-        .doc(session.id)
         .set({
           orderId: session.id,
           email: session.metadata.email,

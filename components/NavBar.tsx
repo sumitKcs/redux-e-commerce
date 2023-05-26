@@ -225,7 +225,9 @@ function NavBar() {
             </a>
             <p
               onClick={() =>
-                session?.user?.email ? signOut() : router.push("/login")
+                session?.user?.email
+                  ? router.push("/account")
+                  : router.push("/login")
               }
             >
               <svg

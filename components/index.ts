@@ -20,10 +20,12 @@ import Testimonials from "./Testimonials";
 import Newsletter from "./Newsletter";
 import Footer from "./Footer";
 import cartDrawer from "./cartDrawer";
+import AccountMenu from "./AccountMenu";
 
 export {
   NotificationBar,
   NavBar,
+  AccountMenu,
   Header,
   cartDrawer,
   Card,
@@ -44,4 +46,5 @@ export {
   Testimonials,
   Newsletter,
   Footer,
+  
 };
