@@ -1,7 +1,7 @@
 "use client";
 
 import { CURRENCY } from "@/lib/currency";
-import useGetCartItems from "@/lib/useGetCartItems";
+import getCartItems from "@/lib/getCartItems";
 import usePriceFormat from "@/lib/usePriceFormat";
 import { getTotal, qty, remove } from "@/store/cartSlice";
 import { useSession } from "next-auth/react";
@@ -34,7 +34,7 @@ const cartDrawer = ({
   const dispatch = useDispatch();
   const { data: session } = useSession();
 
-  const cartItemsDb: Product[] = useGetCartItems();
+  const cartItemsDb: Product[] = getCartItems(session?.user?.email!);
   const cartItems = session ? cartItemsDb : cartItemsLoc;
   if (
     typeof window !== "undefined" &&

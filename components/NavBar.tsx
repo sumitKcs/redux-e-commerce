@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import CartDrawer from "./cartDrawer";
 import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import useGetCartItems from "@/lib/useGetCartItems";
+import getCartItems from "@/lib/getCartItems";
 import { setCart } from "@/store/cartSlice";
 import { useRouter } from "next/navigation";
 
@@ -18,15 +18,15 @@ function NavBar() {
   const { data: session } = useSession();
   const cartItemsLoc = useSelector((state: RootState) => state.cart.cartItems);
 
-  const cartItemsDb: Product[] = useGetCartItems();
+  const cartItemsDb: Product[] = getCartItems(session?.user?.email!);
   const cartItems = session ? cartItemsDb : cartItemsLoc;
   const [displayModal, setDisplayModal] = useState(false);
   console.log("user session:", session?.user?.email);
 
   const localStorageCartItems = JSON.parse(localStorage.getItem("cart")!);
   if (
-    ((typeof window !== undefined && localStorageCartItems === null) ||
-      localStorageCartItems?.length === 0) &&
+    localStorageCartItems === null &&
+    /*  || localStorageCartItems?.length === 0) */
     cartItemsDb?.length > 0
   ) {
     dispatch(setCart(cartItemsDb));
