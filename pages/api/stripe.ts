@@ -25,9 +25,14 @@ export default async function handler(
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/product/cart`,
       metadata: {
         email: email,
-        slugs: JSON.stringify(cartItems.map((item: Product) => item.slug)),
-        images: JSON.stringify(
-          cartItems.map((item: Product) => `https:${item.images[0]}`)
+        items: JSON.stringify(
+          cartItems.map((item: Product) => ({
+            sku: item.sku,
+            slug: item.slug,
+            quantity: item.cartQuantity,
+            image: `https:${item.images[0]}`,
+            price: item.price,
+          }))
         ),
       },
       line_items: cartItems.map((item: Product) => ({

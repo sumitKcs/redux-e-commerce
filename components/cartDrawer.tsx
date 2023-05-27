@@ -1,7 +1,6 @@
 "use client";
 
 import { CURRENCY } from "@/lib/currency";
-import getCartItems from "@/lib/getCartItems";
 import usePriceFormat from "@/lib/usePriceFormat";
 import { getTotal, qty, remove } from "@/store/cartSlice";
 import { useSession } from "next-auth/react";
@@ -34,16 +33,13 @@ const cartDrawer = ({
   const dispatch = useDispatch();
   const { data: session } = useSession();
 
-  const cartItemsDb: Product[] = getCartItems(session?.user?.email!);
-  const cartItems = session ? cartItemsDb : cartItemsLoc;
+  const cartItems = cartItemsLoc;
   if (
     typeof window !== "undefined" &&
-    window.localStorage.getItem("cart") === null &&
-    cartItemsDb
+    window.localStorage.getItem("cart") === null
   ) {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }
-  console.log("cartDrawer: ", cartItems);
 
   const totalAmount = cartTotalAmount
     ? usePriceFormat(cartTotalAmount, CURRENCY.INR)

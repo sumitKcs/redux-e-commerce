@@ -43,19 +43,19 @@ const ProductDetails = ({ params }: Props) => {
 
   const handleAddToCart = async (product: Product) => {
     dispatch(add(product));
-    if (session) {
-      if (typeof window !== "undefined" && window.localStorage) {
-        if (window.localStorage.getItem("cart")) {
-          const cartItems = window.localStorage.getItem("cart");
-          updateCartDataToFirestore(
-            JSON.parse(cartItems!),
-            session?.user?.email!
-          );
-        }
-      } else {
-        updateCartDataToFirestore([{ ...product }], session?.user?.email!);
-      }
-    }
+    // if (session) {
+    //   if (typeof window !== "undefined" && window.localStorage) {
+    //     if (window.localStorage.getItem("cart")) {
+    //       const cartItems = window.localStorage.getItem("cart");
+    //       updateCartDataToFirestore(
+    //         JSON.parse(cartItems!),
+    //         session?.user?.email!
+    //       );
+    //     }
+    //   } else {
+    //     updateCartDataToFirestore([{ ...product }], session?.user?.email!);
+    //   }
+    // }
   };
 
   if (product?.[0]?.images?.length === 0) {

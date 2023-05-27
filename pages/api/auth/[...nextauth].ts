@@ -1,7 +1,8 @@
 import { FirestoreAdapter } from "@next-auth/firebase-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { adminDb } from "@/firebaseAdmin";
+import clientPromise from "@/lib/mongodb";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -11,7 +12,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  adapter: FirestoreAdapter(adminDb),
+  adapter: MongoDBAdapter(clientPromise),
   // events: {
   //   async signIn(message: any) {
   //     const { user, account, profile } = message;

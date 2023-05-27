@@ -50,3 +50,4 @@ interface Data {
   banner: Banner[];
   testimonials: Testimonial[];
 }
+

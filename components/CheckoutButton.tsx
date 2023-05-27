@@ -46,7 +46,6 @@ const CheckoutButton = () => {
     console.log("checkout response: " + sessionId);
     const result = await stripe?.redirectToCheckout({ sessionId });
     if (result?.error) alert(result.error.message);
-    updateCartDataToFirestore([], session?.user?.email!);
     localStorage.removeItem("cart");
     dispatch(removeAll());
   };

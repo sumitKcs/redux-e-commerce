@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { AnyARecord } from "dns";
 
 // Define a service using a base URL and expected endpoints
 export const apiSlice = createApi({
@@ -6,7 +7,14 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/api`,
   }),
-  tagTypes: ["Banner", "ProductGrid", "PeopleGrid", "Testimonials", "Product"],
+  tagTypes: [
+    "Banner",
+    "ProductGrid",
+    "PeopleGrid",
+    "Testimonials",
+    "Product",
+    "Orders",
+  ],
   endpoints: (builder) => ({
     getBanner: builder.query<Banner[], void>({
       query: () => `/banner`,

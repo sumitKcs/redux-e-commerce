@@ -1,14 +1,17 @@
 "use client";
 
-import useOrderData from "@/lib/useOrderData";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Account = () => {
   const { data: session } = useSession();
   const userFullName = session?.user?.name;
   const userFirstName = userFullName?.split(" ")[0];
-  const orders = useOrderData();
+  const { data: orders, error, isLoading } = useSWR("/api/orders", fetcher);
+  console.log("orders data: ", orders);
 
   return (
     <section className="flex flex-col justify-center items-center">
@@ -17,22 +20,31 @@ const Account = () => {
         <div className="flex justify-center items-center bg-[#e6e6e6] font-bold text-sm py-3 rounded-md">
           <p>My Orders</p>
         </div>
-        {orders?.map((order) => (
-          <div className="border border-gray-200 h-32 flex justify-between items-center p-6">
-            <div>
-              {order.images.map((image: string) => (
-                <Image src={image} width={100} height={100} alt={order.id} />
+        {orders?.map((order: any) => {
+          let orderedAt = new Date(order.createdAt).toDateString();
+          return (
+            <div className="border border-gray-200 h-32 flex justify-between items-center p-6">
+              {order.items.map((item: any) => (
+                <>
+                  <div>
+                    <Image
+                      src={item.image}
+                      width={100}
+                      height={100}
+                      alt={order.id}
+                    />
+                  </div>
+                  <div className="">
+                    <div>Quantity: {item.quantity}</div>
+                    <div>Shipping Charges: ₹{order.shipping_cost / 100}</div>
+                    <div>Amount: ₹{order.total_amount / 100}</div>
+                    <div>Orderd at: {orderedAt}</div>
+                  </div>
+                </>
               ))}
             </div>
-            <div className="">
-              <div>Amount: ₹{order.amount}</div>
-              <div>Shipping Charges: ₹{order.amount_shipping}</div>
-              <div>
-                Orderd at: {order.timestamp.toDate().toLocaleDateString()}
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
