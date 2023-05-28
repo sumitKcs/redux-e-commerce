@@ -16,7 +16,7 @@ function NavBar() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   const [cartModal, setCartModal] = useState(false);
-  const [searchModal, setSearchModal] = useState(true);
+  const [searchModal, setSearchModal] = useState(false);
 
   return (
     <>
@@ -26,7 +26,11 @@ function NavBar() {
           <div className="lg:hidden px-4 flex justify-start items-center gap-4">
             <Bars3Icon className="w-8 h-8" />
             <span
-              onClick={() => setSearchModal(!searchModal)}
+              onClick={() => {
+                setSearchModal(!searchModal);
+                if (searchModal) document.body.style.position = "fixed";
+                else document.body.style.position = "";
+              }}
               aria-controls="search-drawer"
             >
               <svg
@@ -137,8 +141,12 @@ function NavBar() {
 
           {/* icons  */}
           <div className=" flex justify-center items-center gap-5 text-gray-600 cursor-pointer">
-            <a
-              href="/search"
+            <span
+              onClick={() => {
+                setSearchModal(!searchModal);
+                if (searchModal) document.body.style.overflowY = "hidden";
+                else document.body.style.overflowY = "auto";
+              }}
               className="hidden lg:flex"
               aria-controls="search-drawer"
             >
@@ -164,7 +172,7 @@ function NavBar() {
                   strokeLinejoin="round"
                 ></path>
               </svg>
-            </a>
+            </span>
             <p
               onClick={() =>
                 session?.user?.email

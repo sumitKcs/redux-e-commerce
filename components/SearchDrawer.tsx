@@ -1,11 +1,9 @@
 "use client";
 
-import { CURRENCY } from "@/lib/currency";
-import getPriceFormat from "@/lib/getPriceFormat";
 import { useGetAllProductsQuery } from "@/store/apiSlice";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import SearchItemBox from "./SearchItemBox";
 
 const SearchDrawer = ({
   isVisible,
@@ -38,7 +36,7 @@ const SearchDrawer = ({
     <div
       aria-label="modal"
       aria-modal={isVisible}
-      className={`fixed top-0 left-0 w-full lg:h-full z-50 overflow-auto justify-center md:justify-end p-3 lg:p-6 ${
+      className={`fixed top-0 left-0 w-full lg:h-full z-50 overflow-hidden justify-center md:justify-end p-3 lg:p-6 ${
         isVisible ? "flex" : "hidden"
       } backdrop-brightness-50`}
     >
@@ -46,14 +44,13 @@ const SearchDrawer = ({
         aria-label="modal-content"
         className={` w-full md:w-[70%] lg:w-full bg-white rounded-lg p-5 lg:p-10 flex flex-col overflow-scroll`}
       >
-        <div className="h-[60%] flex flex-col gap-5 ">
-          <div className="text-lg font-bold flex justify-between">
-            <div>
+        <div className="w-full h-[60%] flex flex-col gap-5 ">
+          <div className="w-full text-lg font-bold flex justify-between">
+            <div className="w-full">
               <input
                 type="text"
                 placeholder="Search for..."
-                className="font-extrabold focus:outline-transparent 
-                "
+                className="w-full font-extrabold focus:outline-transparent"
                 onChange={handleSearch}
               />
             </div>
@@ -67,25 +64,9 @@ const SearchDrawer = ({
           <hr />
           <div className="flex flex-col gap-5">
             {searchedProducts &&
-              searchedProducts.map((product) => {
-                const price = getPriceFormat(product.price, CURRENCY.INR);
-                return (
-                  <div className="flex justify-start gap-10  items-center">
-                    <div>
-                      <Image
-                        src={`https:${product.images[0]}`}
-                        alt={product.sku}
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                    <div className="mr-10">
-                      <div className="font-bold">{product.sku}</div>
-                      <div className="text-blue-700 font-bold">{price}</div>
-                    </div>
-                  </div>
-                );
-              })}
+              searchedProducts.map((product) => (
+                <SearchItemBox product={product} />
+              ))}
           </div>
         </div>
       </div>

@@ -22,6 +22,7 @@ import Footer from "./Footer";
 import cartDrawer from "./cartDrawer";
 import AccountMenu from "./AccountMenu";
 import SearchDrawer from "./SearchDrawer";
+import SearchItemBox from "./SearchItemBox";
 
 export {
   NotificationBar,
@@ -30,6 +31,7 @@ export {
   Header,
   cartDrawer,
   SearchDrawer,
+  SearchItemBox,
   Card,
   StoreProvider,
   Skeleton,
