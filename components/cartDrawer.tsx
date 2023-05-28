@@ -1,7 +1,7 @@
 "use client";
 
 import { CURRENCY } from "@/lib/currency";
-import usePriceFormat from "@/lib/usePriceFormat";
+import usePriceFormat from "@/lib/getPriceFormat";
 import { getTotal, qty, remove } from "@/store/cartSlice";
 import { useSession } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";

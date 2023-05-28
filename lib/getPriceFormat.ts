@@ -1,4 +1,4 @@
-const usePriceFormat = (price: number, currency: string) => {
+const getPriceFormat = (price: number, currency: string) => {
   const priceArray = price.toString().split("");
   let result;
   let currencySymbol = "₹";
@@ -26,7 +26,7 @@ const usePriceFormat = (price: number, currency: string) => {
   return currencySymbol + " " + result;
 };
 
-export default usePriceFormat;
+export default getPriceFormat;
 
 // 1, 699;
 // 16, 699;

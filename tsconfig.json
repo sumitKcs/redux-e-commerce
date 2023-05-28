@@ -23,6 +23,17 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "store/store.ts", "store/cartSlice.ts", "pages/api/stripe.ts", "lib/usePriceFormat.ts", "custom.d.ts", "pages/api/webhook.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "store/store.ts",
+    "store/cartSlice.ts",
+    "pages/api/stripe.ts",
+    "lib/getPriceFormat.ts",
+    "custom.d.ts",
+    "pages/api/webhook.ts"
+  ],
   "exclude": ["node_modules"]
 }

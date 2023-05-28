@@ -2,7 +2,7 @@
 
 import { RatingStar } from "rating-star";
 import { useGetProductBySlugQuery } from "@/store/apiSlice";
-import usePriceFormat from "@/lib/usePriceFormat";
+import usePriceFormat from "@/lib/getPriceFormat";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import { CURRENCY } from "@/lib/currency";
 import { useDispatch } from "react-redux";

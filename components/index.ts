@@ -21,6 +21,7 @@ import Newsletter from "./Newsletter";
 import Footer from "./Footer";
 import cartDrawer from "./cartDrawer";
 import AccountMenu from "./AccountMenu";
+import SearchDrawer from "./SearchDrawer";
 
 export {
   NotificationBar,
@@ -28,6 +29,7 @@ export {
   AccountMenu,
   Header,
   cartDrawer,
+  SearchDrawer,
   Card,
   StoreProvider,
   Skeleton,
@@ -46,5 +48,4 @@ export {
   Testimonials,
   Newsletter,
   Footer,
-  
 };

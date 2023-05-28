@@ -8,13 +8,15 @@ import CartDrawer from "./cartDrawer";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
+import SearchDrawer from "./SearchDrawer";
 
 function NavBar() {
   const router = useRouter();
   const { data: session } = useSession();
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
-  const [displayModal, setDisplayModal] = useState(false);
+  const [cartModal, setCartModal] = useState(false);
+  const [searchModal, setSearchModal] = useState(true);
 
   return (
     <>
@@ -23,7 +25,10 @@ function NavBar() {
           {/* //mobile menu  */}
           <div className="lg:hidden px-4 flex justify-start items-center gap-4">
             <Bars3Icon className="w-8 h-8" />
-            <a href="/search" aria-controls="search-drawer">
+            <span
+              onClick={() => setSearchModal(!searchModal)}
+              aria-controls="search-drawer"
+            >
               <svg
                 role="presentation"
                 strokeWidth="1.5"
@@ -46,7 +51,7 @@ function NavBar() {
                   strokeLinejoin="round"
                 ></path>
               </svg>
-            </a>
+            </span>
           </div>
 
           {/* logo */}
@@ -193,7 +198,7 @@ function NavBar() {
             {/* cart icon  */}
             <div
               role="button"
-              onClick={() => setDisplayModal(!displayModal)}
+              onClick={() => setCartModal(!cartModal)}
               className="relative "
               aria-controls="cart-drawer"
             >
@@ -222,7 +227,8 @@ function NavBar() {
           </div>
         </div>
       </nav>
-      <CartDrawer isVisible={displayModal} setIsVisible={setDisplayModal} />
+      <CartDrawer isVisible={cartModal} setIsVisible={setCartModal} />
+      <SearchDrawer isVisible={searchModal} setIsVisible={setSearchModal} />
     </>
   );
 }
