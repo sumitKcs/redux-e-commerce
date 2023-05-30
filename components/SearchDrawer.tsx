@@ -50,7 +50,7 @@ const SearchDrawer = ({
               <input
                 type="text"
                 placeholder="Search for..."
-                className="w-full font-extrabold focus:outline-transparent"
+                className="bg-white w-full font-extrabold focus:outline-transparent focus:ring-transparent"
                 onChange={handleSearch}
               />
             </div>

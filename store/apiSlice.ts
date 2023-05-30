@@ -18,7 +18,7 @@ export const apiSlice = createApi({
     "Menu",
     "MobileMenu",
     "Categories",
-    "Deal",
+    "Deals",
   ],
   endpoints: (builder) => ({
     getBanner: builder.query<Banner[], void>({
@@ -49,17 +49,17 @@ export const apiSlice = createApi({
       query: () => `/menu`,
       providesTags: ["Menu"],
     }),
-    getMobileMenu: builder.query<[], void>({
-      query: () => `/mobile_menu`,
+    getMobileMenu: builder.query<string[], void>({
+      query: () => `/mobileMenu`,
       providesTags: ["MobileMenu"],
     }),
-    getCategories: builder.query<[], void>({
+    getCategories: builder.query<string[], void>({
       query: () => `/categories`,
       providesTags: ["Categories"],
     }),
-    getDeal: builder.query<string, void>({
-      query: () => `/deal`,
-      providesTags: ["Deal"],
+    getDeals: builder.query<string[], void>({
+      query: () => `/deals`,
+      providesTags: ["Deals"],
     }),
   }),
 });
@@ -76,5 +76,5 @@ export const {
   useGetMenuQuery,
   useGetMobileMenuQuery,
   useGetCategoriesQuery,
-  useGetDealQuery,
+  useGetDealsQuery,
 } = apiSlice;

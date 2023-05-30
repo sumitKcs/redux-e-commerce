@@ -1,11 +1,10 @@
 "use client";
 
-import { useGetAllProductsQuery } from "@/store/apiSlice";
+import { useGetMobileMenuQuery } from "@/store/apiSlice";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import ChevronCircleWithText from "./ChevronCircleWithText";
-import SearchItemBox from "./SearchItemBox";
 
 const MenuDrawer = ({
   isVisible,
@@ -14,31 +13,13 @@ const MenuDrawer = ({
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const [searchedProducts, setSearchedProducts] = useState<
-    Product[] | undefined
-  >();
-
-  const { data: products } = useGetAllProductsQuery();
-
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    setTimeout(() => {
-      const searchInput = e.target.value;
-      const result = matchedProducts(searchInput);
-      setSearchedProducts(result);
-      console.log("searched products:", result);
-    }, 500);
-  };
-
-  const matchedProducts = (searchInput: string) =>
-    products?.filter((product) =>
-      product.sku.toLowerCase().includes(searchInput.toLowerCase())
-    );
-  console.log("matched products: " + searchedProducts);
+  const { data: mobileMenuItems } = useGetMobileMenuQuery();
+  console.log("mobileMenu:", mobileMenuItems);
   return (
     <div
       aria-label="modal"
       aria-modal={isVisible}
-      className={`fixed top-0 h-screen w-screen z-50 overflow-hidden justify-center md:justify-end p-10 lg:p-6 ${
+      className={`fixed top-0 h-[100dvh] w-screen z-50 overflow-hidden justify-center md:justify-end p-10 lg:p-6 ${
         isVisible ? "flex" : "hidden"
       } backdrop-brightness-50`}
     >
@@ -49,45 +30,23 @@ const MenuDrawer = ({
         <div className="w-full h-[60%] flex flex-col gap-2 ">
           <div className="w-full text-lg font-bold flex justify-between">
             <div className="w-full flex flex-col justify-start">
-              <Link href="/products/sale" className="text-2xl font-extrabold">
-                <div className="flex justify-between group items-center">
-                  <div>On Sale</div>
+              {mobileMenuItems &&
+                mobileMenuItems?.map((menuItem: string) => {
+                  return (
+                    <Link
+                      href="/products/sale"
+                      className="text-2xl font-extrabold"
+                    >
+                      <div className="flex justify-between group items-center">
+                        <div>{menuItem}</div>
 
-                  <div>
-                    <ChevronCircleWithText text=""></ChevronCircleWithText>
-                  </div>
-                </div>
-              </Link>
-              <Link
-                href="/products/categories"
-                className="text-2xl font-extrabold"
-              >
-                <div className="flex justify-between group items-center">
-                  <div>Categories</div>
-
-                  <div>
-                    <ChevronCircleWithText text=""></ChevronCircleWithText>
-                  </div>
-                </div>
-              </Link>
-              <Link href="/products/sale" className="text-2xl font-extrabold">
-                <div className="flex justify-between group items-center">
-                  <div>Brands</div>
-
-                  <div>
-                    <ChevronCircleWithText text=""></ChevronCircleWithText>
-                  </div>
-                </div>
-              </Link>
-              <Link href="/products/sale" className="text-2xl font-extrabold">
-                <div className="flex justify-between group items-center">
-                  <div>Price</div>
-
-                  <div>
-                    <ChevronCircleWithText text=""></ChevronCircleWithText>
-                  </div>
-                </div>
-              </Link>
+                        <div>
+                          <ChevronCircleWithText text=""></ChevronCircleWithText>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
             </div>
             <div>
               <XMarkIcon
@@ -97,12 +56,6 @@ const MenuDrawer = ({
             </div>
           </div>
           <hr />
-          <div className="flex flex-col gap-5">
-            {searchedProducts &&
-              searchedProducts.map((product) => (
-                <SearchItemBox product={product} />
-              ))}
-          </div>
         </div>
       </div>
     </div>
