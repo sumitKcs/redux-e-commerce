@@ -51,17 +51,17 @@ const MenuDrawer = ({
             <div className="w-full flex flex-col justify-start">
               <Link href="/products/sale" className="text-2xl font-extrabold">
                 <div className="flex justify-between group items-center">
-                  <div className="border border-black">On Sale</div>
+                  <div>On Sale</div>
 
-                  <div className="border border-black">
-                    <ChevronCircleWithText
-                      text=""
-                      style="h-1 gap-1"
-                    ></ChevronCircleWithText>
+                  <div>
+                    <ChevronCircleWithText text=""></ChevronCircleWithText>
                   </div>
                 </div>
               </Link>
-              <Link href="/products/sale" className="text-2xl font-extrabold">
+              <Link
+                href="/products/categories"
+                className="text-2xl font-extrabold"
+              >
                 <div className="flex justify-between group items-center">
                   <div>Categories</div>
 

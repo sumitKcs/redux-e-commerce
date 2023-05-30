@@ -2,22 +2,18 @@ import { styled } from "@mui/system";
 import Link from "next/link";
 import React from "react";
 
-const ChevronCircleWithText = ({
-  text,
-  style,
-}: {
-  text: string;
-  style?: string;
-}) => {
+const ChevronCircleWithText = ({ text }: { text: string }) => {
   return (
     <div>
       <div
-        className={`flex justify-start lg:justify-end items-center gap-5 py-5 ${style}`}
+        className={`flex justify-start lg:justify-end items-center gap-5 py-5`}
       >
-        <div className={`group w-20 h-7 flex items-center gap-2 `}>
-          <Link href="/view-all">
-            <span className="text-sm group-hover:underline">{text}</span>
-          </Link>
+        <div className={`group w-20 h-7 flex items-center gap-2`}>
+          {text && (
+            <Link href="/view-all">
+              <span className="text-sm group-hover:underline">{text}</span>
+            </Link>
+          )}
           <span className="group-hover:bg-black group-hover:text-white rounded-full text-black bg-gray-200">
             <svg
               role="presentation"
