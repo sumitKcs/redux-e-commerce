@@ -1,11 +1,20 @@
+import { styled } from "@mui/system";
 import Link from "next/link";
 import React from "react";
 
-const ChevronCircleWithText = ({ text }: { text: string }) => {
+const ChevronCircleWithText = ({
+  text,
+  style,
+}: {
+  text: string;
+  style?: string;
+}) => {
   return (
     <div>
-      <div className=" flex justify-start lg:justify-end items-center gap-5 py-5 ">
-        <div className="group w-20 h-7 flex items-center gap-2">
+      <div
+        className={`flex justify-start lg:justify-end items-center gap-5 py-5 ${style}`}
+      >
+        <div className={`group w-20 h-7 flex items-center gap-2 `}>
           <Link href="/view-all">
             <span className="text-sm group-hover:underline">{text}</span>
           </Link>

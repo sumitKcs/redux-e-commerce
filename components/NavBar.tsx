@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
 import SearchDrawer from "./SearchDrawer";
+import MenuDrawer from "./MenuDrawer";
 
 function NavBar() {
   const router = useRouter();
@@ -17,6 +18,7 @@ function NavBar() {
 
   const [cartModal, setCartModal] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
+  const [menuModal, setMenuModal] = useState(false);
 
   return (
     <>
@@ -24,7 +26,10 @@ function NavBar() {
         <div className=" w-full grid grid-cols-3 py-4 lg:py-10 bg-[#F8F9F8] lg:grid-cols-4">
           {/* //mobile menu  */}
           <div className="lg:hidden px-4 flex justify-start items-center gap-4">
-            <Bars3Icon className="w-8 h-8" />
+            <Bars3Icon
+              onClick={() => setMenuModal(!menuModal)}
+              className="w-8 h-8"
+            />
             <span
               onClick={() => {
                 setSearchModal(!searchModal);
@@ -33,6 +38,7 @@ function NavBar() {
               }}
               aria-controls="search-drawer"
             >
+              {/* search icon  */}
               <svg
                 role="presentation"
                 strokeWidth="1.5"
@@ -237,6 +243,7 @@ function NavBar() {
       </nav>
       <CartDrawer isVisible={cartModal} setIsVisible={setCartModal} />
       <SearchDrawer isVisible={searchModal} setIsVisible={setSearchModal} />
+      <MenuDrawer isVisible={menuModal} setIsVisible={setMenuModal} />
     </>
   );
 }
