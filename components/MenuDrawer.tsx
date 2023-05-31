@@ -2,7 +2,7 @@
 
 import { useGetMobileMenuQuery } from "@/store/apiSlice";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import MenuList from "./MenuList";
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
@@ -17,7 +17,7 @@ const MenuDrawer = ({
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
   const { data: mobileMenuItems } = useGetMobileMenuQuery();
-  console.log("mobileMenu:", mobileMenuItems);
+  const [displayList, setDisplayList] = useState("menuList");
   return (
     <div
       aria-label="modal"
@@ -35,7 +35,13 @@ const MenuDrawer = ({
             <div className="w-full flex flex-col justify-start">
               {mobileMenuItems &&
                 mobileMenuItems?.map((menuItem: string) => {
-                  return <MenuList menuItem={menuItem} />;
+                  return (
+                    <MenuList
+                      menuItem={menuItem}
+                      displayList={displayList}
+                      setDisplayList={setDisplayList}
+                    />
+                  );
                 })}
             </div>
             <div>

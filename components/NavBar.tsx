@@ -150,8 +150,6 @@ function NavBar() {
             <span
               onClick={() => {
                 setSearchModal(!searchModal);
-                if (searchModal) document.body.style.overflowY = "hidden";
-                else document.body.style.overflowY = "auto";
               }}
               className="hidden lg:flex"
               aria-controls="search-drawer"

@@ -1,10 +1,24 @@
 import ChevronCircleWithText from "./ChevronCircleWithText";
+import { Dispatch, SetStateAction } from "react";
 
-const MenuList = ({ menuItem }: { menuItem: string }) => {
+const MenuList = ({
+  menuItem,
+  displayList,
+  setDisplayList,
+}: {
+  menuItem: string;
+  displayList: string;
+  setDisplayList: Dispatch<SetStateAction<string>>;
+}) => {
+  const handleMenuItemClick = () => {
+    const menuItemDiv: HTMLDivElement | null =
+      document.querySelector("[data-menu-item]");
+    console.log("menuItemClick", menuItemDiv?.innerText);
+  };
   return (
-    <div className="text-2xl font-extrabold">
+    <div className="text-2xl font-extrabold" onClick={handleMenuItemClick}>
       <div className="flex justify-between group items-center">
-        <div>{menuItem}</div>
+        <div data-menu-item={menuItem}>{menuItem}</div>
         <div>
           <ChevronCircleWithText text=""></ChevronCircleWithText>
         </div>
