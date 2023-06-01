@@ -51,6 +51,7 @@ const MenuDrawer = ({
             <div>
               <XMarkIcon
                 onClick={() => {
+                  setIsVisible(false);
                   setDisplayList(MENUITEMS.MENU);
                 }}
                 className="w-6 h-6 text-gray-800 cursor-pointer"
