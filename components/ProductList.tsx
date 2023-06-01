@@ -1,5 +1,5 @@
 const Products = ({ category }: { category: string }) => {
-  return <div>{category}</div>;
+  return <div>{decodeURIComponent(category)}</div>;
 };
 
 export default Products;

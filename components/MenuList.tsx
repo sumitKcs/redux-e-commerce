@@ -19,42 +19,20 @@ const MenuList = ({
   const router = useRouter();
   const handleMenuItemClick = (e: MouseEvent<HTMLDivElement>) => {
     const menuItemValue = e.currentTarget.getAttribute("data-menu-item");
-    console.log("onclickevent: ", menuItemValue);
     if (menuItem?.toLowerCase() === "categories") {
       setDisplayList(MENUITEMS.CATEGORIES);
-    }
-    if (menuItem?.toLowerCase() === "brands") {
+    } else if (menuItem?.toLowerCase() === "brands") {
       setDisplayList(MENUITEMS.BRANDS);
-    }
-    if (menuItem?.toLowerCase() === "price") {
+    } else if (menuItem?.toLowerCase() === "price") {
       setDisplayList(MENUITEMS.PRICES);
-    }
-    if (menuItem?.toLowerCase() === "info") {
+    } else if (menuItem?.toLowerCase() === "info") {
       setDisplayList(MENUITEMS.INFO);
-    }
-    if (menuItem?.toLowerCase() === "headphones") {
+    } else if (menuItem?.toLowerCase() === "headphones") {
       setMenuVisible(false);
       router.push("/product/categories/headphones");
-    }
-    if (menuItem?.toLowerCase() === "in-ears") {
+    } else {
       setMenuVisible(false);
-      router.push("/product/categories/inears");
-    }
-    if (menuItem?.toLowerCase() === "wireless") {
-      setMenuVisible(false);
-      router.push("/product/categories/wireless");
-    }
-    if (menuItem?.toLowerCase() === "faces & amps") {
-      setMenuVisible(false);
-      router.push("/product/categories/amps");
-    }
-    if (menuItem?.toLowerCase() === "hi-res audio players") {
-      setMenuVisible(false);
-      router.push("/product/categories/hires");
-    }
-    if (menuItem?.toLowerCase() === "home audio") {
-      setMenuVisible(false);
-      router.push("/product/categories/homeaudio");
+      router.push(`/product/categories/${menuItem}`);
     }
   };
   return (
