@@ -24,6 +24,8 @@ import AccountMenu from "./AccountMenu";
 import SearchDrawer from "./SearchDrawer";
 import SearchItemBox from "./SearchItemBox";
 import Categories from "./Categories";
+import About from "./About";
+
 export {
   NotificationBar,
   NavBar,
@@ -50,5 +52,6 @@ export {
   PeopleGrid,
   Testimonials,
   Newsletter,
+  About,
   Footer,
 };

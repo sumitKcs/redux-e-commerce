@@ -20,6 +20,12 @@ const MenuList = ({
     if (menuItem?.toLowerCase() === "brands") {
       setDisplayList(MENUITEMS.BRANDS);
     }
+    if (menuItem?.toLowerCase() === "price") {
+      setDisplayList(MENUITEMS.PRICES);
+    }
+    if (menuItem?.toLowerCase() === "info") {
+      setDisplayList(MENUITEMS.INFO);
+    }
   };
   return (
     <div

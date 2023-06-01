@@ -12,7 +12,7 @@ const Categories = ({
   setDisplayList: Dispatch<SetStateAction<string>>;
 }) => {
   return (
-    <div className="text-2xl font-extrabold">
+    <div className="text-2xl font-extrabold cursor-pointer">
       <div className="flex justify-between group items-center">
         <div data-menu-item={menuItem}>{menuItem}</div>
         <div>

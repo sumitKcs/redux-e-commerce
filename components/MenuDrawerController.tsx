@@ -5,8 +5,10 @@ import {
   useGetBrandsQuery,
   useGetCategoriesQuery,
   useGetMobileMenuQuery,
+  useGetPriceQuery,
 } from "@/store/apiSlice";
 import Categories from "./Categories";
+import { useRouter } from "next/navigation";
 
 const MenuDrawerController = ({
   displayList,
@@ -18,6 +20,8 @@ const MenuDrawerController = ({
   const { data: menu } = useGetMobileMenuQuery();
   const { data: categories } = useGetCategoriesQuery();
   const { data: brands } = useGetBrandsQuery();
+  const { data: prices } = useGetPriceQuery();
+  const router = useRouter();
 
   switch (displayList) {
     case MENUITEMS.CATEGORIES: {
@@ -58,6 +62,30 @@ const MenuDrawerController = ({
           ))}
         </div>
       );
+      break;
+    }
+    case MENUITEMS.PRICES: {
+      return (
+        <div>
+          <div
+            className="text-gray-700 font-bold text-sm cursor-pointer hover:underline"
+            onClick={() => setDisplayList(MENUITEMS.MENU)}
+          >
+            &lt; Price
+          </div>
+          {prices?.map((price: string) => (
+            <Categories
+              menuItem={price}
+              displayList={displayList}
+              setDisplayList={setDisplayList}
+            />
+          ))}
+        </div>
+      );
+      break;
+    }
+    case MENUITEMS.INFO: {
+      router.push("/about");
       break;
     }
   }
