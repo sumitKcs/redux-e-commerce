@@ -1,13 +1,15 @@
 "use client";
 
-import { useGetMobileMenuQuery } from "@/store/apiSlice";
+import { useGetCategoriesQuery, useGetMobileMenuQuery } from "@/store/apiSlice";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Dispatch, SetStateAction, useState } from "react";
 import MenuList from "./MenuList";
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
-
 import Link from "next/link";
+import Categories from "./Categories";
+import { MENUITEMS } from "@/lib/menuItems";
+import MenuDrawerController from "./MenuDrawerController";
 
 const MenuDrawer = ({
   isVisible,
@@ -16,8 +18,7 @@ const MenuDrawer = ({
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const { data: mobileMenuItems } = useGetMobileMenuQuery();
-  const [displayList, setDisplayList] = useState("menuList");
+  const [displayList, setDisplayList] = useState<string>(MENUITEMS.MENU);
   return (
     <div
       aria-label="modal"
@@ -33,8 +34,9 @@ const MenuDrawer = ({
         <div className="w-full h-[60%] flex flex-col gap-5 text-black opacity-80  ">
           <div className="w-full text-lg font-bold flex justify-between">
             <div className="w-full flex flex-col justify-start">
-              {mobileMenuItems &&
-                mobileMenuItems?.map((menuItem: string) => {
+              {/* {displayList === MENUITEMS.MENU &&
+                menu &&
+                menu?.map((menuItem: string) => {
                   return (
                     <MenuList
                       menuItem={menuItem}
@@ -42,11 +44,18 @@ const MenuDrawer = ({
                       setDisplayList={setDisplayList}
                     />
                   );
-                })}
+                })} */}
+              <MenuDrawerController
+                displayList={displayList}
+                setDisplayList={setDisplayList}
+              />
             </div>
             <div>
               <XMarkIcon
-                onClick={() => setIsVisible(false)}
+                onClick={() => {
+                  setIsVisible(false);
+                  setDisplayList(MENUITEMS.MENU);
+                }}
                 className="w-6 h-6 text-gray-800 cursor-pointer"
               />
             </div>

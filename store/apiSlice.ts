@@ -19,6 +19,7 @@ export const apiSlice = createApi({
     "MobileMenu",
     "Categories",
     "Deals",
+    "Brands",
   ],
   endpoints: (builder) => ({
     getBanner: builder.query<Banner[], void>({
@@ -61,6 +62,10 @@ export const apiSlice = createApi({
       query: () => `/deals`,
       providesTags: ["Deals"],
     }),
+    getBrands: builder.query<string[], void>({
+      query: () => `/brands`,
+      providesTags: ["Brands"],
+    }),
   }),
 });
 
@@ -77,4 +82,5 @@ export const {
   useGetMobileMenuQuery,
   useGetCategoriesQuery,
   useGetDealsQuery,
+  useGetBrandsQuery,
 } = apiSlice;
