@@ -31,17 +31,6 @@ const MenuDrawer = ({
         <div className="w-full h-[60%] flex flex-col gap-5 text-black opacity-80  ">
           <div className="w-full text-lg font-bold flex justify-between">
             <div className="w-full flex flex-col justify-start">
-              {/* {displayList === MENUITEMS.MENU &&
-                menu &&
-                menu?.map((menuItem: string) => {
-                  return (
-                    <MenuList
-                      menuItem={menuItem}
-                      displayList={displayList}
-                      setDisplayList={setDisplayList}
-                    />
-                  );
-                })} */}
               <MenuDrawerController
                 displayList={displayList}
                 setDisplayList={setDisplayList}
