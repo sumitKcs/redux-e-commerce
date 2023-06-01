@@ -19,7 +19,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className="h-[100svh] w-screen bg-white">
         <SessionProvider session={session}>
-          <StoreProvider>{children}</StoreProvider>
+          <StoreProvider>
+            {children}</StoreProvider>
         </SessionProvider>
       </body>
     </html>

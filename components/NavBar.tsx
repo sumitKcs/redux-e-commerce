@@ -10,6 +10,7 @@ import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
 import SearchDrawer from "./SearchDrawer";
 import MenuDrawer from "./MenuDrawer";
+import { useGetDealsQuery, useGetMenuQuery } from "@/store/apiSlice";
 
 function NavBar() {
   const router = useRouter();
@@ -19,6 +20,8 @@ function NavBar() {
   const [cartModal, setCartModal] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
   const [menuModal, setMenuModal] = useState(false);
+  const { data: menu } = useGetMenuQuery();
+  const { data: deals } = useGetDealsQuery();
 
   return (
     <>
@@ -89,60 +92,25 @@ function NavBar() {
             </Link>
           </div>
 
-          {/* nav links  */}
+          {/* nav links  - menu bar*/}
 
           <div
             role={"menuitem"}
             className="lg:flex justify-center items-center gap-10 text-sm hidden col-start-2 col-span-2 text-black opacity-95"
           >
-            <Link
-              href="/"
-              className=" hover:opacity-60 text-red-500 text-base font-bold"
-            >
-              YEAR END SALE
-            </Link>
-            <Link
-              href="/product/cart"
-              className=" hover:opacity-60 font-semibold"
-            >
-              Categories
-            </Link>
-            <Link
-              href="/product/cart"
-              className=" hover:opacity-60  font-semibold"
-            >
-              Brand
-            </Link>
-            <Link
-              href="/product/cart"
-              className=" hover:opacity-60 font-semibold"
-            >
-              Price
-            </Link>
-            <Link
-              href="/product/cart"
-              className=" hover:opacity-60 font-semibold"
-            >
-              Deals
-            </Link>
-            <Link
-              href="/product/cart"
-              className=" hover:opacity-60 font-semibold"
-            >
-              Events
-            </Link>
-            <Link
-              href="/product/cart"
-              className=" hover:opacity-60  font-semibold"
-            >
-              Info
-            </Link>
-            <Link
-              href="/product/cart"
-              className=" hover:opacity-60  font-semibold"
-            >
-              Help Center
-            </Link>
+            {deals &&
+              deals.map((deal) => (
+                <span className=" hover:opacity-60 hover:cursor-pointer text-red-500 text-base font-bold">
+                  YEAR END SALE
+                </span>
+              ))}
+
+            {menu &&
+              menu.map((item: string) => (
+                <span className=" hover:opacity-60 hover:cursor-pointer font-semibold">
+                  {item}
+                </span>
+              ))}
           </div>
 
           {/* icons  */}
