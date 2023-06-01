@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import SearchDrawer from "./SearchDrawer";
 import MenuDrawer from "./MenuDrawer";
 import { useGetDealsQuery, useGetMenuQuery } from "@/store/apiSlice";
+import { delay } from "@reduxjs/toolkit/dist/utils";
 
 function NavBar() {
   const router = useRouter();
@@ -101,7 +102,7 @@ function NavBar() {
             {deals &&
               deals.map((deal) => (
                 <span className=" hover:opacity-60 hover:cursor-pointer text-red-500 text-base font-bold">
-                  YEAR END SALE
+                  {deal}
                 </span>
               ))}
 
