@@ -7,15 +7,16 @@ import {
   useGetMobileMenuQuery,
   useGetPriceQuery,
 } from "@/store/apiSlice";
-import Categories from "./Categories";
 import { useRouter } from "next/navigation";
 
 const MenuDrawerController = ({
   displayList,
   setDisplayList,
+  setMenuVisible,
 }: {
   displayList: string;
   setDisplayList: Dispatch<SetStateAction<string>>;
+  setMenuVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
   const { data: menu } = useGetMobileMenuQuery();
   const { data: categories } = useGetCategoriesQuery();
@@ -34,10 +35,11 @@ const MenuDrawerController = ({
             &lt; Categories
           </div>
           {categories?.map((category: string) => (
-            <Categories
+            <MenuList
               menuItem={category}
               displayList={displayList}
               setDisplayList={setDisplayList}
+              setMenuVisible={setMenuVisible}
             />
           ))}
         </div>
@@ -54,10 +56,11 @@ const MenuDrawerController = ({
             &lt; Brands
           </div>
           {brands?.map((brand: string) => (
-            <Categories
+            <MenuList
               menuItem={brand}
               displayList={displayList}
               setDisplayList={setDisplayList}
+              setMenuVisible={setMenuVisible}
             />
           ))}
         </div>
@@ -74,10 +77,11 @@ const MenuDrawerController = ({
             &lt; Price
           </div>
           {prices?.map((price: string) => (
-            <Categories
+            <MenuList
               menuItem={price}
               displayList={displayList}
               setDisplayList={setDisplayList}
+              setMenuVisible={setMenuVisible}
             />
           ))}
         </div>
@@ -96,6 +100,7 @@ const MenuDrawerController = ({
           menuItem={item}
           displayList={displayList}
           setDisplayList={setDisplayList}
+          setMenuVisible={setMenuVisible}
         />
       ))}
     </>

@@ -1,16 +1,22 @@
+"use client";
+
 import ChevronCircleWithText from "./ChevronCircleWithText";
 import { Dispatch, SetStateAction, MouseEvent } from "react";
 import { MENUITEMS } from "@/lib/menuItems";
+import { useRouter } from "next/navigation";
 
 const MenuList = ({
   menuItem,
   displayList,
   setDisplayList,
+  setMenuVisible,
 }: {
   menuItem: string;
   displayList: string;
   setDisplayList: Dispatch<SetStateAction<string>>;
+  setMenuVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const router = useRouter();
   const handleMenuItemClick = (e: MouseEvent<HTMLDivElement>) => {
     const menuItemValue = e.currentTarget.getAttribute("data-menu-item");
     console.log("onclickevent: ", menuItemValue);
@@ -25,6 +31,30 @@ const MenuList = ({
     }
     if (menuItem?.toLowerCase() === "info") {
       setDisplayList(MENUITEMS.INFO);
+    }
+    if (menuItem?.toLowerCase() === "headphones") {
+      setMenuVisible(false);
+      router.push("/product/categories/headphones");
+    }
+    if (menuItem?.toLowerCase() === "in-ears") {
+      setMenuVisible(false);
+      router.push("/product/categories/inears");
+    }
+    if (menuItem?.toLowerCase() === "wireless") {
+      setMenuVisible(false);
+      router.push("/product/categories/wireless");
+    }
+    if (menuItem?.toLowerCase() === "faces & amps") {
+      setMenuVisible(false);
+      router.push("/product/categories/amps");
+    }
+    if (menuItem?.toLowerCase() === "hi-res audio players") {
+      setMenuVisible(false);
+      router.push("/product/categories/hires");
+    }
+    if (menuItem?.toLowerCase() === "home audio") {
+      setMenuVisible(false);
+      router.push("/product/categories/homeaudio");
     }
   };
   return (

@@ -1,13 +1,10 @@
 "use client";
 
-import { useGetCategoriesQuery, useGetMobileMenuQuery } from "@/store/apiSlice";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Dispatch, SetStateAction, useState } from "react";
-import MenuList from "./MenuList";
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
-import Categories from "./Categories";
 import { MENUITEMS } from "@/lib/menuItems";
 import MenuDrawerController from "./MenuDrawerController";
 
@@ -48,12 +45,12 @@ const MenuDrawer = ({
               <MenuDrawerController
                 displayList={displayList}
                 setDisplayList={setDisplayList}
+                setMenuVisible={setIsVisible}
               />
             </div>
             <div>
               <XMarkIcon
                 onClick={() => {
-                  setIsVisible(false);
                   setDisplayList(MENUITEMS.MENU);
                 }}
                 className="w-6 h-6 text-gray-800 cursor-pointer"

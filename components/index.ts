@@ -23,8 +23,8 @@ import cartDrawer from "./cartDrawer";
 import AccountMenu from "./AccountMenu";
 import SearchDrawer from "./SearchDrawer";
 import SearchItemBox from "./SearchItemBox";
-import Categories from "./Categories";
 import About from "./About";
+import ProductList from "./ProductList";
 
 export {
   NotificationBar,
@@ -33,7 +33,6 @@ export {
   Header,
   cartDrawer,
   SearchDrawer,
-  Categories,
   SearchItemBox,
   Card,
   StoreProvider,
@@ -41,6 +40,7 @@ export {
   Loader,
   Banner,
   ImpactText,
+  ProductList,
   ProductGrid,
   FeaturedCollection,
   StartHere,
