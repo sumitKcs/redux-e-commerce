@@ -8,6 +8,9 @@ import {
   useGetPriceQuery,
 } from "@/store/apiSlice";
 import { useRouter } from "next/navigation";
+import CategoryList from "./CategoryList";
+import BrandList from "./BrandList";
+import PriceList from "./PriceList";
 
 const MenuDrawerController = ({
   displayList,
@@ -35,7 +38,7 @@ const MenuDrawerController = ({
             &lt; Categories
           </div>
           {categories?.map((category: string) => (
-            <MenuList
+            <CategoryList
               menuItem={category}
               displayList={displayList}
               setDisplayList={setDisplayList}
@@ -56,7 +59,7 @@ const MenuDrawerController = ({
             &lt; Brands
           </div>
           {brands?.map((brand: string) => (
-            <MenuList
+            <BrandList
               menuItem={brand}
               displayList={displayList}
               setDisplayList={setDisplayList}
@@ -77,7 +80,7 @@ const MenuDrawerController = ({
             &lt; Price
           </div>
           {prices?.map((price: string) => (
-            <MenuList
+            <PriceList
               menuItem={price}
               displayList={displayList}
               setDisplayList={setDisplayList}

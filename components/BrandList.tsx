@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, MouseEvent } from "react";
 import { MENUITEMS } from "@/lib/menuItems";
 import { useRouter } from "next/navigation";
 
-const MenuList = ({
+const BrandList = ({
   menuItem,
   displayList,
   setDisplayList,
@@ -19,26 +19,9 @@ const MenuList = ({
   const router = useRouter();
   const handleMenuItemClick = (e: MouseEvent<HTMLDivElement>) => {
     const menuItemValue = e.currentTarget.getAttribute("data-menu-item");
-    if (menuItem?.toLowerCase() === "categories") {
-      setDisplayList(MENUITEMS.CATEGORIES);
-    }
-    if (menuItem?.toLowerCase() === "brands") {
-      setDisplayList(MENUITEMS.BRANDS);
-    } else if (menuItem?.toLowerCase() === "price") {
-      setDisplayList(MENUITEMS.PRICES);
-    } else if (menuItem?.toLowerCase() === "info") {
-      setDisplayList(MENUITEMS.INFO);
-    }
-    //else if (menuItem?.toLowerCase() === "headphones") {
-    //   setMenuVisible(false);
-    //   router.push("/product/categories/headphones");
-    // } else if (menuItem?.toLowerCase() === "headphones") {
-    //   setMenuVisible(false);
-    //   router.push("/product/categories/headphones");
-    // } else {
-    //   setMenuVisible(false);
-    //   router.push(`/product/categories/${menuItem}`);
-    // }
+    setDisplayList(MENUITEMS.MENU);
+    setMenuVisible(false);
+    router.push(`/product/brands/${menuItem}`);
   };
   return (
     <div
@@ -56,4 +39,4 @@ const MenuList = ({
   );
 };
 
-export default MenuList;
+export default BrandList;
