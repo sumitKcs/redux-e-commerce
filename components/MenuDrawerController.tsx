@@ -5,7 +5,7 @@ import {
   useGetBrandsQuery,
   useGetCategoriesQuery,
   useGetMobileMenuQuery,
-  useGetPriceQuery,
+  useGetPricesQuery,
 } from "@/store/apiSlice";
 import { useRouter } from "next/navigation";
 import CategoryList from "./CategoryList";
@@ -24,7 +24,7 @@ const MenuDrawerController = ({
   const { data: menu } = useGetMobileMenuQuery();
   const { data: categories } = useGetCategoriesQuery();
   const { data: brands } = useGetBrandsQuery();
-  const { data: prices } = useGetPriceQuery();
+  const { data: prices } = useGetPricesQuery();
   const router = useRouter();
 
   switch (displayList) {

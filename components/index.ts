@@ -28,12 +28,14 @@ import ProductList from "./ProductList";
 import CategoryList from "./CategoryList";
 import MenuList from "./MenuList";
 import BrandList from "./BrandList";
+import MenuItem from "./MenuItem";
 
 export {
   NotificationBar,
   NavBar,
   AccountMenu,
   Header,
+  MenuItem,
   cartDrawer,
   SearchDrawer,
   MenuList,

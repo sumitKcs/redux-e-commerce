@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import SearchDrawer from "./SearchDrawer";
 import MenuDrawer from "./MenuDrawer";
 import { useGetDealsQuery, useGetMenuQuery } from "@/store/apiSlice";
-import { delay } from "@reduxjs/toolkit/dist/utils";
+import MenuItem  from "./MenuItem"
 
 function NavBar() {
   const router = useRouter();
@@ -106,12 +106,7 @@ function NavBar() {
                 </span>
               ))}
 
-            {menu &&
-              menu.map((item: string) => (
-                <span className=" hover:opacity-60 hover:cursor-pointer font-semibold">
-                  {item}
-                </span>
-              ))}
+            {menu && menu.map((item: string) => <MenuItem item={item} />)}
           </div>
 
           {/* icons  */}
