@@ -14,7 +14,6 @@ const MenuItem = ({ item }: { item: string }) => {
   const [isCategories, setIsCategories] = useState(false);
   const [isBrands, setIsBrands] = useState(false);
   const [isPrices, setIsPrices] = useState(false);
-  console.log("navbar price: ", prices);
 
   document.body.addEventListener("click", () => {
     setIsCategories(false);
@@ -54,7 +53,7 @@ const MenuItem = ({ item }: { item: string }) => {
         </div>
       );
     }
-    case "Price": {
+    case "Prices": {
       return (
         <div className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold">
           <div role="listitem" onClick={() => setIsPrices(!isPrices)}>
@@ -62,7 +61,7 @@ const MenuItem = ({ item }: { item: string }) => {
             {item}
           </div>
           {isPrices && (
-            <div className="absolute top-5 flex flex-col gap-2 bg-gray-200 border border-gray-500 p-2 opacity-80">
+            <div className="absolute top-5 flex flex-col gap-2 bg-gray-200 border border-gray-500 p-2 opacity-80 w-56">
               {prices && prices.map((price) => <div>{price}</div>)}
             </div>
           )}
