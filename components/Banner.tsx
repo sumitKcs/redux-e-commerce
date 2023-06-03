@@ -42,7 +42,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full z-0">
       <div className="carousel w-full h-full">
         <div className="carousel-item relative w-full">
           {/* desktop image */}

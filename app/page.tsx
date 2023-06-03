@@ -1,10 +1,28 @@
-import React from "react";
-import HomeLayout from "./product/page";
+import {
+  Banner,
+  ProductGrid,
+  ImpactText,
+  FeaturedCollection,
+  StartHere,
+  PeopleGrid,
+  Testimonials,
+  Newsletter,
+  Footer,
+} from "@/components";
 
-export default function Main() {
+const Home = () => {
   return (
-    <>
-      <HomeLayout />
-    </>
+    <main className="w-full flex flex-col justify-center items-center  bg-white">
+      <Banner />
+      <ImpactText />
+      <ProductGrid />
+      <FeaturedCollection />
+      <StartHere />
+      <PeopleGrid />
+      <Testimonials />
+      <Newsletter />
+    </main>
   );
-}
+};
+
+export default Home;

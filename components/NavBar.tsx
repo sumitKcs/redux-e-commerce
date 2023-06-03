@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import SearchDrawer from "./SearchDrawer";
 import MenuDrawer from "./MenuDrawer";
 import { useGetDealsQuery, useGetMenuQuery } from "@/store/apiSlice";
-import MenuItem  from "./MenuItem"
+import MenuItem from "./MenuItem";
 
 function NavBar() {
   const router = useRouter();
@@ -26,7 +26,7 @@ function NavBar() {
 
   return (
     <>
-      <nav role={"menubar"} className=" .nav-sticky ">
+      <nav role={"menubar"} className=" .nav-sticky">
         <div className=" w-full grid grid-cols-3 py-4 lg:py-10 bg-[#F8F9F8] lg:grid-cols-4">
           {/* //mobile menu  */}
           <div className="lg:hidden px-4 flex justify-start items-center gap-4">
