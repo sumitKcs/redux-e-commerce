@@ -21,6 +21,7 @@ export const apiSlice = createApi({
     "Deals",
     "Brands",
     "Prices",
+    "Orders",
   ],
   endpoints: (builder) => ({
     getBanner: builder.query<Banner[], void>({
@@ -71,6 +72,10 @@ export const apiSlice = createApi({
       query: () => `/prices`,
       providesTags: ["Prices"],
     }),
+    getOrders: builder.query<any, void>({
+      query: () => `/orders`,
+      providesTags: ["Orders"],
+    }),
   }),
 });
 
@@ -89,4 +94,5 @@ export const {
   useGetDealsQuery,
   useGetBrandsQuery,
   useGetPricesQuery,
+  useGetOrdersQuery,
 } = apiSlice;
