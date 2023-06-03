@@ -3,6 +3,7 @@ import { StoreProvider, Header, Footer } from "@/components";
 import { SessionProvider } from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { NavBar } from "@/components";
 
 export const metadata = {
   title: "HeadphoneZone.in",
@@ -15,13 +16,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession(authOptions);
-  console.log("i am parent layout");
   return (
     <html lang="en">
-      <body className="h-[100svh] w-screen bg-white">
+      <body className="relative h-[100svh] w-screen bg-white block overflow-visible">
         <SessionProvider session={session}>
           <StoreProvider>
-            <Header />
+            <NavBar />
             {children}
             <Footer />
           </StoreProvider>

@@ -1,13 +1,7 @@
 import { Header, Footer, About } from "@/components";
 
 const page = () => {
-  return (
-    <>
-      <Header />
-      <About />
-      <Footer />
-    </>
-  );
+  return <About />;
 };
 
 export default page;

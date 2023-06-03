@@ -5,6 +5,9 @@ import {
   useGetBrandsQuery,
   useGetPricesQuery,
 } from "@/store/apiSlice";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const MenuItem = ({ item }: { item: string }) => {
@@ -14,6 +17,7 @@ const MenuItem = ({ item }: { item: string }) => {
   const [isCategories, setIsCategories] = useState(false);
   const [isBrands, setIsBrands] = useState(false);
   const [isPrices, setIsPrices] = useState(false);
+  const router = useRouter();
 
   document.body.addEventListener("click", () => {
     setIsCategories(false);
@@ -24,15 +28,31 @@ const MenuItem = ({ item }: { item: string }) => {
   switch (item) {
     case "Categories": {
       return (
-        <div className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold z-50">
-          <div role="listitem" onClick={() => setIsCategories(!isCategories)}>
-            {" "}
-            {item}
+        <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
+          <div
+            role="listitem"
+            onClick={() => setIsCategories(!isCategories)}
+            className="hover:opacity-60"
+          >
+            <div className="flex justify-center items-center">
+              <div>{item}</div>
+              <div>
+                <ChevronDownIcon className="w-5 h-5" />
+              </div>
+            </div>
           </div>
           {isCategories && (
-            <div className="absolute top-5 flex flex-col gap-2 bg-gray-200 border border-gray-500 p-2 opacity-80">
+            <div className="absolute top-7 flex flex-col gap-2 bg-white p-2 rounded-lg w-44 ">
               {categories &&
-                categories.map((category) => <div>{category}</div>)}
+                categories.map((category) => (
+                  <Link
+                    id={category}
+                    href={`/product/categories/${category}`}
+                    className="hover:underline opacity-90"
+                  >
+                    {category}
+                  </Link>
+                ))}
             </div>
           )}
         </div>
@@ -40,14 +60,31 @@ const MenuItem = ({ item }: { item: string }) => {
     }
     case "Brands": {
       return (
-        <div className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold">
-          <div role="listitem" onClick={() => setIsBrands(!isBrands)}>
-            {" "}
-            {item}
+        <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
+          <div
+            role="listitem"
+            onClick={() => setIsBrands(!isBrands)}
+            className="hover:opacity-60"
+          >
+            <div className="flex justify-center items-center">
+              <div>{item}</div>
+              <div>
+                <ChevronDownIcon className="w-5 h-5" />
+              </div>
+            </div>
           </div>
           {isBrands && (
-            <div className="absolute top-5 flex flex-col gap-2 bg-gray-200 border border-gray-500 p-2 opacity-80">
-              {brands && brands.map((brand) => <div>{brand}</div>)}
+            <div className="absolute top-7 flex flex-col gap-2 bg-white p-2 rounded-lg w-44 ">
+              {brands &&
+                brands.map((brand) => (
+                  <Link
+                    id={brand}
+                    href={`/product/categories/${brand}`}
+                    className="hover:underline opacity-90"
+                  >
+                    {brand}
+                  </Link>
+                ))}
             </div>
           )}
         </div>
@@ -55,14 +92,31 @@ const MenuItem = ({ item }: { item: string }) => {
     }
     case "Prices": {
       return (
-        <div className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold">
-          <div role="listitem" onClick={() => setIsPrices(!isPrices)}>
-            {" "}
-            {item}
+        <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
+          <div
+            role="listitem"
+            onClick={() => setIsPrices(!isPrices)}
+            className="hover:opacity-60"
+          >
+            <div className="flex justify-center items-center">
+              <div>{item}</div>
+              <div>
+                <ChevronDownIcon className="w-5 h-5" />
+              </div>
+            </div>
           </div>
           {isPrices && (
-            <div className="absolute top-5 flex flex-col gap-2 bg-gray-200 border border-gray-500 p-2 opacity-80 w-56">
-              {prices && prices.map((price) => <div>{price}</div>)}
+            <div className="absolute top-7 flex flex-col gap-2 bg-white p-2 w-56 rounded-lg">
+              {prices &&
+                prices.map((price) => (
+                  <Link
+                    id={price}
+                    href={`/product/categories/${price}`}
+                    className="hover:underline opacity-90"
+                  >
+                    {price}
+                  </Link>
+                ))}
             </div>
           )}
         </div>
@@ -70,9 +124,12 @@ const MenuItem = ({ item }: { item: string }) => {
     }
     case "Info": {
       return (
-        <div className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold">
+        <Link
+          href={`/about`}
+          className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold"
+        >
           {item}
-        </div>
+        </Link>
       );
     }
     default:

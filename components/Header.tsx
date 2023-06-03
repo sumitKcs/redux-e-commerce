@@ -2,7 +2,7 @@ import { NavBar, NotificationBar } from "@/components";
 
 const Header = () => {
   return (
-    <header style={{ display: "initial" }}>
+    <header>
       <NotificationBar />
       <NavBar />
     </header>
