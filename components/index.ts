@@ -24,20 +24,16 @@ import AccountMenu from "./AccountMenu";
 import SearchDrawer from "./SearchDrawer";
 import SearchItemBox from "./SearchItemBox";
 import About from "./About";
-import ProductList from "./ProductList";
+
 import CategoryList from "./CategoryList";
 import MenuList from "./MenuList";
 import BrandList from "./BrandList";
 import MenuItem from "./MenuItem";
-import Headphones from "./categories/Headphones";
-import InEars from "./categories/InEars";
-import Accessories from "./categories/Accessories";
-import DacsAndAmps from "./categories/DacsAndAmps";
-import HiResAudioPlayers from "./categories/HiResAudioPlayers";
-import HomeAudio from "./categories/HomeAudio";
-import Wireless from "./categories/Wireless";
 import ImageBanner from "./ImageBanner";
 import ProductView from "./ProductView";
+import CategoryController from "./CategoryController";
+import ProductContainer from "./ProductContainer";
+import PricesController from "./PricesController";
 
 export {
   NotificationBar,
@@ -51,13 +47,7 @@ export {
   CategoryList,
   BrandList,
   SearchItemBox,
-  Headphones,
-  HiResAudioPlayers,
-  DacsAndAmps,
-  Wireless,
-  HomeAudio,
-  InEars,
-  Accessories,
+  ProductContainer,
   ImageBanner,
   Card,
   ProductView,
@@ -66,7 +56,8 @@ export {
   Loader,
   Banner,
   ImpactText,
-  ProductList,
+  CategoryController,
+  PricesController,
   ProductGrid,
   FeaturedCollection,
   StartHere,

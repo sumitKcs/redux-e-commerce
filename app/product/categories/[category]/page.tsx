@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductList } from "../../../../components";
+import { CategoryController } from "../../../../components";
 type Props = {
   params: {
     category: string;
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const CategoryProducts = ({ params }: Props) => {
-  return <ProductList category={params.category} />;
+  return <CategoryController category={params.category} />;
 };
 
 export default CategoryProducts;

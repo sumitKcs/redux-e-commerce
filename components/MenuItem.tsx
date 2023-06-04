@@ -109,7 +109,7 @@ const MenuItem = ({ item }: { item: string }) => {
                 prices.map((price) => (
                   <Link
                     id={price}
-                    href={`/product/categories/${price.toLowerCase()}`}
+                    href={`/product/prices/${price.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
                     {price}

@@ -1,5 +1,4 @@
-import React from "react";
-import { ProductList } from "../../../../components";
+import { PricesController } from "../../../../components";
 type Props = {
   params: {
     price: string;
@@ -7,7 +6,7 @@ type Props = {
 };
 
 const PriceProducts = ({ params }: Props) => {
-  return <ProductList category={params.price} />;
+  return <PricesController category={params.price} />;
 };
 
 export default PriceProducts;

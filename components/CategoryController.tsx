@@ -5,7 +5,7 @@ import {
   useGetCategoryBannersQuery,
 } from "@/store/apiSlice";
 import { useMemo } from "react";
-import { Headphones } from ".";
+import { ProductContainer } from ".";
 
 const Products = ({ category }: { category: string }) => {
   const { data: categoryBanner } = useGetCategoryBannersQuery();
@@ -24,8 +24,8 @@ const Products = ({ category }: { category: string }) => {
         [allProducts]
       );
       return (
-        <Headphones
-          category={category}
+        <ProductContainer
+          bannerText={category}
           bannerImages={headphonesBanner}
           products={headphones}
         />
@@ -41,8 +41,8 @@ const Products = ({ category }: { category: string }) => {
         [allProducts]
       );
       return (
-        <Headphones
-          category={category}
+        <ProductContainer
+          bannerText={category}
           bannerImages={inEarsBanner}
           products={inEars}
         />
@@ -58,8 +58,8 @@ const Products = ({ category }: { category: string }) => {
         [allProducts]
       );
       return (
-        <Headphones
-          category={category}
+        <ProductContainer
+          bannerText={category}
           bannerImages={wirelessBanner}
           products={wireless}
         />
@@ -75,8 +75,8 @@ const Products = ({ category }: { category: string }) => {
         [allProducts]
       );
       return (
-        <Headphones
-          category={category}
+        <ProductContainer
+          bannerText={category}
           bannerImages={dacsAndAmpsBanner}
           products={dacsAndAmps}
         />
@@ -93,8 +93,8 @@ const Products = ({ category }: { category: string }) => {
         [allProducts]
       );
       return (
-        <Headphones
-          category={category}
+        <ProductContainer
+          bannerText={category}
           bannerImages={hiResAudioPlayersBanner}
           products={hiResAudioPlayers}
         />
@@ -110,8 +110,8 @@ const Products = ({ category }: { category: string }) => {
         [allProducts]
       );
       return (
-        <Headphones
-          category={category}
+        <ProductContainer
+          bannerText={category}
           bannerImages={accessoriesBanner}
           products={accessories}
         />
@@ -127,8 +127,8 @@ const Products = ({ category }: { category: string }) => {
         [allProducts]
       );
       return (
-        <Headphones
-          category={category}
+        <ProductContainer
+          bannerText={category}
           bannerImages={homeAudioBanner}
           products={homeAudio}
         />
