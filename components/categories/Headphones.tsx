@@ -23,8 +23,8 @@ const headphones = () => {
   return (
     <>
       <ImageBanner
-        desktopImage={headphoneBanner.desktop}
-        mobileImage={headphoneBanner.mobile}
+        desktopImage={headphoneBanner?.desktop}
+        mobileImage={headphoneBanner?.mobile}
       />
     </>
   );
