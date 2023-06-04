@@ -1,13 +1,13 @@
 import { CURRENCY } from "@/lib/currency";
-import usePriceFormat from "@/lib/getPriceFormat";
+import getPriceFormat from "@/lib/getPriceFormat";
 import Link from "next/link";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const { sku, featured_image, price, dropped_price, tags, slug, images } =
     product;
 
-  const PRICE = usePriceFormat(price, CURRENCY.INR);
-  const OFFER_PRICE = usePriceFormat(dropped_price, CURRENCY.INR);
+  const PRICE = getPriceFormat(price, CURRENCY.INR);
+  const OFFER_PRICE = getPriceFormat(dropped_price, CURRENCY.INR);
 
   return (
     <Link href={`product/${slug}`} className="flex flex-col justify-start p-5 ">

@@ -7,16 +7,7 @@ import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import { CURRENCY } from "@/lib/currency";
 import { useDispatch } from "react-redux";
 import { add } from "@/store/cartSlice";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  serverTimestamp,
-} from "firebase/firestore";
 import { useSession } from "next-auth/react";
-import { db } from "@/firebase";
-import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 
 type Props = {
   params: {
@@ -43,19 +34,6 @@ const ProductDetails = ({ params }: Props) => {
 
   const handleAddToCart = async (product: Product) => {
     dispatch(add(product));
-    // if (session) {
-    //   if (typeof window !== "undefined" && window.localStorage) {
-    //     if (window.localStorage.getItem("cart")) {
-    //       const cartItems = window.localStorage.getItem("cart");
-    //       updateCartDataToFirestore(
-    //         JSON.parse(cartItems!),
-    //         session?.user?.email!
-    //       );
-    //     }
-    //   } else {
-    //     updateCartDataToFirestore([{ ...product }], session?.user?.email!);
-    //   }
-    // }
   };
 
   if (product?.[0]?.images?.length === 0) {
@@ -66,14 +44,7 @@ const ProductDetails = ({ params }: Props) => {
   ) : (
     <div className=" w-full grid grid-cols-1 md:grid-cols-2 md:px-16">
       {/* product image  */}
-      <div>
-        {/* <ScrollCarousel>
-          {product?.[0]?.images?.map((image) => (
-            <img src={image} />
-          ))}
-        </ScrollCarousel> */}
-        {<img src={product?.[0].images?.[0]} className="p-10" />}
-      </div>
+      <div>{<img src={product?.[0].images?.[0]} className="p-10" />}</div>
       {/* product details */}
       <div className="flex flex-col justify-start gap-3 px-5 py-5">
         <p className=" text-sm text-gray-500 font-bold tracking-wider">

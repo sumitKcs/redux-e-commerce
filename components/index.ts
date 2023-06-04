@@ -37,6 +37,7 @@ import HiResAudioPlayers from "./categories/HiResAudioPlayers";
 import HomeAudio from "./categories/HomeAudio";
 import Wireless from "./categories/Wireless";
 import ImageBanner from "./ImageBanner";
+import ProductView from "./ProductView";
 
 export {
   NotificationBar,
@@ -59,6 +60,7 @@ export {
   Accessories,
   ImageBanner,
   Card,
+  ProductView,
   StoreProvider,
   Skeleton,
   Loader,
