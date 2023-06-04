@@ -7,7 +7,6 @@ import {
 } from "@/store/apiSlice";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const MenuItem = ({ item }: { item: string }) => {
@@ -17,7 +16,6 @@ const MenuItem = ({ item }: { item: string }) => {
   const [isCategories, setIsCategories] = useState(false);
   const [isBrands, setIsBrands] = useState(false);
   const [isPrices, setIsPrices] = useState(false);
-  const router = useRouter();
 
   document.body.addEventListener("click", () => {
     setIsCategories(false);
@@ -47,7 +45,7 @@ const MenuItem = ({ item }: { item: string }) => {
                 categories.map((category) => (
                   <Link
                     id={category}
-                    href={`/product/categories/${category}`}
+                    href={`/product/categories/${category.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
                     {category}
@@ -79,7 +77,7 @@ const MenuItem = ({ item }: { item: string }) => {
                 brands.map((brand) => (
                   <Link
                     id={brand}
-                    href={`/product/categories/${brand}`}
+                    href={`/product/categories/${brand.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
                     {brand}
@@ -111,7 +109,7 @@ const MenuItem = ({ item }: { item: string }) => {
                 prices.map((price) => (
                   <Link
                     id={price}
-                    href={`/product/categories/${price}`}
+                    href={`/product/categories/${price.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
                     {price}

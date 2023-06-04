@@ -29,6 +29,13 @@ import CategoryList from "./CategoryList";
 import MenuList from "./MenuList";
 import BrandList from "./BrandList";
 import MenuItem from "./MenuItem";
+import Headphones from "./categories/Headphones";
+import InEars from "./categories/InEars";
+import Accessories from "./categories/Accessories";
+import DacsAndAmps from "./categories/DacsAndAmps";
+import HiResAudioPlayers from "./categories/HiResAudioPlayers";
+import HomeAudio from "./categories/HomeAudio";
+import Wireless from "./categories/Wireless";
 
 export {
   NotificationBar,
@@ -42,6 +49,13 @@ export {
   CategoryList,
   BrandList,
   SearchItemBox,
+  Headphones,
+  HiResAudioPlayers,
+  DacsAndAmps,
+  Wireless,
+  HomeAudio,
+  InEars,
+  Accessories,
   Card,
   StoreProvider,
   Skeleton,
