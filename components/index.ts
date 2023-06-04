@@ -36,6 +36,7 @@ import DacsAndAmps from "./categories/DacsAndAmps";
 import HiResAudioPlayers from "./categories/HiResAudioPlayers";
 import HomeAudio from "./categories/HomeAudio";
 import Wireless from "./categories/Wireless";
+import ImageBanner from "./ImageBanner";
 
 export {
   NotificationBar,
@@ -56,6 +57,7 @@ export {
   HomeAudio,
   InEars,
   Accessories,
+  ImageBanner,
   Card,
   StoreProvider,
   Skeleton,
