@@ -95,7 +95,7 @@ const cartDrawer = ({
     >
       <div
         aria-label="modal-content"
-        className={` w-full md:w-[70%] lg:w-[40%] bg-white rounded-lg p-5 lg:p-10 flex flex-col `}
+        className={` w-full md:w-[70%] lg:w-[40%] bg-white rounded-lg p-5 lg:p-10 flex flex-col justify-around`}
       >
         <div className="h-[60%] flex flex-col gap-5">
           <div className="text-lg font-bold flex justify-between">
@@ -170,21 +170,9 @@ const cartDrawer = ({
             </div>
             <div className="flex flex-col gap-1 text-gray-500 text-sm">
               <div>Tax included and shipping calculated at checkout</div>
-              <div className="underline">Add order note</div>
             </div>
           </div>
           {/* row 2  */}
-          <div className="flex flex-col gap-1">
-            <div className="text-gray-500 text-sm">
-              <input className="mr-2" aria-label="checkbox" type="checkbox" />
-              For ₹ 50 please wrap the products in this order. Gift message
-              (free and optional):
-            </div>
-            <div>
-              <textarea className="border border-gray-300" />
-            </div>
-          </div>
-          {/* row 3  */}
           <div className="flex justify-evenly text-white gap-4 text-xs font-bold opacity-90 tracking-widest">
             <div
               className="w-[50%] bg-gray-900 px-12 py-4 rounded-full hover:scale-95 text-center"
