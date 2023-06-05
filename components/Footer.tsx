@@ -5,7 +5,7 @@ const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <section className="w-full bg-[#F9F9F9] mt-10 grid grid-cols-2 lg:grid-cols-4 px-4 py-12 gap-y-10 text-sm opacity-80">
+    <section className="w-full bg-[#F9F9F9] grid grid-cols-2 lg:grid-cols-4 px-4 py-12 gap-y-10 text-sm">
       <div className="flex flex-col gap-4">
         <div className="font-bold mb-2">Let Us Help</div>
         <Link href="">Help Center</Link>

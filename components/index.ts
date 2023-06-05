@@ -34,6 +34,7 @@ import ProductView from "./ProductView";
 import CategoryController from "./CategoryController";
 import ProductContainer from "./ProductContainer";
 import PricesController from "./PricesController";
+import BrandsController from "./BrandsController";
 
 export {
   NotificationBar,
@@ -58,6 +59,7 @@ export {
   ImpactText,
   CategoryController,
   PricesController,
+  BrandsController,
   ProductGrid,
   FeaturedCollection,
   StartHere,

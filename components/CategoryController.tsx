@@ -7,7 +7,7 @@ import {
 import { useMemo } from "react";
 import { ProductContainer } from ".";
 
-const Products = ({ category }: { category: string }) => {
+const CategoryController = ({ category }: { category: string }) => {
   const { data: categoryBanner } = useGetCategoryBannersQuery();
   const { data: allProducts } = useGetAllProductsQuery();
 
@@ -139,4 +139,4 @@ const Products = ({ category }: { category: string }) => {
   }
 };
 
-export default Products;
+export default CategoryController;

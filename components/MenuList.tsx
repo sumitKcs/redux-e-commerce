@@ -29,16 +29,6 @@ const MenuList = ({
     } else if (menuItem?.toLowerCase() === "info") {
       setDisplayList(MENUITEMS.INFO);
     }
-    //else if (menuItem?.toLowerCase() === "headphones") {
-    //   setMenuVisible(false);
-    //   router.push("/product/categories/headphones");
-    // } else if (menuItem?.toLowerCase() === "headphones") {
-    //   setMenuVisible(false);
-    //   router.push("/product/categories/headphones");
-    // } else {
-    //   setMenuVisible(false);
-    //   router.push(`/product/categories/${menuItem}`);
-    // }
   };
   return (
     <div

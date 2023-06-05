@@ -77,7 +77,7 @@ const MenuItem = ({ item }: { item: string }) => {
                 brands.map((brand) => (
                   <Link
                     id={brand}
-                    href={`/product/categories/${brand.toLowerCase()}`}
+                    href={`/product/brands/${brand.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
                     {brand}

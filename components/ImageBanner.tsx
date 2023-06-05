@@ -1,6 +1,6 @@
 type Props = {
-  desktopImage: string;
-  mobileImage: string;
+  desktopImage: string | undefined;
+  mobileImage: string | undefined;
   text?: string;
 };
 const ImageBanner = ({ desktopImage, mobileImage, text }: Props) => {

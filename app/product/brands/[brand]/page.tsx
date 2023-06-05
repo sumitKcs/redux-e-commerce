@@ -1,13 +1,12 @@
-import React from "react";
-import { ProductList } from "../../../../components";
+import { BrandsController } from "../../../../components";
 type Props = {
   params: {
-    brands: string;
+    brand: string;
   };
 };
 
 const BrandProducts = ({ params }: Props) => {
-  return <ProductList category={params.brands} />;
+  return <BrandsController brand={params.brand} />;
 };
 
 export default BrandProducts;
