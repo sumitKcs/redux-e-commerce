@@ -6,7 +6,7 @@ type Props = {
 };
 
 const PriceProducts = ({ params }: Props) => {
-  return <PricesController category={params.price} />;
+  return <PricesController price={params.price} />;
 };
 
 export default PriceProducts;

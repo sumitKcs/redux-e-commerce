@@ -2,7 +2,7 @@
 
 import {
   useGetAllProductsQuery,
-  useGetCategoryBannersQuery,
+  useGetPriceBannersQuery,
 } from "@/store/apiSlice";
 import { useMemo } from "react";
 import { ProductContainer } from ".";
@@ -15,87 +15,82 @@ enum PRICES {
   UNDER_FOURTY_THOUSANDS = "best under rs. 40,000",
 }
 
-const PricesController = ({ category }: { category: string }) => {
-  const { data: categoryBanner } = useGetCategoryBannersQuery();
+const PricesController = ({ price }: { price: string }) => {
+  const { data: banners } = useGetPriceBannersQuery();
   const { data: allProducts } = useGetAllProductsQuery();
+  price = decodeURIComponent(price);
+  const priceBanner = banners?.[price];
+  console.log("price banners: ", banners);
 
-  const price = decodeURIComponent(category);
+  let products;
 
   switch (price) {
     case PRICES.UNDER_ONE_THOUSAND: {
-      const banner = categoryBanner?.headphones;
-      const products = useMemo(
+      products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 1000),
         [allProducts]
       );
-      return (
-        <ProductContainer
-          bannerText={price}
-          bannerImages={banner}
-          products={products}
-        />
-      );
     }
     case PRICES.UNDER_TWO_THOUSANDS: {
-      const banner = categoryBanner?.headphones;
-      const products = useMemo(
+      products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 2000),
         [allProducts]
       );
       return (
         <ProductContainer
           bannerText={price}
-          bannerImages={banner}
+          bannerImages={priceBanner}
           products={products}
         />
       );
     }
     case PRICES.UNDER_TEN_THOUSANDS: {
-      const banner = categoryBanner?.headphones;
-      const products = useMemo(
+      products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 10000),
         [allProducts]
       );
       return (
         <ProductContainer
           bannerText={price}
-          bannerImages={banner}
+          bannerImages={priceBanner}
           products={products}
         />
       );
     }
     case PRICES.UNDER_TWENTY_THOUSANDS: {
-      const banner = categoryBanner?.headphones;
-      const products = useMemo(
+      products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 20000),
         [allProducts]
       );
       return (
         <ProductContainer
           bannerText={price}
-          bannerImages={banner}
+          bannerImages={priceBanner}
           products={products}
         />
       );
     }
     case PRICES.UNDER_FOURTY_THOUSANDS: {
-      const banner = categoryBanner?.headphones;
-      const products = useMemo(
+      products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 40000),
         [allProducts]
       );
       return (
         <ProductContainer
           bannerText={price}
-          bannerImages={banner}
+          bannerImages={priceBanner}
           products={products}
         />
       );
     }
-
-    default:
-      return <div>{decodeURIComponent(category)}</div>;
   }
+  return (
+    <ProductContainer
+      bannerText={price}
+      bannerImages={priceBanner}
+      products={products}
+    />
+  );
 };
 
 export default PricesController;
