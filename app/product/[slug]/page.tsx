@@ -2,7 +2,7 @@
 
 import { RatingStar } from "rating-star";
 import { useGetProductBySlugQuery } from "@/store/apiSlice";
-import usePriceFormat from "@/lib/getPriceFormat";
+import getPriceFormat from "@/lib/getPriceFormat";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
 import { CURRENCY } from "@/lib/currency";
 import { useDispatch } from "react-redux";
@@ -21,13 +21,13 @@ const ProductDetails = ({ params }: Props) => {
   const slug = params.slug;
   const { data: product } = useGetProductBySlugQuery(slug);
 
-  const MRP = usePriceFormat(product ? product[0].price : 0, CURRENCY.INR);
+  const MRP = getPriceFormat(product ? product[0].price : 0, CURRENCY.INR);
 
-  const selling_price = usePriceFormat(
+  const selling_price = getPriceFormat(
     product ? product[0].selling_price : 0,
     CURRENCY.INR
   );
-  const dropped_price = usePriceFormat(
+  const dropped_price = getPriceFormat(
     product ? product[0].dropped_price : 0,
     CURRENCY.INR
   );

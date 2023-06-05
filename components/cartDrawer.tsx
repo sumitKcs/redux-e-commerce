@@ -9,7 +9,6 @@ import { LockClosedIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { RootState } from "@/store/store";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import Link from "next/link";
-import updateCartDataToFirestore from "@/lib/updateCartDataToFirestore";
 import { useRouter } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
@@ -57,37 +56,10 @@ const cartDrawer = ({
       })
     );
     dispatch(getTotal());
-    if (session) {
-      if (typeof window !== "undefined" && window.localStorage) {
-        if (window.localStorage.getItem("cart")) {
-          const cartItems = window.localStorage.getItem("cart");
-          updateCartDataToFirestore(
-            JSON.parse(cartItems!),
-            session?.user?.email!
-          );
-        }
-      } else {
-        updateCartDataToFirestore([{ ...product }], session?.user?.email!);
-      }
-    }
   };
 
   const removeItemHandler = async (product: Product) => {
     dispatch(remove(product));
-
-    if (session) {
-      if (typeof window !== "undefined" && window.localStorage) {
-        if (window.localStorage.getItem("cart")) {
-          const cartItems = window.localStorage.getItem("cart");
-          updateCartDataToFirestore(
-            JSON.parse(cartItems!),
-            session?.user?.email!
-          );
-        }
-      } else {
-        updateCartDataToFirestore([{ ...product }], session?.user?.email!);
-      }
-    }
   };
 
   const handlePayment = async () => {
@@ -105,7 +77,6 @@ const cartDrawer = ({
     if (!sessionId) return;
 
     // // const { sessionId } = await response.json();
-    console.log("checkout response: " + sessionId);
     const result = await stripe?.redirectToCheckout({ sessionId });
     if (result?.error) alert(result.error.message);
   };
