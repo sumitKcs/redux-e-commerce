@@ -20,7 +20,6 @@ const PricesController = ({ price }: { price: string }) => {
   const { data: allProducts } = useGetAllProductsQuery();
   price = decodeURIComponent(price);
   const priceBanner = banners?.[price];
-  console.log("price banners: ", banners);
 
   let products;
 
