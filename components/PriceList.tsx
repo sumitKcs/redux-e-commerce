@@ -21,7 +21,7 @@ const PriceList = ({
     const menuItemValue = e.currentTarget.getAttribute("data-menu-item");
     setDisplayList(MENUITEMS.MENU);
     setMenuVisible(false);
-    router.push(`/product/prices/${menuItem}`);
+    router.push(`/product/prices/${menuItem.toLowerCase()}`);
   };
   return (
     <div

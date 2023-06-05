@@ -19,9 +19,9 @@ const CategoryList = ({
   const router = useRouter();
   const handleMenuItemClick = (e: MouseEvent<HTMLDivElement>) => {
     const menuItemValue = e.currentTarget.getAttribute("data-menu-item");
-    setDisplayList(MENUITEMS.MENU)
+    setDisplayList(MENUITEMS.MENU);
     setMenuVisible(false);
-    router.push(`/product/categories/${menuItem}`);
+    router.push(`/product/categories/${menuItem.toLowerCase()}`);
   };
   return (
     <div

@@ -21,7 +21,7 @@ const BrandList = ({
     const menuItemValue = e.currentTarget.getAttribute("data-menu-item");
     setDisplayList(MENUITEMS.MENU);
     setMenuVisible(false);
-    router.push(`/product/brands/${menuItem}`);
+    router.push(`/product/brands/${menuItem.toLowerCase()}`);
   };
   return (
     <div
