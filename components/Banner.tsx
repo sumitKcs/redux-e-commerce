@@ -112,14 +112,16 @@ const Banner = () => {
               {product?.banner_slogan}
             </p>
             <br />
-            <p className="text-3xl font-extrabold tracking-wider md:text-4xl lg:text:5xl ">
+            <p className="text-3xl font-extrabold tracking-wider md:text-4xl lg:text:5xl">
               {product?.banner_text}
             </p>
             <br />
             <Link href={`product/${product?.slug}`}>
-              <button className="bg-[#FEFEFF] py-4 px-6 rounded-full text-black  font-bold  text-sm tracking-widest ">
-                BUY NOW
-              </button>
+              {product && (
+                <button className="bg-[#FEFEFF] py-4 px-6 rounded-full text-black  font-bold  text-sm tracking-widest ">
+                  BUY NOW
+                </button>
+              )}
             </Link>
           </div>
 
