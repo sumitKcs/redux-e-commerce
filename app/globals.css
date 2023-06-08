@@ -34,7 +34,27 @@ input[type="number"] {
   z-index: 10;
   display: block;
 }
+.background {
+  background: url("../public/assets/banner/Lypertek_Z3_Homepage_Mobile.webp");
+  background-size: cover;
+  background-position: center;
+}
 
+.animate {
+  animation-duration: 1s;
+  animation-name: animate-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .impact-gradient {
   background: linear-gradient(
     46deg,

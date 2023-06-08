@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 const Banner = () => {
   const { data: products } = useGetBannerQuery();
   const [index, setIndex] = useState(0);
+  const [isDesktopBannerLoaded, setIsDesktopBannerLoaded] = useState(false);
+  const [isMobileBannerLoaded, setIsMobileBannerLoaded] = useState(false);
 
   const product = products?.[index];
 
@@ -24,30 +26,25 @@ const Banner = () => {
         : setIndex((prev) => prev + 1);
     }
   };
-  let timeRef: string | number | NodeJS.Timer | undefined;
-  // (() => {
-  //   timeRef = setInterval(() => {
-  //     if (products?.length) {
-  //       let sliderIndex = index + 1;
-  //       if (index === products?.length - 1) sliderIndex = 0;
-
-  //       setIndex(sliderIndex);
-  //     }
-  //   }, 5000);
-  // })();
-  useEffect(() => {
-    return () => {
-      clearInterval(timeRef);
-    };
-  }, []);
 
   return (
     <div className="w-full h-full z-0">
       <div className="carousel w-full h-full">
-        <div className="carousel-item relative w-full">
+        <div className="carousel-item relative w-full h-[90svh] background">
           {/* desktop image */}
+
+          {/* <img
+            className={`${
+              isDesktopBannerLoaded ? "md:hidden" : "md:block"
+            } w-full object-cover h-full lg:h-auto hidden `}
+            src="/assets/banner/Lypertek_Z3_Homepage_Desktop.webp"
+            alt={product?.banner_text}
+          ></img> */}
+
           <img
-            className="w-full object-cover h-full lg:h-auto hidden md:block ease-in duration-700"
+            className={`${
+              !isDesktopBannerLoaded ? "md:hidden " : "md:block animate"
+            } w-full object-cover h-full lg:h-auto hidden`}
             src={`${product?.banner_image.desktop}&width=2160`}
             alt={product?.banner_text}
             srcSet={`
@@ -67,15 +64,27 @@ const Banner = () => {
                 ${product?.banner_image.desktop}&width=2000 2000w,
                 
                 `}
-            width="2160"
-            height="1080"
             loading="eager"
             sizes="100vw"
+            onLoad={() => setIsDesktopBannerLoaded(true)}
           ></img>
 
           {/* mobile image  */}
           <img
-            className="w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700"
+            className={`${
+              isMobileBannerLoaded ? "hidden" : "block"
+            } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
+            src="/assets/banner/Lypertek_Z3_Homepage_Mobile.webp"
+            alt={product?.banner_text}
+            width="1200"
+            height="1600"
+            loading="eager"
+            sizes="100vw"
+          ></img>
+          <img
+            className={`${
+              !isMobileBannerLoaded ? "hidden" : "block animate"
+            } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
             src={`${product?.banner_image.mobile}&width=1200`}
             alt={product?.banner_text}
             srcSet={`
@@ -95,6 +104,7 @@ const Banner = () => {
             height="1600"
             loading="eager"
             sizes="100vw"
+            onLoad={() => setIsMobileBannerLoaded(true)}
           ></img>
 
           <div className="text-[#FEFEFF] absolute z-1 top-0 mt-10 md:right-0 md:mt-[20%] px-4 md:w-[30%]  md:text-right md:mr-14 ">
