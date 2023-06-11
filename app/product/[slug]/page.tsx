@@ -3,11 +3,10 @@
 import { RatingStar } from "rating-star";
 import { useGetProductBySlugQuery } from "@/store/apiSlice";
 import getPriceFormat from "@/lib/getPriceFormat";
-import { InformationCircleIcon } from "@heroicons/react/24/solid";
+import { InformationCircleIcon, PhotoIcon } from "@heroicons/react/24/solid";
 import { CURRENCY } from "@/lib/currency";
 import { useDispatch } from "react-redux";
 import { add } from "@/store/cartSlice";
-import { useSession } from "next-auth/react";
 
 type Props = {
   params: {
@@ -16,7 +15,6 @@ type Props = {
 };
 
 const ProductDetails = ({ params }: Props) => {
-  const { data: session } = useSession();
   const dispatch = useDispatch();
   const slug = params.slug;
   const { data: product } = useGetProductBySlugQuery(slug);
@@ -32,26 +30,25 @@ const ProductDetails = ({ params }: Props) => {
     CURRENCY.INR
   );
 
-  const handleAddToCart = async (product: Product) => {
-    dispatch(add(product));
+  const handleAddToCart = async (product: Product | undefined) => {
+    if (product) dispatch(add(product));
   };
 
-  if (product?.[0]?.images?.length === 0) {
-    return <p className="text-7xl text-black">no images</p>;
-  }
-  return product?.[0]?.images?.length === 0 ? (
-    <p className="text-7xl text-black">no images</p>
+  return !product ? (
+    <ProductDetailsSkeleton />
   ) : (
-    <div className=" w-full grid grid-cols-1 md:grid-cols-2 md:px-16">
+    <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 md:px-16 ">
       {/* product image  */}
-      <div>{<img src={product?.[0].images?.[0]} className="p-10" />}</div>
+      <div>
+        {<img src={product?.[0].images?.[0]} className="p-10 animate" />}
+      </div>
       {/* product details */}
-      <div className="flex flex-col justify-start gap-3 px-5 py-5">
-        <p className=" text-sm text-gray-500 font-bold tracking-wider">
+      <div className="flex flex-col justify-start gap-3 px-5 py-5 ">
+        <p className=" text-sm text-gray-500 font-bold tracking-wider animate">
           {product?.[0]?.brand}
         </p>
         <p className="text-4xl font-bold">{product?.[0]?.sku}</p>
-        <p className="text-sm text-gray-500 font-bold tracking-wider">
+        <p className="text-sm text-gray-500 font-bold tracking-wider animate">
           {product?.[0]?.category}
         </p>
         <div className="ml-[-10px] flex items-center text-sm">
@@ -200,3 +197,41 @@ const ProductDetails = ({ params }: Props) => {
 };
 
 export default ProductDetails;
+
+const ProductDetailsSkeleton = () => {
+  return (
+    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 md:px-16 animate-pulse">
+      {/* product image  */}
+      <div className="bg-gray-200 flex justify-center items-center rounded-xl">
+        <PhotoIcon className="w-12 h-12" />
+      </div>
+      {/* product details */}
+      <div className="flex flex-col justify-start gap-3 px-5 py-5">
+        {/* brand  */}
+        <div className="bg-gray-200 w-20 h-4 rounded-sm"></div>
+        {/* sku  */}
+        <div className="bg-gray-200 w-80 h-12 rounded-sm"></div>
+        {/* category  */}
+        <div className="bg-gray-200 w-64 h-4 rounded-sm"></div>
+        {/* rating  */}
+        <div className="bg-gray-200 w-32 h-14 rounded-sm"></div>
+        {/* price details  */}
+        <div className="bg-gray-200 w-44 h-5 rounded-sm"></div>
+        {/* EMI deatils  */}
+        <div className="bg-gray-200 w-44 h-20 rounded-sm"></div>
+        <br />
+        <hr />
+        <br />
+        {/* add to cart button  */}
+        <div className="bg-gray-200 w-full h-12 rounded-sm px-10"></div>
+        {/* talk to headphone guru  */}
+        <div className="bg-gray-200 w-80 h-4 rounded-sm"></div>
+
+        {/* delivery and shipping  */}
+        <div className="bg-gray-200 w-80 h-20 rounded-sm"></div>
+        <hr />
+        <div className="bg-gray-200 w-80 h-20 rounded-sm"></div>
+      </div>
+    </div>
+  );
+};
