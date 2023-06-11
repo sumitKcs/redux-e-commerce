@@ -8,7 +8,7 @@ const ChevronCircleWithText = ({ text }: { text: string }) => {
       <div
         className={`flex justify-start lg:justify-end items-center gap-5 py-5`}
       >
-        <div className={`group w-20 h-7 flex items-center gap-2`}>
+        <div className={`group w-fit h-7 flex items-center gap-2`}>
           {text && (
             <Link href="/view-all">
               <span className="text-sm group-hover:underline">{text}</span>
