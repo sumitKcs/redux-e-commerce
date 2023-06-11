@@ -1,24 +1,36 @@
 "use client";
 
 import { useGetPeopleGridQuery } from "@/store/apiSlice";
-import React from "react";
+import React, { useState } from "react";
+import Loader from "./Loader";
 
 const PeopleGrid = () => {
   const { data: people } = useGetPeopleGridQuery();
   return (
-    <section className="container mx-auto mb-5 lg:mb-0 grid grid-cols-2 people-grid md:scale-y-[.85] md:scale-x-95 scursor-pointer gap-3 md:gap-4 lg:gap-5 mt-10">
+    <section className="container mx-auto mb-5 lg:mb-0 grid grid-cols-2 people-grid md:scale-y-[.85] md:scale-x-95 gap-3 md:gap-4 lg:gap-5 mt-10">
       {/* cell 1  */}
 
-      {people?.map((person) => (
-        <div
-          className=" flex  person drop-shadow-xl overflow-hidden transition-transform duration-200 ease-out rounded-2xl "
-          key={person.id}
-        >
-          <img
-            className="w-full h-fullrounded-2xl object-cover zoom-in"
-            src={`${person?.person_image}width=1500`}
-            alt=""
-            srcSet={`
+      {!people
+        ? Array(6)
+            .fill(0)
+            .map((item, idx) => (
+              <div
+                className="h-[350px] bg-gray-200 flex justify-center items-center person drop-shadow-xl overflow-hidden rounded-2xl"
+                key={idx}
+              >
+                <Loader width="w-10" height="h-10" />
+              </div>
+            ))
+        : people?.map((person) => (
+            <div
+              className={`h-[350px] flex justify-center items-center person drop-shadow-xl overflow-hidden rounded-2xl animate bg-gray-200`}
+              key={person.id}
+            >
+              <img
+                className={`w-full h-full rounded-2xl object-cover zoom-in`}
+                src={`${person?.person_image}width=1500`}
+                alt=""
+                srcSet={`
             ${person?.person_image}width=1500,
             ${person?.person_image}width=200 200w,
             ${person?.person_image}width=300 300w
@@ -31,13 +43,13 @@ const PeopleGrid = () => {
             ${person?.person_image}width=1200 1200w
             ${person?.person_image}width=1400 1400w
             `}
-            width="1500"
-            height="1500"
-            loading="lazy"
-            sizes="(max-width: 699px) 100vw, min(390px, 25vw)"
-          />
-        </div>
-      ))}
+                width="1500"
+                height="1500"
+                loading="lazy"
+                sizes="(max-width: 699px) 100vw, min(390px, 25vw)"
+              />
+            </div>
+          ))}
     </section>
   );
 };
