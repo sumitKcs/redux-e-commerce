@@ -1,20 +1,35 @@
+"use client";
 import { CURRENCY } from "@/lib/currency";
 import getPriceFormat from "@/lib/getPriceFormat";
 import Link from "next/link";
+import { useState } from "react";
+import Loader from "./Loader";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { sku, featured_image, price, dropped_price, tags, slug, images } =
-    product;
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { sku, price, dropped_price, tags, slug, images, type } = product;
 
   const PRICE = getPriceFormat(price, CURRENCY.INR);
   const OFFER_PRICE = getPriceFormat(dropped_price, CURRENCY.INR);
 
   return (
-    <Link href={`product/${slug}`} className="flex flex-col justify-start p-5 ">
+    <Link
+      href={`product/${slug}`}
+      className="flex flex-col justify-start p-5 .animate"
+    >
+      <div
+        className={`w-full h-[250px] flex justify-center items-center bg-gray-200 ${
+          !isLoaded ? "block" : "hidden"
+        }`}
+      >
+        <Loader width="w-10" height="h-10" />
+      </div>
       <img
-        className="w-[500px] inline-block "
+        className={`w-[500px]  inline-block ${
+          !isLoaded ? "hidden" : "block .animate"
+        }`}
         src={images[0]}
-        alt="Moondrop - Droplet"
+        alt={sku}
         srcSet={`
         ${images[0]}&width=1160,
         ${images[0]}&width=200 200w,
@@ -31,6 +46,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         height="1160"
         loading="eager"
         fetchPriority="low"
+        onLoad={() => setIsLoaded(true)}
         sizes="(max-width: 699px) 74vw, (max-width: 999px) 38vw, calc(min(100vw - 96px, 1440px) / 5 - (24px / 5 * 4))"
       />
 
@@ -47,10 +63,10 @@ const ProductCard = ({ product }: { product: Product }) => {
         ))}
       </div>
       <div className="flex flex-col justify-start items-center gap-2">
-        <span className=" uppercase font-semibold text-sm tracking-widest">
+        <span className=" uppercase font-semibold text-sm tracking-widest text-center">
           {sku}
         </span>
-        <span className=" text-xs">{product.type}</span>
+        <span className=" text-xs">{type}</span>
         <span className="flex gap-1">
           <span className="font-semibold text-sm text-blue-700 tracking-wider">
             {OFFER_PRICE}

@@ -30,16 +30,8 @@ const Banner = () => {
   return (
     <div className="w-full h-full z-0">
       <div className="carousel w-full h-full">
-        <div className="carousel-item relative w-full h-[90svh] background">
+        <div className={`carousel-item relative w-full h-[90svh] background `}>
           {/* desktop image */}
-
-          {/* <img
-            className={`${
-              isDesktopBannerLoaded ? "md:hidden" : "md:block"
-            } w-full object-cover h-full lg:h-auto hidden `}
-            src="/assets/banner/Lypertek_Z3_Homepage_Desktop.webp"
-            alt={product?.banner_text}
-          ></img> */}
 
           <img
             className={`${
