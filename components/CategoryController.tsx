@@ -10,6 +10,7 @@ import { ProductContainer } from ".";
 const CategoryController = ({ category }: { category: string }) => {
   const { data: banners } = useGetCategoryBannersQuery();
   const { data: allProducts } = useGetAllProductsQuery();
+  category = decodeURIComponent(category);
 
   const products = useMemo(
     () =>
@@ -19,7 +20,6 @@ const CategoryController = ({ category }: { category: string }) => {
     [allProducts]
   );
 
-  category = decodeURIComponent(category);
   const categoryBanner = useMemo(
     () =>
       banners?.filter(
