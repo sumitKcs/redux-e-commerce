@@ -27,7 +27,7 @@ function NavBar() {
   return (
     <nav role={"menubar"} className="nav-sticky">
       <div className=" w-full grid grid-cols-3 py-4 lg:py-10 bg-[#F8F9F8] lg:grid-cols-4">
-        {/* //mobile menu  */}
+        {/* //mobile menu  start*/}
         <div className="lg:hidden px-4 flex justify-start items-center gap-4">
           <Bars3Icon
             onClick={() => setMenuModal(!menuModal)}
@@ -64,6 +64,7 @@ function NavBar() {
             </svg>
           </span>
         </div>
+        {/* //mobile menu end */}
 
         {/* logo */}
 
@@ -103,7 +104,8 @@ function NavBar() {
               </span>
             ))}
 
-          {menu && menu.map((item: string) => <MenuItem item={item} />)}
+          {menu &&
+            menu.map((item: { menu: string }) => <MenuItem item={item.menu} />)}
         </div>
 
         {/* icons  */}
