@@ -9,7 +9,6 @@ export default async function handler(
   try {
     await mongooseConnect();
     const data = await Order.find({}).sort({ updatedAt: -1 });
-    console.log(data);
 
     res.status(200).json(data);
   } catch (err: any) {

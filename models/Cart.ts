@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const CartScehema = new Schema(
   {
@@ -23,4 +23,4 @@ const CartScehema = new Schema(
   }
 );
 
-export const Cart = model("cart", CartScehema);
+export const Cart = models?.Cart || model("Cart", CartScehema);
