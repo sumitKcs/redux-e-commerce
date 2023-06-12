@@ -1,17 +1,19 @@
+import { Product } from "@/models/Product";
 import { NextApiRequest, NextApiResponse } from "next";
+import { mongooseConnect } from "@/lib/mongoose";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all_products`);
-    const result = await response.json();
+    await mongooseConnect();
+    let data = await Product.find({});
 
-    const data = result.map((product: Product) => ({
-      ...product,
-      cartQuantity: 0,
-    }));
+    // const updatedData = data.map((product) => ({
+    //   ...product,
+    //   cartQuantity: 0,
+    // }));
 
     res.status(200).json(data);
   } catch (err: any) {

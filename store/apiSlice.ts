@@ -46,8 +46,10 @@ export const apiSlice = createApi({
       providesTags: ["Product"],
     }),
     getAllProducts: builder.query<Product[], void>({
-      query: () => `/allProducts`,
+      query: () => `/products`,
       providesTags: ["Product"],
+      transformResponse: (response: any) =>
+        response.map((product: any) => ({ ...product, cartQuantity: 0 })),
     }),
     getMenu: builder.query<[], void>({
       query: () => `/menu`,
