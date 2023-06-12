@@ -8,8 +8,8 @@ import { useMemo } from "react";
 import { ProductContainer } from ".";
 
 enum PRICES {
-  UNDER_ONE_THOUSAND = "best under rs. 1,000",
-  UNDER_TWO_THOUSANDS = "best under rs. 2,000",
+  UNDER_THREE_THOUSANDS = "best under rs. 3,000",
+  UNDER_FIVE_THOUSANDS = "best under rs. 5,000",
   UNDER_TEN_THOUSANDS = "best under rs. 10,000",
   UNDER_TWENTY_THOUSANDS = "best under rs. 20,000",
   UNDER_FOURTY_THOUSANDS = "best under rs. 40,000",
@@ -29,17 +29,24 @@ const PricesController = ({ price }: { price: string }) => {
   priceBanner = priceBanner?.[0]?.images;
   let products;
 
-  switch (price) {
-    case PRICES.UNDER_ONE_THOUSAND: {
+  switch (price.toLowerCase()) {
+    case PRICES.UNDER_THREE_THOUSANDS: {
       products = useMemo(
-        () => allProducts?.filter((product) => product.dropped_price <= 1000),
-        [allProducts]
+        () => allProducts?.filter((product) => product.dropped_price <= 3000),
+        [allProducts, price]
+      );
+      return (
+        <ProductContainer
+          bannerText={price}
+          bannerImages={priceBanner}
+          products={products}
+        />
       );
     }
-    case PRICES.UNDER_TWO_THOUSANDS: {
+    case PRICES.UNDER_FIVE_THOUSANDS: {
       products = useMemo(
-        () => allProducts?.filter((product) => product.dropped_price <= 2000),
-        [allProducts]
+        () => allProducts?.filter((product) => product.dropped_price <= 5000),
+        [allProducts, price]
       );
       return (
         <ProductContainer
@@ -52,7 +59,7 @@ const PricesController = ({ price }: { price: string }) => {
     case PRICES.UNDER_TEN_THOUSANDS: {
       products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 10000),
-        [allProducts]
+        [allProducts, price]
       );
       return (
         <ProductContainer
@@ -65,7 +72,7 @@ const PricesController = ({ price }: { price: string }) => {
     case PRICES.UNDER_TWENTY_THOUSANDS: {
       products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 20000),
-        [allProducts]
+        [allProducts, price]
       );
       return (
         <ProductContainer
@@ -78,7 +85,7 @@ const PricesController = ({ price }: { price: string }) => {
     case PRICES.UNDER_FOURTY_THOUSANDS: {
       products = useMemo(
         () => allProducts?.filter((product) => product.dropped_price <= 40000),
-        [allProducts]
+        [allProducts, price]
       );
       return (
         <ProductContainer
