@@ -33,7 +33,7 @@ const Testimonials = () => {
 
       {/* comment  */}
       <div className="text-2xl md:text-3xl font-semibold opacity-70 lg:w-[80%] flex flex-col justify-center items-center gap-10 h-52">
-        {reviewData?.[index]?.comment || "Getting Reviews...p"}
+        {reviewData?.[index]?.comment || "Getting Reviews..."}
         {/* //headphonezone logo-black */}
         <div>
           <img
