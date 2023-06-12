@@ -27,7 +27,7 @@ const ChevronCircleWithText = ({ text }: { text: string }) => {
                 d="m.75 7 3-3-3-3"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1.5"
+                strokeWidth="1.5"
               ></path>
             </svg>
           </span>

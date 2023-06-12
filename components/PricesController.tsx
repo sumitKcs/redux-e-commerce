@@ -19,8 +19,14 @@ const PricesController = ({ price }: { price: string }) => {
   const { data: banners } = useGetPriceBannersQuery();
   const { data: allProducts } = useGetAllProductsQuery();
   price = decodeURIComponent(price);
-  const priceBanner = banners?.[price];
-
+  let priceBanner = useMemo(
+    () =>
+      banners?.filter(
+        (banner: any) => banner.price.toLowerCase() === price.toLowerCase()
+      ),
+    [banners]
+  );
+  priceBanner = priceBanner?.[0]?.images;
   let products;
 
   switch (price) {

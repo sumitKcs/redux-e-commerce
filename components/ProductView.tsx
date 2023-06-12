@@ -13,6 +13,7 @@ const ProductView = ({ products }: { products: Product[] | undefined }) => {
           const PRICE = getPriceFormat(product.dropped_price, CURRENCY.INR);
           return (
             <Link
+              key={product.id}
               href={`/product/${product.slug}`}
               className="flex flex-col justify-center items-center w-full text-center bg-white p-4"
             >
@@ -52,7 +53,7 @@ const ProductView = ({ products }: { products: Product[] | undefined }) => {
                 <RatingStar
                   id={`${product.id}`}
                   size={18}
-                  rating={product.stars}
+                  rating={Number(product.stars)}
                 />
                 <span>{product.stars}</span>
                 <span>({product.total_ratings})</span>

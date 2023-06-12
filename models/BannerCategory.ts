@@ -6,8 +6,8 @@ const ImageSchema = new Schema({
 });
 
 const BannerCategoryScehema = new Schema({
-  headphones: { type: ImageSchema, required: true },
-  "in-ears": { type: String, required: true },
+  category: { type: String, required: true },
+  images: { type: ImageSchema, required: true },
 });
 
 type BannerCategory = InferSchemaType<typeof BannerCategoryScehema>;

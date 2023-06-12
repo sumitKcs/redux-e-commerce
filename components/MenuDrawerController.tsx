@@ -39,6 +39,7 @@ const MenuDrawerController = ({
           </div>
           {categories?.map((category: string) => (
             <CategoryList
+              key={category}
               menuItem={category}
               displayList={displayList}
               setDisplayList={setDisplayList}
@@ -58,9 +59,10 @@ const MenuDrawerController = ({
           >
             &lt; Brands
           </div>
-          {brands?.map((brand: string) => (
+          {brands?.map((brand: { brand: string }) => (
             <BrandList
-              menuItem={brand}
+              key={brand.brand}
+              menuItem={brand.brand}
               displayList={displayList}
               setDisplayList={setDisplayList}
               setMenuVisible={setMenuVisible}
@@ -79,9 +81,10 @@ const MenuDrawerController = ({
           >
             &lt; Price
           </div>
-          {prices?.map((price: string) => (
+          {prices?.map((price: { price: string }) => (
             <PriceList
-              menuItem={price}
+              key={price.price}
+              menuItem={price.price}
               displayList={displayList}
               setDisplayList={setDisplayList}
               setMenuVisible={setMenuVisible}
@@ -100,6 +103,7 @@ const MenuDrawerController = ({
     <>
       {menu?.map((item: { menu: string }) => (
         <MenuList
+          key={item.menu}
           menuItem={item.menu}
           displayList={displayList}
           setDisplayList={setDisplayList}

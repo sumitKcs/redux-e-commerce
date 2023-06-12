@@ -20,12 +20,21 @@ const CategoryController = ({ category }: { category: string }) => {
   );
 
   category = decodeURIComponent(category);
-  const categoryBanner = banners?.[category];
+  const categoryBanner = useMemo(
+    () =>
+      banners?.filter(
+        (banner: any) =>
+          banner.category.toLowerCase() === category.toLowerCase()
+      ),
+    [banners]
+  );
+
+  console.log("banner data", categoryBanner);
 
   return (
     <ProductContainer
       bannerText={category}
-      bannerImages={categoryBanner}
+      bannerImages={categoryBanner?.[0]?.images}
       products={products}
     />
   );

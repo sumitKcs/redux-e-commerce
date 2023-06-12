@@ -20,11 +20,17 @@ const BrandsController = ({ brand }: { brand: string }) => {
       ),
     [allProducts, brand]
   );
-  const brandBanner = banners?.[brand.toUpperCase()];
+  const brandBanner = useMemo(
+    () =>
+      banners?.filter(
+        (banner: any) => banner.brand.toLowerCase() === brand.toLowerCase()
+      ),
+    [banners]
+  );
   return (
     <ProductContainer
       bannerText={brand}
-      bannerImages={brandBanner}
+      bannerImages={brandBanner?.[0].images}
       products={products}
     />
   );

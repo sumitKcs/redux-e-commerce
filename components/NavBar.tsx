@@ -98,14 +98,19 @@ function NavBar() {
           className="lg:flex justify-center items-center gap-10 text-sm hidden col-start-2 col-span-2 text-black opacity-95"
         >
           {deals &&
-            deals.map((deal) => (
-              <span className=" hover:opacity-60 hover:cursor-pointer text-red-500 text-base font-bold">
-                {deal}
-              </span>
+            deals.map((item: any, idx) => (
+              <div
+                key={idx}
+                className=" hover:opacity-60 hover:cursor-pointer text-red-500 text-base font-bold"
+              >
+                {item.deal}
+              </div>
             ))}
 
           {menu &&
-            menu.map((item: { menu: string }) => <MenuItem item={item.menu} />)}
+            menu.map((item: { menu: string }) => (
+              <MenuItem key={item.menu} item={item.menu} />
+            ))}
         </div>
 
         {/* icons  */}

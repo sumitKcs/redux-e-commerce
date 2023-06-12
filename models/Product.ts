@@ -13,7 +13,7 @@ const ProductScehema = new Schema({
   selling_price: { type: Number, required: true },
   dropped_price: { type: Number, required: true },
   tags: { type: [String], required: true },
-  stars: { type: String, required: true },
+  stars: { type: Number, required: true },
   total_ratings: { type: Number, required: true },
 });
 
