@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { AnyARecord } from "dns";
 
 // Define a service using a base URL and expected endpoints
 export const apiSlice = createApi({
@@ -66,7 +65,7 @@ export const apiSlice = createApi({
       query: () => `/brands`,
       providesTags: ["Brands"],
     }),
-    getPrices: builder.query<string[], void>({
+    getPrices: builder.query<any, void>({
       query: () => `/prices`,
       providesTags: ["Prices"],
     }),

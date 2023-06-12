@@ -1,3 +1,5 @@
+import { mongooseConnect } from "@/lib/mongoose";
+import { Price } from "@/models/Price";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -5,11 +7,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/prices`
-    );
-    const data = await response.json();
-
+    await mongooseConnect();
+    const data = await Price.find({});
     res.status(200).json(data);
   } catch (err: any) {
     res.status(err.statusCode || 500).json(err.message);

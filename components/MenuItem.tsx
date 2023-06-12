@@ -106,13 +106,13 @@ const MenuItem = ({ item }: { item: string }) => {
           {isPrices && (
             <div className="absolute top-7 flex flex-col gap-2 bg-white p-2 w-56 rounded-lg">
               {prices &&
-                prices.map((price) => (
+                prices.map((price: { price: string }) => (
                   <Link
-                    id={price}
-                    href={`/product/prices/${price.toLowerCase()}`}
+                    id={price.price}
+                    href={`/product/prices/${price.price.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
-                    {price}
+                    {price.price}
                   </Link>
                 ))}
             </div>
