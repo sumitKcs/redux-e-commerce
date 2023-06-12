@@ -42,13 +42,13 @@ const MenuItem = ({ item }: { item: string }) => {
           {isCategories && (
             <div className="absolute top-7 flex flex-col gap-2 bg-white p-2 rounded-lg w-44 ">
               {categories &&
-                categories.map((category) => (
+                categories.map((category: { category: string }) => (
                   <Link
-                    id={category}
-                    href={`/product/categories/${category.toLowerCase()}`}
+                    id={category.category}
+                    href={`/product/categories/${category.category.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
-                    {category}
+                    {category.category}
                   </Link>
                 ))}
             </div>
@@ -74,13 +74,13 @@ const MenuItem = ({ item }: { item: string }) => {
           {isBrands && (
             <div className="absolute top-7 flex flex-col gap-2 bg-white p-2 rounded-lg w-44 ">
               {brands &&
-                brands.map((brand) => (
+                brands.map((brand: { brand: string }) => (
                   <Link
-                    id={brand}
-                    href={`/product/brands/${brand.toLowerCase()}`}
+                    id={brand.brand}
+                    href={`/product/brands/${brand.brand.toLowerCase()}`}
                     className="hover:underline opacity-90"
                   >
-                    {brand}
+                    {brand.brand}
                   </Link>
                 ))}
             </div>

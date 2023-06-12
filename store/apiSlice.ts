@@ -54,7 +54,7 @@ export const apiSlice = createApi({
       query: () => `/menu`,
       providesTags: ["Menu"],
     }),
-    getCategories: builder.query<string[], void>({
+    getCategories: builder.query<any, void>({
       query: () => `/categories`,
       providesTags: ["Categories"],
     }),
@@ -62,7 +62,7 @@ export const apiSlice = createApi({
       query: () => `/deals`,
       providesTags: ["Deals"],
     }),
-    getBrands: builder.query<string[], void>({
+    getBrands: builder.query<any, void>({
       query: () => `/brands`,
       providesTags: ["Brands"],
     }),

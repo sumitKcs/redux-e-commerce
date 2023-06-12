@@ -9,7 +9,6 @@ export default async function handler(
   try {
     await mongooseConnect();
     const data = await Banner.find({});
-    console.log("all_products_mongodb", data);
     res.status(200).json(data);
   } catch (err: any) {
     res.status(err.statusCode || 500).json(err.message);
