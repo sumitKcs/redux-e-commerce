@@ -1,17 +1,17 @@
+import { mongooseConnect } from "@/lib/mongoose";
+import { PeopleGrid } from "@/models/PeopleGrid";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  try {
+    await mongooseConnect();
+    const data = await PeopleGrid.find({});
 
-try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/people_grid`)
-    const data = await response.json()
-  
     res.status(200).json(data);
-    
-} catch (err: any) {
+  } catch (err: any) {
     res.status(err.statusCode || 500).json(err.message);
+  }
 }
-
-}
-
-
