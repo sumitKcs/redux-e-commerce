@@ -30,7 +30,7 @@ const BrandsController = ({ brand }: { brand: string }) => {
   return (
     <ProductContainer
       bannerText={brand}
-      bannerImages={brandBanner?.[0].images}
+      bannerImages={brandBanner?.[0]?.images}
       products={products}
     />
   );
