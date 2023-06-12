@@ -23,7 +23,6 @@ const SearchDrawer = ({
       const searchInput = e.target.value;
       const result = matchedProducts(searchInput);
       setSearchedProducts(result);
-      console.log("searched products:", result);
     }, 500);
   };
 
@@ -65,7 +64,7 @@ const SearchDrawer = ({
           <div className="flex flex-col gap-5">
             {searchedProducts &&
               searchedProducts.map((product) => (
-                <SearchItemBox product={product} />
+                <SearchItemBox product={product} setIsVisible={setIsVisible} />
               ))}
           </div>
         </div>

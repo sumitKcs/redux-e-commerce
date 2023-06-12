@@ -1,13 +1,25 @@
-import React from "react";
-import Link from "next/link";
+"use client";
 import Image from "next/image";
 import getPriceFormat from "@/lib/getPriceFormat";
 import { CURRENCY } from "@/lib/currency";
+import { useRouter } from "next/navigation";
+import { Dispatch, SetStateAction } from "react";
 
-const SearchItemBox = ({ product }: { product: Product }) => {
+const SearchItemBox = ({
+  product,
+  setIsVisible,
+}: {
+  product: Product;
+  setIsVisible: Dispatch<SetStateAction<boolean>>;
+}) => {
   const price = getPriceFormat(product.price, CURRENCY.INR);
+  const router = useRouter();
+  const productClickHandler = () => {
+    setIsVisible(false);
+    router.push(`/product/${product.slug}`);
+  };
   return (
-    <Link href={`/product/${product.slug}`}>
+    <div onClick={productClickHandler}>
       <div className="flex justify-start gap-10  items-center group">
         <div>
           <Image
@@ -24,7 +36,7 @@ const SearchItemBox = ({ product }: { product: Product }) => {
           <div className="text-blue-700 font-bold">{price}</div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
