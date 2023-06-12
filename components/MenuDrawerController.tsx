@@ -4,7 +4,7 @@ import MenuList from "./MenuList";
 import {
   useGetBrandsQuery,
   useGetCategoriesQuery,
-  useGetMobileMenuQuery,
+  useGetMenuQuery,
   useGetPricesQuery,
 } from "@/store/apiSlice";
 import { useRouter } from "next/navigation";
@@ -21,7 +21,7 @@ const MenuDrawerController = ({
   setDisplayList: Dispatch<SetStateAction<string>>;
   setMenuVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const { data: menu } = useGetMobileMenuQuery();
+  const { data: menu } = useGetMenuQuery();
   const { data: categories } = useGetCategoriesQuery();
   const { data: brands } = useGetBrandsQuery();
   const { data: prices } = useGetPricesQuery();
@@ -98,9 +98,9 @@ const MenuDrawerController = ({
   }
   return (
     <>
-      {menu?.map((item: string) => (
+      {menu?.map((item: { menu: string }) => (
         <MenuList
-          menuItem={item}
+          menuItem={item.menu}
           displayList={displayList}
           setDisplayList={setDisplayList}
           setMenuVisible={setMenuVisible}
