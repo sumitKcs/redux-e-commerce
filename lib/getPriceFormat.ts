@@ -1,21 +1,21 @@
 const getPriceFormat = (price: number, currency: string) => {
-  const priceArray = price.toString().split("");
+  const priceArray = price?.toString().split("");
   let result;
   let currencySymbol = "₹";
-  if (priceArray.length === 4) {
+  if (priceArray?.length === 4) {
     priceArray[0] = priceArray[0] + ",";
-    result = priceArray.join("");
+    result = priceArray?.join("");
   }
-  if (priceArray.length === 5) {
+  if (priceArray?.length === 5) {
     priceArray[1] = priceArray[1] + ",";
-    result = priceArray.join("");
+    result = priceArray?.join("");
   }
 
-  if (priceArray.length === 6) {
+  if (priceArray?.length === 6) {
     priceArray[0] = priceArray[0] + ",";
     priceArray[2] = priceArray[2] + ",";
 
-    result = priceArray.join("");
+    result = priceArray?.join("");
   }
 
   //currency symbol

@@ -19,14 +19,14 @@ const ProductDetails = ({ params }: Props) => {
   const slug = params.slug;
   const { data: product } = useGetProductBySlugQuery(slug);
 
-  const MRP = getPriceFormat(product ? product[0].price : 0, CURRENCY.INR);
+  const MRP = getPriceFormat(product ? product?.[0]?.price : 0, CURRENCY.INR);
 
   const selling_price = getPriceFormat(
-    product ? product[0].selling_price : 0,
+    product ? product[0]?.selling_price : 0,
     CURRENCY.INR
   );
   const dropped_price = getPriceFormat(
-    product ? product[0].dropped_price : 0,
+    product ? product[0]?.dropped_price : 0,
     CURRENCY.INR
   );
 

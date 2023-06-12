@@ -9,12 +9,6 @@ export default async function handler(
   try {
     await mongooseConnect();
     let data = await Product.find({});
-
-    // const updatedData = data.map((product) => ({
-    //   ...product,
-    //   cartQuantity: 0,
-    // }));
-
     res.status(200).json(data);
   } catch (err: any) {
     res.status(err.statusCode || 500).json(err.message);
