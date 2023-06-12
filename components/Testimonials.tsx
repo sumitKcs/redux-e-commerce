@@ -15,6 +15,7 @@ const Testimonials = () => {
           .fill("")
           .map((e, key) => (
             <svg
+              key={key}
               className="text-warning"
               role="presentation"
               fill="none"

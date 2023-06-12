@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
         {!products
           ? Array(10)
               .fill(0)
-              .map((item) => <ProductCardSkeleton />)
+              .map((item, idx) => <ProductCardSkeleton key={idx} />)
           : products.map((item: any) => (
               <ProductCard product={item} key={item.id} />
             ))}

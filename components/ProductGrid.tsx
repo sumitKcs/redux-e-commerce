@@ -14,7 +14,7 @@ const ProductGrid = () => {
             <Link
               href={`product/${product?.slug}`}
               className="relative w-full flex justify-center grid-item overflow-hidden rounded-2xl drop-shadow-xl transition-transform duration-200 ease-out"
-              key={product.id}
+              key={product?.slug}
             >
               <div className="w-full h-full background ">
                 <img
@@ -50,8 +50,11 @@ const ProductGrid = () => {
           ))
         : Array(4)
             .fill(0)
-            .map((item) => (
-              <div className=" w-full grid-item rounded-2xl drop-shadow-xl background"></div>
+            .map((item, idx) => (
+              <div
+                key={idx}
+                className=" w-full grid-item rounded-2xl drop-shadow-xl background"
+              ></div>
             ))}
     </section>
   );
