@@ -39,9 +39,9 @@ const Testimonials = () => {
         <div>
           <img
             className=" max-w-[145px]"
-            src="//cdn.shopify.com/s/files/1/0153/8863/files/Artboard_2_copy_2.png?v=1676892876&amp;width=301"
+            src="https://cdn.shopify.com/s/files/1/0153/8863/files/Artboard_2_copy_2.png?v=1676892876&amp;width=301"
             alt=""
-            srcSet="//cdn.shopify.com/s/files/1/0153/8863/files/Artboard_2_copy_2.png?v=1676892876&amp;width=145 145w, //cdn.shopify.com/s/files/1/0153/8863/files/Artboard_2_copy_2.png?v=1676892876&amp;width=290 290w"
+            srcSet="https://cdn.shopify.com/s/files/1/0153/8863/files/Artboard_2_copy_2.png?v=1676892876&amp;width=145 145w, //cdn.shopify.com/s/files/1/0153/8863/files/Artboard_2_copy_2.png?v=1676892876&amp;width=290 290w"
             width="301"
             height="91"
             loading="eager"
