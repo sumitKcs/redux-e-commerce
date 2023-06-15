@@ -9,6 +9,7 @@ const Banner = () => {
   const [index, setIndex] = useState(0);
   const [isDesktopBannerLoaded, setIsDesktopBannerLoaded] = useState(false);
   const [isMobileBannerLoaded, setIsMobileBannerLoaded] = useState(false);
+  const quality = 50;
 
   const product = products?.[index];
 
@@ -37,7 +38,7 @@ const Banner = () => {
             className={`${
               !isDesktopBannerLoaded ? "md:hidden " : "md:block animate"
             } w-full object-cover h-full lg:h-auto hidden`}
-            src={`${product?.banner_image.desktop}&width=2160`}
+            src={`${product?.banner_image.desktop}&width=2160&quality=${quality}`}
             alt={product?.banner_text}
             srcSet={`
                 ${product?.banner_image.desktop}&width=200 200w,
@@ -67,7 +68,7 @@ const Banner = () => {
           <img
             className={`${
               isMobileBannerLoaded ? "hidden" : "block"
-            } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
+            } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700 `}
             src="/assets/banner/Lypertek_Z3_Homepage_Mobile.webp"
             alt={product?.banner_text}
             width="1600"
@@ -79,7 +80,7 @@ const Banner = () => {
             className={`${
               !isMobileBannerLoaded ? "hidden" : "block animate"
             } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
-            src={`${product?.banner_image.mobile}&width=1200`}
+            src={`${product?.banner_image.mobile}&width=1200&quality=${quality}`}
             alt={product?.banner_text}
             srcSet={`
                 ${product?.banner_image.mobile}&width=200 200w,

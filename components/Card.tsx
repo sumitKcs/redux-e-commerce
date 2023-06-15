@@ -4,14 +4,6 @@ import { add } from "@/store/cartSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
-import {
-  addDoc,
-  collection,
-  serverTimestamp,
-  updateDoc,
-  doc,
-} from "firebase/firestore";
-import { db } from "@/firebase";
 import { useSession } from "next-auth/react";
 import { RootState } from "@/store/store";
 
@@ -29,38 +21,6 @@ function Card({ product }: Props) {
   const handleAdd = async () => {
     dispatch(add(product));
     const item = JSON.parse(localStorage.getItem("cart")!);
-    if (session) {
-      if (cartItem) {
-        if (cartItem.length >= 1) {
-          const cartId = localStorage.getItem("cartId");
-          const docRef = doc(
-            db,
-            "users",
-            session?.user?.email!,
-            "cart",
-            cartId!
-          );
-          const cartObj = {
-            items: [...item],
-            timestamp: serverTimestamp(),
-          };
-
-          await updateDoc(docRef, cartObj);
-        } else {
-          const cartObj = {
-            items: [...item],
-            timestamp: serverTimestamp(),
-          };
-
-          const cartDoc = await addDoc(
-            session && collection(db, "users", session?.user?.email!, "cart"),
-            cartObj
-          );
-          localStorage.setItem("cartId", cartDoc.id);
-          // console.log("id: ", cartDoc.id);
-        }
-      }
-    }
     setIsAddedToCart(true);
   };
   const imageHandle = () => {
