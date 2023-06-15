@@ -24,6 +24,7 @@
     "daisyui": "^2.51.5",
     "firebase": "^9.19.1",
     "firebase-admin": "^11.7.0",
+    "idb": "^7.1.1",
     "json-server": "^0.17.3",
     "micro": "^10.0.1",
     "mongodb": "^5.5.0",
