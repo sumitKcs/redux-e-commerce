@@ -58,6 +58,8 @@ const Banner = () => {
                 `}
             loading="eager"
             sizes="100vw"
+            width="1200"
+            height="1600"
             onLoad={() => setIsDesktopBannerLoaded(true)}
           ></img>
 
@@ -68,8 +70,8 @@ const Banner = () => {
             } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
             src="/assets/banner/Lypertek_Z3_Homepage_Mobile.webp"
             alt={product?.banner_text}
-            width="1200"
-            height="1600"
+            width="1600"
+            height="800"
             loading="eager"
             sizes="100vw"
           ></img>

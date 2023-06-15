@@ -7,7 +7,6 @@ import {
   PeopleGrid,
   Testimonials,
   Newsletter,
-  Footer,
 } from "@/components";
 
 const Home = () => {
