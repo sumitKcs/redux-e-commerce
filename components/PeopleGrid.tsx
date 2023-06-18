@@ -27,7 +27,7 @@ const PeopleGrid = () => {
             >
               <img
                 className={`w-full h-full rounded-2xl object-cover zoom-in`}
-                src={`http:${person?.person_image}width=1500`}
+                src={`https:${person?.person_image}width=1500`}
                 alt=""
                 srcSet={`
             http:${person?.person_image}width=1500,
