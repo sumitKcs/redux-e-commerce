@@ -27,7 +27,7 @@ const MenuItem = ({ item }: { item: string }) => {
     case "Categories": {
       return (
         <div
-          tabIndex={1}
+          tabIndex={2}
           className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
         >
           <div
@@ -61,7 +61,7 @@ const MenuItem = ({ item }: { item: string }) => {
     case "Brands": {
       return (
         <div
-          tabIndex={2}
+          tabIndex={3}
           className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
         >
           <div
@@ -95,7 +95,7 @@ const MenuItem = ({ item }: { item: string }) => {
     case "Prices": {
       return (
         <div
-          tabIndex={3}
+          tabIndex={4}
           className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
         >
           <div
@@ -129,7 +129,7 @@ const MenuItem = ({ item }: { item: string }) => {
     case "Info": {
       return (
         <Link
-          tabIndex={4}
+          tabIndex={5}
           href={`/about`}
           className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold"
         >
