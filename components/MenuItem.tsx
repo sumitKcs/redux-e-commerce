@@ -7,7 +7,7 @@ import {
 } from "@/store/apiSlice";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MenuItem = ({ item }: { item: string }) => {
   const { data: categories } = useGetCategoriesQuery();
@@ -23,17 +23,24 @@ const MenuItem = ({ item }: { item: string }) => {
     setIsPrices(false);
   });
 
-  document.body.onkeyup = function (e: KeyboardEvent) {
-    if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
-      console.log("current target", e.currentTarget);
-    }
-  };
+  useEffect(() => {
+    return () => {
+      document.body.removeEventListener("click", () => {});
+    };
+  }, []);
 
   switch (item) {
     case "Categories": {
       return (
         <div
-          data-meu-item={item}
+          onKeyUp={(e) => {
+            if (e.code == "Enter" || e.keyCode == 13) {
+              setIsCategories(!isCategories);
+              setIsBrands(false);
+              setIsPrices(false);
+            }
+          }}
+          id={item}
           tabIndex={2}
           className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
         >
@@ -68,6 +75,13 @@ const MenuItem = ({ item }: { item: string }) => {
     case "Brands": {
       return (
         <div
+          onKeyUp={(e) => {
+            if (e.code == "Enter" || e.keyCode == 13) {
+              setIsBrands(!isBrands);
+              setIsCategories(false);
+              setIsPrices(false);
+            }
+          }}
           tabIndex={3}
           className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
         >
@@ -102,6 +116,13 @@ const MenuItem = ({ item }: { item: string }) => {
     case "Prices": {
       return (
         <div
+          onKeyUp={(e) => {
+            if (e.code == "Enter" || e.keyCode == 13) {
+              setIsPrices(!isPrices);
+              setIsCategories(false);
+              setIsBrands(false);
+            }
+          }}
           tabIndex={4}
           className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
         >
