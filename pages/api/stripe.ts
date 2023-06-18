@@ -1,7 +1,11 @@
 import { countries } from "@/lib/countries";
 import { NextApiRequest, NextApiResponse } from "next";
-
-const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+const stripePromise = import("stripe").then((module) => {
+  const Stripe = module.default;
+  return (Stripe as any)(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY, {
+    apiVersion: "2020-08-27",
+  });
+});
 
 export default async function handler(
   req: NextApiRequest,
@@ -54,6 +58,7 @@ export default async function handler(
     };
     try {
       // creating checkout session
+      const stripe = await stripePromise;
       const session = await stripe.checkout.sessions.create(transformedData);
       //sending session id as response
       res.status(200).json(session.id);

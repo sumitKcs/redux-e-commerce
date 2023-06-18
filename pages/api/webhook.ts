@@ -4,8 +4,12 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { Order } from "../../models/Order";
 
 //establish a connection to stripe
-const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-
+const stripePromise = import("stripe").then((module) => {
+  const Stripe = module.default;
+  return (Stripe as any)(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY, {
+    apiVersion: "2020-08-27",
+  });
+});
 const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -18,6 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   //verify that the EVENT posted came from stripe
   try {
+    const stripe = await stripePromise;
     event = stripe.webhooks.constructEvent(
       requestBUffer,
       signature,
@@ -36,9 +41,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const paid = session.payment_status;
     const total_amount = session.amount_total;
     const shipping_cost = session.shipping_cost.amount_total;
-    console.log(session);
+    console.log("session", session);
     //fulfill the order
     if (session.payment_status === "paid") {
+      console.log("payment done, saving to database");
       await Order.create({
         email: session.metadata.email,
         items: JSON.parse(session.metadata.items),

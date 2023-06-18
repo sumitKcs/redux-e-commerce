@@ -10,12 +10,12 @@ import { RootState } from "@/store/store";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+const stripePromise = import("@stripe/stripe-js").then((module) => {
+  const loadStripe = module.loadStripe;
+  return loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+});
 
 const cartDrawer = ({
   isVisible,
@@ -74,7 +74,7 @@ const cartDrawer = ({
 
   useEffect(() => {
     dispatch(getTotal());
-  }, []);
+  }, [cartItems.length]);
 
   return cartItems.length > 0 ? (
     <div
@@ -157,7 +157,7 @@ const cartDrawer = ({
           <div className="flex flex-col gap-1 mt-5">
             <div className="flex justify-between font-extrabold text-lg">
               <div>Total</div>
-              <div>{totalAmount ?? 0}</div>
+              <div>{totalAmount || 0}</div>
             </div>
             <div className="flex flex-col gap-1 text-gray-500 text-sm">
               <div>Tax included and shipping calculated at checkout</div>
