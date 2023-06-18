@@ -18,6 +18,14 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preconnect"
+          href="https://m.stripe.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://m.stripe.com" />
+      </head>
       <body className="relative h-[100svh] w-screen bg-white block overflow-visible">
         <SessionProvider session={session}>
           <StoreProvider>
