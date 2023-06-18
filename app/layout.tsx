@@ -24,6 +24,12 @@ export default async function RootLayout({
           href="https://m.stripe.com"
           crossOrigin="anonymous"
         />
+        <link rel="dns-prefetch" href="https://cdn.shopify.com/" />
+        <link
+          rel="preconnect"
+          href="https://cdn.shopify.com/"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://m.stripe.com" />
       </head>
       <body className="relative h-[100svh] w-screen bg-white block overflow-visible">
