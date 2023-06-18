@@ -1,7 +1,6 @@
 "use client";
 
 import { useGetPeopleGridQuery } from "@/store/apiSlice";
-import React, { useState } from "react";
 import Loader from "./Loader";
 
 const PeopleGrid = () => {
