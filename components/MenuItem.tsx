@@ -23,10 +23,17 @@ const MenuItem = ({ item }: { item: string }) => {
     setIsPrices(false);
   });
 
+  document.body.onkeyup = function (e: KeyboardEvent) {
+    if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
+      console.log("current target", e.currentTarget);
+    }
+  };
+
   switch (item) {
     case "Categories": {
       return (
         <div
+          data-meu-item={item}
           tabIndex={2}
           className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
         >
