@@ -21,7 +21,6 @@ const ProductGrid = () => {
                   src={`https:${product?.grid_image}width=1500`}
                   alt=""
                   srcSet={`
-            https:${product?.grid_image}width=1500,
             https:${product?.grid_image}width=200 200w,
             https:${product?.grid_image}width=300 300w
             https:${product?.grid_image}width=400 400w

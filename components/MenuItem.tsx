@@ -26,7 +26,10 @@ const MenuItem = ({ item }: { item: string }) => {
   switch (item) {
     case "Categories": {
       return (
-        <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
+        <div
+          tabIndex={1}
+          className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
+        >
           <div
             onClick={() => setIsCategories(!isCategories)}
             className="hover:opacity-60"
@@ -57,7 +60,10 @@ const MenuItem = ({ item }: { item: string }) => {
     }
     case "Brands": {
       return (
-        <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
+        <div
+          tabIndex={2}
+          className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
+        >
           <div
             onClick={() => setIsBrands(!isBrands)}
             className="hover:opacity-60"
@@ -88,7 +94,10 @@ const MenuItem = ({ item }: { item: string }) => {
     }
     case "Prices": {
       return (
-        <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
+        <div
+          tabIndex={3}
+          className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold"
+        >
           <div
             onClick={() => setIsPrices(!isPrices)}
             className="hover:opacity-60"
@@ -120,6 +129,7 @@ const MenuItem = ({ item }: { item: string }) => {
     case "Info": {
       return (
         <Link
+          tabIndex={4}
           href={`/about`}
           className="relative flex flex-col justify-center items-center hover:opacity-60 hover:cursor-pointer font-semibold"
         >

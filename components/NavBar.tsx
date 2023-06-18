@@ -68,7 +68,7 @@ function NavBar() {
 
         {/* logo */}
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center" tabIndex={0}>
           <Link href="/" aria-label="website logo">
             <svg width="150px" height="40px" viewBox="0 0 362.1 73.7">
               <path
@@ -113,6 +113,7 @@ function NavBar() {
         {/* icons  */}
         <div className=" flex justify-center items-center gap-5 text-gray-600 cursor-pointer">
           <span
+            tabIndex={5}
             onClick={() => {
               setSearchModal(!searchModal);
             }}
@@ -142,6 +143,7 @@ function NavBar() {
             </svg>
           </span>
           <p
+            tabIndex={6}
             onClick={() =>
               session?.user?.email
                 ? router.push("/account")
@@ -173,6 +175,7 @@ function NavBar() {
           </p>
           {/* cart icon  */}
           <div
+            tabIndex={7}
             role="button"
             onClick={() => setCartModal(!cartModal)}
             className="relative "
