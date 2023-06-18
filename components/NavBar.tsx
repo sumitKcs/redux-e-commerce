@@ -4,14 +4,15 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import CartDrawer from "./cartDrawer";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
-import SearchDrawer from "./SearchDrawer";
-import MenuDrawer from "./MenuDrawer";
 import { useGetDealsQuery, useGetMenuQuery } from "@/store/apiSlice";
 import MenuItem from "./MenuItem";
+import dynamic from "next/dynamic";
+const MenuDrawer = dynamic(() => import("./MenuDrawer"));
+const SearchDrawer = dynamic(() => import("./SearchDrawer"));
+const CartDrawer = dynamic(() => import("./cartDrawer"));
 
 function NavBar() {
   const router = useRouter();
@@ -68,7 +69,7 @@ function NavBar() {
         {/* logo */}
 
         <div className="flex justify-center items-center">
-          <Link href="/">
+          <Link href="/" aria-label="website logo">
             <svg width="150px" height="40px" viewBox="0 0 362.1 73.7">
               <path
                 fill="#3C07FF"
