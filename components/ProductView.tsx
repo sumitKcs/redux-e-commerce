@@ -19,23 +19,23 @@ const ProductView = ({ products }: { products: Product[] | undefined }) => {
             >
               <div>
                 <img
-                  src={`${product?.images[0]}&width=1160`}
+                  src={https:`${product?.images[0]}&width=1160`}
                   alt={"heaphone banner"}
                   srcSet={`
-              ${product?.images[0]}&width=200 200w,
-              ${product?.images[0]}&width=300 300w,
-              ${product?.images[0]}&width=400 400w,
-              ${product?.images[0]}&width=500 500w,
-              ${product?.images[0]}&width=600 600w,
-              ${product?.images[0]}&width=700 700w,
-              ${product?.images[0]}&width=800 800w,
-              ${product?.images[0]}&width=900 900w,
-              ${product?.images[0]}&width=1000 1000w,
-              ${product?.images[0]}&width=1200 1200w,
-              ${product?.images[0]}&width=1400 1400w,
-              ${product?.images[0]}&width=1600 1600w,
-              ${product?.images[0]}&width=1800 1800w,
-              ${product?.images[0]}&width=2000 2000w,
+              https:${product?.images[0]}&width=200 200w,
+              https:${product?.images[0]}&width=300 300w,
+              https:${product?.images[0]}&width=400 400w,
+              https:${product?.images[0]}&width=500 500w,
+              https:${product?.images[0]}&width=600 600w,
+              https:${product?.images[0]}&width=700 700w,
+              https:${product?.images[0]}&width=800 800w,
+              https:${product?.images[0]}&width=900 900w,
+              https:${product?.images[0]}&width=1000 1000w,
+              https:${product?.images[0]}&width=1200 1200w,
+              https:${product?.images[0]}&width=1400 1400w,
+              https:${product?.images[0]}&width=1600 1600w,
+              https:${product?.images[0]}&width=1800 1800w,
+              https:${product?.images[0]}&width=2000 2000w,
               
               `}
                   width="1160"

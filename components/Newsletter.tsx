@@ -7,9 +7,9 @@ const Newsletter = () => {
     <div className="w-screen flex flex-col lg:flex-row justify-between items-center gap-10 bg-gray-100 lg:bg-white py-5">
       <div className="w-full">
         <img
-          src="//cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=1500"
-          alt=""
-          srcSet="//cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=352 352w, //cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=832 832w, //cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=1200 1200w"
+          src="https://cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=1500"
+          alt="image with headphones"
+          srcSet="https://cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=352 352w, https://cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=832 832w, https://cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Newsletter_1600x_42f97b91-a2b6-4d94-8621-f17887f460b6.jpg?v=1677067100&amp;width=1200 1200w"
           width="1500"
           height="1000"
           loading="lazy"
