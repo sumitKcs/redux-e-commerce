@@ -5,13 +5,13 @@ import { RootState } from "@/store/store";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+const stripePromise = import("@stripe/stripe-js").then((module) => {
+  const { loadStripe } = module.default;
+  return loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+});
 
 const CheckoutButton = () => {
   const { data: session } = useSession();
