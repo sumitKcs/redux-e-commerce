@@ -1,6 +1,4 @@
-import { styled } from "@mui/system";
 import Link from "next/link";
-import React from "react";
 
 const ChevronCircleWithText = ({ text }: { text: string }) => {
   return (
