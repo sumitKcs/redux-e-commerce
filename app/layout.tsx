@@ -1,5 +1,5 @@
 import "./globals.css";
-import { StoreProvider, Header, Footer } from "@/components";
+import { StoreProvider, Footer } from "@/components";
 import { SessionProvider } from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
