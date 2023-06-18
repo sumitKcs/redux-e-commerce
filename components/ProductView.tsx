@@ -19,7 +19,7 @@ const ProductView = ({ products }: { products: Product[] | undefined }) => {
             >
               <div>
                 <img
-                  src={https:`${product?.images[0]}&width=1160`}
+                  src={`https:${product?.images[0]}&width=1160`}
                   alt={"heaphone banner"}
                   srcSet={`
               https:${product?.images[0]}&width=200 200w,
