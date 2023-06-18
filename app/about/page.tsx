@@ -1,4 +1,4 @@
-import { Header, Footer, About } from "@/components";
+import { About } from "@/components";
 
 const page = () => {
   return <About />;

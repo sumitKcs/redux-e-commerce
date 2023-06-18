@@ -1,13 +1,15 @@
-import {
-  Banner,
-  ProductGrid,
-  ImpactText,
-  FeaturedCollection,
-  StartHere,
-  PeopleGrid,
-  Testimonials,
-  Newsletter,
-} from "@/components";
+import dynamic from "next/dynamic";
+
+import { Banner, ImpactText } from "@/components";
+
+const ProductGrid = dynamic(() => import("@/components/ProductGrid"));
+const FeaturedCollection = dynamic(
+  () => import("@/components/FeaturedCollection")
+);
+const StartHere = dynamic(() => import("@/components/StartHere"));
+const PeopleGrid = dynamic(() => import("@/components/PeopleGrid"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Newsletter = dynamic(() => import("@/components/Newsletter"));
 
 const Home = () => {
   return (
