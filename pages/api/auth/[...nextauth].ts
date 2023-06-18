@@ -12,12 +12,6 @@ export const authOptions: NextAuthOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(clientPromise),
-  // events: {
-  //   async signIn(message: any) {
-  //     const { user, account, profile } = message;
-  //     console.log("signin callback", user);
-  //   },
-  // },
 };
 
 export default NextAuth(authOptions);
