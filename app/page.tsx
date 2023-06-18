@@ -1,7 +1,8 @@
 import dynamic from "next/dynamic";
 
-import { Banner, ImpactText } from "@/components";
+import { Banner } from "@/components";
 
+const ImpactText = dynamic(() => import("@/components/ImpactText"));
 const ProductGrid = dynamic(() => import("@/components/ProductGrid"));
 const FeaturedCollection = dynamic(
   () => import("@/components/FeaturedCollection")
