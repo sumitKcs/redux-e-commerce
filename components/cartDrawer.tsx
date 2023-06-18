@@ -1,7 +1,7 @@
 "use client";
 
 import { CURRENCY } from "@/lib/currency";
-import usePriceFormat from "@/lib/getPriceFormat";
+import getPriceFormat from "@/lib/getPriceFormat";
 import { getTotal, qty, remove } from "@/store/cartSlice";
 import { useSession } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,8 +41,8 @@ const cartDrawer = ({
   }
 
   const totalAmount = cartTotalAmount
-    ? usePriceFormat(cartTotalAmount, CURRENCY.INR)
-    : usePriceFormat(
+    ? getPriceFormat(cartTotalAmount, CURRENCY.INR)
+    : getPriceFormat(
         cartItems.reduce((accu, cartItem) => accu + cartItem.price, 0),
         CURRENCY.INR
       );
@@ -118,7 +118,7 @@ const cartDrawer = ({
           {cartItems?.map((item: Product) => {
             const { dropped_price, images, cartQuantity, id } = item;
 
-            const itemPrice = usePriceFormat(dropped_price, CURRENCY.INR);
+            const itemPrice = getPriceFormat(dropped_price, CURRENCY.INR);
             return (
               <div className="flex gap-4" key={id}>
                 <div>
