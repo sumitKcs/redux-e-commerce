@@ -25,7 +25,7 @@ function NavBar() {
   const { data: deals } = useGetDealsQuery();
 
   return (
-    <nav role={"menubar"} className="nav-sticky">
+    <nav className="nav-sticky">
       <div className=" w-full grid grid-cols-3 py-4 lg:py-10 bg-[#F8F9F8] lg:grid-cols-4">
         {/* //mobile menu  start*/}
         <div className="lg:hidden px-4 flex justify-start items-center gap-4">
@@ -37,7 +37,6 @@ function NavBar() {
             onClick={() => {
               setSearchModal(!searchModal);
             }}
-            aria-controls="search-drawer"
           >
             {/* search icon  */}
             <svg
@@ -93,10 +92,7 @@ function NavBar() {
 
         {/* nav links  - menu bar*/}
 
-        <div
-          role={"menuitem"}
-          className="lg:flex justify-center items-center gap-10 text-sm hidden col-start-2 col-span-2 text-black opacity-95"
-        >
+        <div className="lg:flex justify-center items-center gap-10 text-sm hidden col-start-2 col-span-2 text-black opacity-95">
           {deals &&
             deals.map((item: any, idx) => (
               <div
@@ -120,7 +116,6 @@ function NavBar() {
               setSearchModal(!searchModal);
             }}
             className="hidden lg:flex"
-            aria-controls="search-drawer"
           >
             <svg
               role="presentation"
@@ -180,7 +175,6 @@ function NavBar() {
             role="button"
             onClick={() => setCartModal(!cartModal)}
             className="relative "
-            aria-controls="cart-drawer"
           >
             <p role="button" aria-label="open cart drawer">
               <svg

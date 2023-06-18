@@ -28,7 +28,6 @@ const MenuItem = ({ item }: { item: string }) => {
       return (
         <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
           <div
-            role="listitem"
             onClick={() => setIsCategories(!isCategories)}
             className="hover:opacity-60"
           >
@@ -60,7 +59,6 @@ const MenuItem = ({ item }: { item: string }) => {
       return (
         <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
           <div
-            role="listitem"
             onClick={() => setIsBrands(!isBrands)}
             className="hover:opacity-60"
           >
@@ -92,7 +90,6 @@ const MenuItem = ({ item }: { item: string }) => {
       return (
         <div className="relative flex flex-col justify-center items-center  hover:cursor-pointer font-semibold">
           <div
-            role="listitem"
             onClick={() => setIsPrices(!isPrices)}
             className="hover:opacity-60"
           >
