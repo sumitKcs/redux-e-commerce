@@ -40,23 +40,23 @@ const Banner = () => {
             className={`${
               !isDesktopBannerLoaded ? "md:hidden " : "md:block animate"
             } w-full object-cover h-full lg:h-auto hidden`}
-            src={`${product?.banner_image.desktop}&width=2160&quality=${quality}`}
+            src={`https:${product?.banner_image.desktop}&width=2160&quality=${quality}`}
             alt={product?.banner_text}
             srcSet={`
-                ${product?.banner_image.desktop}&width=200 200w,
-                ${product?.banner_image.desktop}&width=300 300w,
-                ${product?.banner_image.desktop}&width=400 400w,
-                ${product?.banner_image.desktop}&width=500 500w,
-                ${product?.banner_image.desktop}&width=600 600w,
-                ${product?.banner_image.desktop}&width=700 700w,
-                ${product?.banner_image.desktop}&width=800 800w,
-                ${product?.banner_image.desktop}&width=900 900w,
-                ${product?.banner_image.desktop}&width=1000 1000w,
-                ${product?.banner_image.desktop}&width=1200 1200w,
-                ${product?.banner_image.desktop}&width=1400 1400w,
-                ${product?.banner_image.desktop}&width=1600 1600w,
-                ${product?.banner_image.desktop}&width=1800 1800w,
-                ${product?.banner_image.desktop}&width=2000 2000w,
+                https:${product?.banner_image.desktop}&width=200 200w,
+                https:${product?.banner_image.desktop}&width=300 300w,
+                https:${product?.banner_image.desktop}&width=400 400w,
+                https:${product?.banner_image.desktop}&width=500 500w,
+                https:${product?.banner_image.desktop}&width=600 600w,
+                https:${product?.banner_image.desktop}&width=700 700w,
+                https:${product?.banner_image.desktop}&width=800 800w,
+                https:${product?.banner_image.desktop}&width=900 900w,
+                https:${product?.banner_image.desktop}&width=1000 1000w,
+                https:${product?.banner_image.desktop}&width=1200 1200w,
+                https:${product?.banner_image.desktop}&width=1400 1400w,
+                https:${product?.banner_image.desktop}&width=1600 1600w,
+                https:${product?.banner_image.desktop}&width=1800 1800w,
+                https:${product?.banner_image.desktop}&width=2000 2000w,
                 
                 `}
             loading="eager"
@@ -82,19 +82,19 @@ const Banner = () => {
             className={`${
               !isMobileBannerLoaded ? "hidden" : "block animate"
             } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
-            src={`${product?.banner_image.mobile}&width=1200&quality=${quality}`}
+            src={`https:${product?.banner_image.mobile}&width=1200&quality=${quality}`}
             alt={product?.banner_text}
             srcSet={`
-                ${product?.banner_image.mobile}&width=200 200w,
-                ${product?.banner_image.mobile}&width=300 300w,
-                ${product?.banner_image.mobile}&width=400 400w,
-                ${product?.banner_image.mobile}&width=500 500w,
-                ${product?.banner_image.mobile}&width=600 600w,
-                ${product?.banner_image.mobile}&width=700 700w,
-                ${product?.banner_image.mobile}&width=800 800w,
-                ${product?.banner_image.mobile}&width=900 900w,
-                ${product?.banner_image.mobile}&width=1000 1000w,
-                ${product?.banner_image.mobile}&width=1200 1200w,
+                https:${product?.banner_image.mobile}&width=200 200w,
+                https:${product?.banner_image.mobile}&width=300 300w,
+                https:${product?.banner_image.mobile}&width=400 400w,
+                https:${product?.banner_image.mobile}&width=500 500w,
+                https:${product?.banner_image.mobile}&width=600 600w,
+                https:${product?.banner_image.mobile}&width=700 700w,
+                https:${product?.banner_image.mobile}&width=800 800w,
+                https:${product?.banner_image.mobile}&width=900 900w,
+                https:${product?.banner_image.mobile}&width=1000 1000w,
+                https:${product?.banner_image.mobile}&width=1200 1200w,
                 
                 `}
             width="1200"
