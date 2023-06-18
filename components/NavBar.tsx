@@ -68,8 +68,8 @@ function NavBar() {
 
         {/* logo */}
 
-        <div className="flex justify-center items-center" tabIndex={1}>
-          <Link href="/" aria-label="website logo">
+        <div className="flex justify-center items-center">
+          <Link href="/" aria-label="website logo" tabIndex={1}>
             <svg width="150px" height="40px" viewBox="0 0 362.1 73.7">
               <path
                 fill="#3C07FF"
