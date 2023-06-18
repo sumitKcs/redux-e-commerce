@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useGetTestimononialsQuery } from "@/store/apiSlice";
 
 const Testimonials = () => {

@@ -1,5 +1,3 @@
-import React from "react";
-
 const ImpactText = () => {
   return (
     <section className=" bg-white text-black impact-gradient flex flex-col justify-center items-center px-8 py-10 lg:py-24 lg:px-40  text-center gap-5 sm:mx-5 sm:mt-20 mb-10 sm:rounded-3xl shadow-2xl">

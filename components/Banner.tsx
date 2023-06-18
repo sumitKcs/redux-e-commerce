@@ -2,7 +2,7 @@
 
 import { useGetBannerQuery } from "@/store/apiSlice";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Banner = () => {
   const { data: products } = useGetBannerQuery();

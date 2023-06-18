@@ -2,7 +2,6 @@
 
 import { useGetProductGridQuery } from "@/store/apiSlice";
 import Link from "next/link";
-import React, { useState } from "react";
 
 const ProductGrid = () => {
   const { data: products } = useGetProductGridQuery();
@@ -10,7 +9,7 @@ const ProductGrid = () => {
   return (
     <section className="container h-[90svh]  mx-auto mb-5 grid grid-cols-2 product-grid md:scale-y-[.80] md:scale-x-95 cursor-pointer gap-3 p-4 md:px-10 ">
       {products
-        ? products?.map((product) => (
+        ? products?.map((product: any) => (
             <Link
               href={`product/${product?.slug}`}
               className="relative w-full flex justify-center grid-item overflow-hidden rounded-2xl drop-shadow-xl transition-transform duration-200 ease-out"
