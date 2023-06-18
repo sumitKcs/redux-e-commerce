@@ -30,17 +30,17 @@ const PeopleGrid = () => {
                 src={`https:${person?.person_image}width=1500`}
                 alt=""
                 srcSet={`
-            http:${person?.person_image}width=1500,
-            http:${person?.person_image}width=200 200w,
-            http:${person?.person_image}width=300 300w
-            http:${person?.person_image}width=400 400w
-            http:${person?.person_image}width=500 500w
-            http:${person?.person_image}width=600 600w
-            http:${person?.person_image}width=700 700w
-            http:${person?.person_image}width=800 800w
-            http:${person?.person_image}width=1000 1000w
-            http:${person?.person_image}width=1200 1200w
-            http:${person?.person_image}width=1400 1400w
+            https:${person?.person_image}width=1500,
+            https:${person?.person_image}width=200 200w,
+            https:${person?.person_image}width=300 300w
+            https:${person?.person_image}width=400 400w
+            https:${person?.person_image}width=500 500w
+            https:${person?.person_image}width=600 600w
+            https:${person?.person_image}width=700 700w
+            https:${person?.person_image}width=800 800w
+            https:${person?.person_image}width=1000 1000w
+            https:${person?.person_image}width=1200 1200w
+            https:${person?.person_image}width=1400 1400w
             `}
                 width="1500"
                 height="1500"
