@@ -25,27 +25,14 @@ const cartDrawer = ({
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }) => {
   const router = useRouter();
-  const { cartTotalAmount, cartItems: cartItemsLoc } = useSelector(
+  const { cartTotalAmount, cartItems } = useSelector(
     (state: RootState) => state.cart
   );
 
   const dispatch = useDispatch();
   const { data: session } = useSession();
 
-  const cartItems = cartItemsLoc;
-  if (
-    typeof window !== "undefined" &&
-    window.localStorage.getItem("cart") === null
-  ) {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }
-
-  const totalAmount = cartTotalAmount
-    ? getPriceFormat(cartTotalAmount, CURRENCY.INR)
-    : getPriceFormat(
-        cartItems.reduce((accu, cartItem) => accu + cartItem.price, 0),
-        CURRENCY.INR
-      );
+  const totalAmount = getPriceFormat(cartTotalAmount, CURRENCY.INR);
 
   const itemQuantityHandler = async (product: Product, quantity: string) => {
     if (quantity === "0" || quantity === "") quantity = "1";
@@ -63,7 +50,11 @@ const cartDrawer = ({
   };
 
   const handlePayment = async () => {
-    if (!session) return router.push("/login");
+    if (!session) {
+      setIsVisible(false);
+      router.push("/login");
+      return;
+    }
 
     const stripe = await stripePromise;
     const { data: sessionId } = await axios.post(

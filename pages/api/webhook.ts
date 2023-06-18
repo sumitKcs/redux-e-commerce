@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { buffer } from "micro";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Order } from "../../models/Order";
-import { metadata } from "@/app/layout";
 
 //establish a connection to stripe
 const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
