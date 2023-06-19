@@ -34,14 +34,14 @@ const Banner = () => {
           className={`carousel-item relative w-full h-fit md:min-h-[30vh] lg:min-h-[90svh] background`}
         >
           {/* desktop image */}
-
-          <img
-            className={`${
-              !isDesktopBannerLoaded ? "md:hidden " : "md:block animate"
-            } w-full object-cover h-full lg:h-auto hidden`}
-            src={`https:${product?.banner_image?.desktop}&width=2160 `}
-            alt={product?.banner_text}
-            srcSet={`
+          {product?.banner_image?.desktop && (
+            <img
+              className={`${
+                !isDesktopBannerLoaded ? "md:hidden " : "md:block animate"
+              } w-full object-cover h-full lg:h-auto hidden`}
+              src={`https:${product?.banner_image?.desktop}&width=2160 `}
+              alt={product?.banner_text}
+              srcSet={`
                 https:${product?.banner_image?.desktop}&width=200 200w,
                 https:${product?.banner_image?.desktop}&width=300 300w,
                 https:${product?.banner_image?.desktop}&width=400 400w,
@@ -58,12 +58,13 @@ const Banner = () => {
                 https:${product?.banner_image?.desktop}&width=2000  2000w,
                 
                 `}
-            loading="eager"
-            sizes="100vw"
-            width="1200"
-            height="1600"
-            onLoad={() => setIsDesktopBannerLoaded(true)}
-          ></img>
+              loading="eager"
+              sizes="100vw"
+              width="1200"
+              height="1600"
+              onLoad={() => setIsDesktopBannerLoaded(true)}
+            ></img>
+          )}
 
           {/* mobile image  */}
           <img
@@ -77,13 +78,14 @@ const Banner = () => {
             loading="eager"
             sizes="100vw"
           ></img>
-          <img
-            className={`${
-              !isMobileBannerLoaded ? "hidden" : "block animate"
-            } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
-            src={`https:${product?.banner_image?.mobile}&width=1200 `}
-            alt={product?.banner_text}
-            srcSet={`
+          {product?.banner_image?.mobile && (
+            <img
+              className={`${
+                !isMobileBannerLoaded ? "hidden" : "block animate"
+              } w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700`}
+              src={`https:${product?.banner_image?.mobile}&width=1200 `}
+              alt={product?.banner_text}
+              srcSet={`
                 https:${product?.banner_image?.mobile}&width=200  200w,
                 https:${product?.banner_image?.mobile}&width=300  300w,
                 https:${product?.banner_image?.mobile}&width=400  400w,
@@ -96,12 +98,13 @@ const Banner = () => {
                 https:${product?.banner_image?.mobile}&width=1200  1200w,
                 
                 `}
-            width="1200"
-            height="1600"
-            loading="eager"
-            sizes="100vw"
-            onLoad={() => setIsMobileBannerLoaded(true)}
-          ></img>
+              width="1200"
+              height="1600"
+              loading="eager"
+              sizes="100vw"
+              onLoad={() => setIsMobileBannerLoaded(true)}
+            ></img>
+          )}
 
           <div className="text-[#FEFEFF] absolute z-1 top-0 mt-10 md:right-0 md:mt-[20%] px-4 md:w-[30%]  md:text-right md:mr-14 ">
             <p className=" text-extrabold tracking-widest">
