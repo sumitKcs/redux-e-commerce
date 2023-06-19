@@ -5,7 +5,8 @@ import {
   useGetPriceBannersQuery,
 } from "@/store/apiSlice";
 import { useMemo } from "react";
-import { ProductContainer } from ".";
+import dynamic from "next/dynamic";
+const ProductContainer = dynamic(() => import("./ProductContainer"));
 
 enum PRICES {
   UNDER_THREE_THOUSANDS = "best under rs. 3,000",

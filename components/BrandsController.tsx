@@ -4,8 +4,9 @@ import {
   useGetAllProductsQuery,
   useGetBrandBannersQuery,
 } from "@/store/apiSlice";
+import dynamic from "next/dynamic";
 import { useMemo } from "react";
-import { ProductContainer } from ".";
+const ProductContainer = dynamic(() => import("./ProductContainer"));
 
 const BrandsController = ({ brand }: { brand: string }) => {
   const { data: banners } = useGetBrandBannersQuery();

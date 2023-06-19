@@ -5,7 +5,8 @@ import {
   useGetCategoryBannersQuery,
 } from "@/store/apiSlice";
 import { useMemo } from "react";
-import { ProductContainer } from ".";
+import dynamic from "next/dynamic";
+const ProductContainer = dynamic(() => import("./ProductContainer"));
 
 const CategoryController = ({ category }: { category: string }) => {
   const { data: banners } = useGetCategoryBannersQuery();

@@ -1,5 +1,7 @@
-import React from "react";
-import { CategoryController } from "../../../../components";
+import dynamic from "next/dynamic";
+const CategoryController = dynamic(
+  () => import("@/components/CategoryController")
+);
 type Props = {
   params: {
     category: string;

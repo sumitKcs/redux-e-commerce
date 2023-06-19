@@ -1,4 +1,6 @@
-import { PricesController } from "../../../../components";
+import dynamic from "next/dynamic";
+const PricesController = dynamic(() => import("@/components/PricesController"));
+
 type Props = {
   params: {
     price: string;

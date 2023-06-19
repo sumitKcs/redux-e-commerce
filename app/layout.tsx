@@ -1,9 +1,11 @@
 import "./globals.css";
-import { StoreProvider, Footer } from "@/components";
+import { StoreProvider } from "@/components";
 import { SessionProvider } from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { NavBar } from "@/components";
+import dynamic from "next/dynamic";
+const NavBar = dynamic(() => import("@/components/NavBar"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export const metadata = {
   title: "HeadphoneZone.in",

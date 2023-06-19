@@ -1,4 +1,6 @@
-import { BrandsController } from "../../../../components";
+import dynamic from "next/dynamic";
+const BrandsController = dynamic(() => import("@/components/BrandsController"));
+
 type Props = {
   params: {
     brand: string;
