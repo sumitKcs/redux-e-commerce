@@ -5,10 +5,9 @@ type Props = {
 };
 const ImageBanner = ({ desktopImage, mobileImage, text }: Props) => {
   return (
-    desktopImage &&
-    mobileImage && (
-      <div className="relative w-screen h-full">
-        {/* desktop image */}
+    <div className="relative w-screen h-full">
+      {/* desktop image */}
+      {desktopImage && (
         <img
           className="w-full object-cover h-full lg:h-auto hidden md:block ease-in duration-700"
           src={`https:${desktopImage}&width=3200`}
@@ -35,8 +34,10 @@ const ImageBanner = ({ desktopImage, mobileImage, text }: Props) => {
           loading="eager"
           sizes="100vw"
         ></img>
+      )}
 
-        {/* mobile image  */}
+      {/* mobile image  */}
+      {mobileImage && (
         <img
           className="w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700"
           src={`https:${mobileImage}&width=1300`}
@@ -59,12 +60,12 @@ const ImageBanner = ({ desktopImage, mobileImage, text }: Props) => {
           loading="eager"
           sizes="100vw"
         ></img>
+      )}
 
-        <div className=" capitalize text-5xl font-bold text-white absolute top-[50%] left-10">
-          {text}
-        </div>
+      <div className=" capitalize text-5xl font-bold text-white absolute top-[50%] left-10">
+        {text}
       </div>
-    )
+    </div>
   );
 };
 
