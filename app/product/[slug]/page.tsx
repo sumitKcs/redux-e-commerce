@@ -40,7 +40,7 @@ const ProductDetails = ({ params }: Props) => {
     <div className=" w-full h-full grid grid-cols-1 md:grid-cols-2 md:px-16 ">
       {/* product image  */}
       <div>
-        {<img src={product?.[0].images?.[0]} className="p-10 animate" />}
+        {<img src={product?.[0]?.images?.[0]} className="p-10 animate" />}
       </div>
       {/* product details */}
       <div className="flex flex-col justify-start gap-3 px-5 py-5 ">

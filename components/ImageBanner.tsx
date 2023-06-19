@@ -5,13 +5,15 @@ type Props = {
 };
 const ImageBanner = ({ desktopImage, mobileImage, text }: Props) => {
   return (
-    <div className="relative w-screen h-full">
-      {/* desktop image */}
-      <img
-        className="w-full object-cover h-full lg:h-auto hidden md:block ease-in duration-700"
-        src={`https:${desktopImage}&width=3200`}
-        alt={"heaphone banner"}
-        srcSet={`
+    desktopImage &&
+    mobileImage && (
+      <div className="relative w-screen h-full">
+        {/* desktop image */}
+        <img
+          className="w-full object-cover h-full lg:h-auto hidden md:block ease-in duration-700"
+          src={`https:${desktopImage}&width=3200`}
+          alt={"heaphone banner"}
+          srcSet={`
               https:${desktopImage}&width=200 200w,
               https:${desktopImage}&width=300 300w,
               https:${desktopImage}&width=400 400w,
@@ -28,18 +30,18 @@ const ImageBanner = ({ desktopImage, mobileImage, text }: Props) => {
               https:${desktopImage}&width=2000 2000w,
               
               `}
-        width="2160"
-        height="1080"
-        loading="eager"
-        sizes="100vw"
-      ></img>
+          width="2160"
+          height="1080"
+          loading="eager"
+          sizes="100vw"
+        ></img>
 
-      {/* mobile image  */}
-      <img
-        className="w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700"
-        src={`https:${mobileImage}&width=1300`}
-        alt={"headphone banner"}
-        srcSet={`
+        {/* mobile image  */}
+        <img
+          className="w-full object-cover h-full lg:h-auto md:hidden ease-in duration-700"
+          src={`https:${mobileImage}&width=1300`}
+          alt={"headphone banner"}
+          srcSet={`
               https:${mobileImage}&width=200 200w,
               https:${mobileImage}&width=300 300w,
               https:${mobileImage}&width=400 400w,
@@ -52,16 +54,17 @@ const ImageBanner = ({ desktopImage, mobileImage, text }: Props) => {
               https:${mobileImage}&width=1200 1200w,
               
               `}
-        width="1200"
-        height="1600"
-        loading="eager"
-        sizes="100vw"
-      ></img>
+          width="1200"
+          height="1600"
+          loading="eager"
+          sizes="100vw"
+        ></img>
 
-      <div className=" capitalize text-5xl font-bold text-white absolute top-[50%] left-10">
-        {text}
+        <div className=" capitalize text-5xl font-bold text-white absolute top-[50%] left-10">
+          {text}
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

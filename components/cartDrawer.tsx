@@ -115,7 +115,7 @@ const cartDrawer = ({
                 <div>
                   <img
                     className=" w-24 h-24 object-cover"
-                    src={images[0]}
+                    src={images?.[0]}
                     alt={item.sku}
                   />
                 </div>

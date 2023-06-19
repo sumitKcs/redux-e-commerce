@@ -28,19 +28,19 @@ const ProductCard = ({ product }: { product: Product }) => {
         className={`w-[500px]  inline-block ${
           !isLoaded ? "hidden" : "block .animate"
         }`}
-        src={images[0]}
+        src={images?.[0]}
         alt={sku}
         srcSet={`
-        ${images[0]}&width=1160,
-        ${images[0]}&width=200 200w,
-        ${images[0]}&width=300 300w,
-        ${images[0]}&width=400 400w,
-        ${images[0]}&width=500 500w,
-        ${images[0]}&width=600 600w,
-        ${images[0]}&width=700 700w,
-        ${images[0]}&width=800 800w,
-        ${images[0]}&width=900 900w,
-        ${images[0]}&width=1000 1000w,
+        ${images?.[0]}&width=1160,
+        ${images?.[0]}&width=200 200w,
+        ${images?.[0]}&width=300 300w,
+        ${images?.[0]}&width=400 400w,
+        ${images?.[0]}&width=500 500w,
+        ${images?.[0]}&width=600 600w,
+        ${images?.[0]}&width=700 700w,
+        ${images?.[0]}&width=800 800w,
+        ${images?.[0]}&width=900 900w,
+        ${images?.[0]}&width=1000 1000w,
         `}
         width="1160"
         height="1160"

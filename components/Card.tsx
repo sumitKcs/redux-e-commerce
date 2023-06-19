@@ -35,12 +35,12 @@ function Card({ product }: Props) {
         } `}
       >
         <img
-          alt={product.sku}
+          alt={product?.sku}
           width={150}
           height={150}
           decoding="async"
           onLoad={imageHandle}
-          src={product.images[0]}
+          src={product?.images[0]}
         />
       </div>
       <div
