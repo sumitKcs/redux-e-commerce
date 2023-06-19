@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     domains: ["lh3.googleusercontent.com", "cdn.shopify.com"],
   },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
   // webpack5: false,
 };
 
